@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<module-title>Оплата</module-title>
+	<branch-empty>Введите филиал</branch-empty>
+	<payer-name-empty>Введите ФИО плательщика</payer-name-empty>
+	<legal-entity-name-empty>Введите наименование юридического лица</legal-entity-name-empty>
+	<phone-empty>Введите контактный телефон</phone-empty>
+	<sum-empty>Введите сумму к оплате</sum-empty>
+</Root>

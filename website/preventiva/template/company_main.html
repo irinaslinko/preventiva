@@ -1,0 +1,114 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<TMPL_LOOP NAME='Navigation'>
+					<li <TMPL_IF NAME='__LAST__'>class="active"</TMPL_IF>>
+						<TMPL_IF NAME='__FIRST__'>
+							<a href="<TMPL_VAR NAME='URL_PREFIX'>"><TMPL_VAR NAME='Title'></a>
+						<TMPL_ELSE>
+							<TMPL_VAR NAME='Title'>
+						</TMPL_IF>
+					</li>
+				</TMPL_LOOP>
+			</ol>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="content__aside">
+			<header><h1 class="header_page"><TMPL_VAR NAME='TitleH1'></h1></header>
+			<div class="block_textcontent block_textcontent-top">
+				<TMPL_VAR NAME='Content' ESCAPE='none'>
+			</div>
+
+			<div class="form_type2">
+				<div class="form-inline">
+				<label for="formTown"><TMPL_VAR NAME='LNG_YourCity'></label>
+					<div class="form-group custom-select">
+						<select id="formTown" class="form-control">
+							<TMPL_LOOP NAME='CityList'>
+								<option value="<TMPL_VAR NAME='CostCompanyToFive'>,<TMPL_VAR NAME='CostCompanyFive'>" <TMPL_IF NAME='Selected'>selected</TMPL_IF>><TMPL_VAR NAME='CityName'></option>
+							</TMPL_LOOP>
+						</select>
+					</div>
+					<div class="form_type2__text">
+						<TMPL_VAR NAME='LNG_Cost'>
+						<TMPL_LOOP NAME='CityList'>
+							<TMPL_IF NAME='Selected'>
+								<span id="costCompanyToFive"><TMPL_VAR NAME='CostCompanyToFive'></span> <TMPL_VAR NAME='LNG_RubToFive'>
+							</TMPL_IF>
+						</TMPL_LOOP>
+						<TMPL_LOOP NAME='CityList'>
+							<TMPL_IF NAME='Selected'>
+								<span id="costCompanyFiveMore"><TMPL_VAR NAME='CostCompanyFive'></span> <TMPL_VAR NAME='LNG_RubFive'>
+							</TMPL_IF>
+						</TMPL_LOOP>
+					</div>
+				</div>
+			</div>
+			<div class="form_progress">
+			<ul>
+				<li class="active"><span><TMPL_VAR NAME='LNG_Title'></span></li>
+				<li><span><TMPL_VAR NAME='LNG_Data'></span></li>
+				<li><span><TMPL_VAR NAME='LNG_Type'></span></li>
+			</ul>
+			</div>
+
+			<div class="form_bottom form_bottom--white">
+				<h3 class="form_bottom__header form_bottom__header--big"><TMPL_VAR NAME='LNG_Address'></h3>
+				<div class="form_bottom__need"><TMPL_VAR NAME='LNG_Necessary'></div>
+				<form method="post" class="ajax-form" action="<TMPL_VAR NAME='PROJECT_PATH'>module/company/ajax_public.php?Part=First">
+					<div class="form_bottom__wrap">
+	
+						<label for="form01"><TMPL_VAR NAME='LNG_FullTitle'></label>
+						<div class="form-group">
+							<input id="form01" name="FullTitle" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='FullTitle'>">
+						</div>
+						
+						<label for="form02"><TMPL_VAR NAME='LNG_ShortTitle'></label>
+						<div class="form-group">
+							<input id="form02" name="ShortTitle" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='ShortTitle'>">
+						</div>
+		
+						<h3 class="form_bottom__header form_bottom__header--type2"><TMPL_VAR NAME='LNG_LegalAddress'></h3>
+		
+						<label for="form03"><TMPL_VAR NAME='LNG_City'></label>
+						<div class="form-group">
+							<input id="form03" name="City" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='City'>">
+						</div>
+		
+						<label for="form04"><TMPL_VAR NAME='LNG_Street'></label>
+						<div class="form-group">
+							<input id="form04" name="Street" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='Street'>">
+						</div>
+		
+						<label for="form05"><TMPL_VAR NAME='LNG_House'></label>
+						<div class="form-group">
+							<input id="form05" name="House" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='House'>">
+						</div>
+		
+						<label for="form06"><TMPL_VAR NAME='LNG_Building'></label>
+						<div class="form-group">
+							<input id="form06" name="Building" class="form-control" type="text" value="<TMPL_VAR NAME='Building'>">
+						</div>
+		
+						<label for="form07"><TMPL_VAR NAME='LNG_Flat'></label>
+						<div class="form-group">
+							<input id="form07" name="Flat" class="form-control" type="text" value="<TMPL_VAR NAME='Flat'>">
+						</div>
+	
+					</div>
+	
+					<div class="form_bottom__bordertext"><TMPL_VAR NAME='LNG_Note'></div>
+					
+					<div class="clearfix">
+						<div class="form-error"></div>
+						<button type="submit" name="Note" class="main_btn main_btn--right" id="Next" data-url="<TMPL_VAR NAME='CompanySecondURL'>"><TMPL_VAR NAME='LNG_Next'></button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<TMPL_INCLUDE FILE='_navigation.html'>
+	</div>
+</div>

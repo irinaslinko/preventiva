@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<public>
+		<company_main.html>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<YourCity>Ваш город:</YourCity>
+			<Cost>Стоимость услуги составит</Cost>
+			<RubToFive>руб. (до 5 учредителей),</RubToFive>
+			<RubFive>руб. (5 и более учредителей)</RubFive>
+			<Title>Наименование и юридический адрес</Title>
+			<Data>Данные об учредителях</Data>
+			<Type>Виды деятельности</Type>
+			<Address>Наименование и место нахождения</Address>
+			<Necessary>Поля формы, обязательные для заполнения</Necessary>
+			<FullTitle>Полное наименование: Общество с ограниченной ответственностью</FullTitle>
+			<ShortTitle>Сокращенное наименование: ООО</ShortTitle>
+			<LegalAddress>Юридический адрес</LegalAddress>
+			<City>Город</City>
+			<Street>Улица (проспект, переулок и т.п.)</Street>
+			<House>Дом</House>
+			<Building>Корпус</Building>
+			<Flat>Квартира</Flat>
+			<Note>Просим указать в адресе местонахождения конкретный номер помещения (офиса, квартиры, комнаты и пр.), в котором будет расположена компания. В случае, если не указываются такие данные, регистрационный орган вправе отказать в регистрации юридического лица в связи с предоставлением не точных данных об адресе местонахождения юридицеского лица.</Note>
+			<Next>Далее</Next>
+		</company_main.html>
+		<company_second.html>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<Title>Наименование и юридический адрес</Title>
+			<Data>Данные об учредителях</Data>
+			<Type>Виды деятельности</Type>
+			<AboutHead>Данные об учредителях и руководителе</AboutHead>
+			<Necessary>Поля формы, обязательные для заполнения</Necessary>
+			<Money>Размер уставного капитала, руб.</Money>
+			<QuestionMoney>Дополнительный текст</QuestionMoney>
+			<MinMoney>10 000 рублей – минимальный размер уставного капитала.</MinMoney>
+			<AnotherMoney>При осуществлении некоторых видов деятельности, законом может быть предусмотрен иной размер минимального уставного капитала. Сотрудники компании «Превентива» обязательно предупредят Вас об этом.</AnotherMoney>
+			<Payment>Форма оплаты уставного капитала</Payment>
+			<Must>Обязательно для заполнения</Must>
+			<Cash>Наличными денежными средствами</Cash>
+			<Property>Имуществом</Property>
+			<NameProperty>Наименование имущества</NameProperty>
+			<Founder>Учредитель</Founder>
+			<DataWay>Данные об индивидуальном предпринимателе вы можете ввести двумя способами:</DataWay>
+			<FirstWay>1.	Прикрепить скан паспорта (2, 3 стр. и страницу с последним местом прописки)</FirstWay>
+			<SecondWay>2.	Заполнить анкету, представленную ниже</SecondWay>
+			<DownloadFile>Загрузить файл</DownloadFile>
+			<FillForm>Заполнить анкету</FillForm>
+			<LegalEntity>Юридическое лицо</LegalEntity>
+			<NaturalPerson>Физическое лицо</NaturalPerson>
+			<CountMoney>Размер доли в уставном капитале</CountMoney>
+			<Share>Доля</Share>
+			<AddFounder>Добавить учредителя</AddFounder>
+			<Head>Руководитель</Head>
+			<Delete>удалить</Delete>
+			<All>всех</All>
+			<NotFill>Данные можно не заполнять, если прикреплены сканы</NotFill>
+			<Doc>необходимых документов</Doc>
+			<BirthDate>Дата рождения</BirthDate>
+			<BirthPlace>Место рождения</BirthPlace>
+			<PassportNumber>Серия и номер паспорта</PassportNumber>
+			<PassportGive>Кем выдан</PassportGive>
+			<DepartmentCode>Код подразделения</DepartmentCode>
+			<DateGive>Дата выдачи</DateGive>
+			<Registration>Место жительства (прописка)</Registration>
+			<Position>Наименование должности</Position>
+			<Choose>Выберите вариант</Choose>
+			<OfficeTerm>Срок полномочий по уставу</OfficeTerm>
+			<QuestionHead>Дополнительный текст</QuestionHead>
+			<ContactPhoneFor>Контактные телефоны для ИФНС</ContactPhoneFor>
+			<ContactPerson>Контактное лицо, телефон</ContactPerson>
+			<Email>Электронная почта</Email>
+			<Next>Далее</Next>
+			<Prev>Назад</Prev>
+		</company_second.html>
+		<company_third.html>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<YourCity>Ваш город:</YourCity>
+			<Cost>Стоимость услуги составит</Cost>
+			<RubToFive>руб. (до 5 учредителей),</RubToFive>
+			<RubFive>руб. (5 и более учредителей)</RubFive>
+			<Title>Наименование и юридический адрес</Title>
+			<Data>Данные об учредителях</Data>
+			<Type>Виды деятельности</Type>
+			<Necessary>Поля формы, обязательные для заполнения</Necessary>
+			<Info>Информация, необходимая для обработки заявки</Info>
+			<How>Как Вы узнали о Компании «Превентива»</How>
+			<Choose>Выберите вариант</Choose>
+			<Internet>Через Интернет</Internet>
+			<Recommendation>По рекомендации</Recommendation>
+			<Other>Другое</Other>
+			<PersonalData>Заполняя настоящую заявку, я, в соответствии с требованиями Федерального закона «О персональных данных» от 27.07.2006 №152-ФЗ, даю согласие на обработку указанных в ней персональных данных в целях совершения действий, необходимых для регистрации индивидуального предпринимателя, а также в целях осуществления информационной рассылки с рекламой и сведениями о необходимости сдачи отчетности в налоговый орган, ПФ и ФСС.</PersonalData>
+			<Familiarize>Ознакомлен(а)</Familiarize>
+			<Method>Выберите способ получения декларации:</Method>
+			<PostMethod>Отправить готовую декларацию по почте</PostMethod>
+			<OfficeMethod>Забрать декларацию в офисе компании</OfficeMethod>
+			<Application>Отправить заявку</Application>
+			<Prev>Назад</Prev>
+		</company_third.html>
+		<company_email.html>
+			<Name>Наименование и юридический адрес</Name>
+			<FullTitle>Полное наименование: Общество с ограниченной ответственностью</FullTitle>
+			<ShortTitle>Сокращенное наименование: ООО</ShortTitle>
+			<LegalAddress>Юридический адрес</LegalAddress>
+			<City>Город</City>
+			<Street>Улица (проспект, переулок и т.п.)</Street>
+			<House>Дом</House>
+			<Building>Корпус</Building>
+			<Flat>Квартира</Flat>
+			<Money>Размер уставного капитала, руб.</Money>
+			<Payment>Форма оплаты уставного капитала</Payment>
+			<Cash>Наличными денежными средствами</Cash>
+			<Property>Имуществом</Property>
+			<NameProperty>Наименование имущества</NameProperty>
+			<Founder>Данные об учредителях</Founder>
+			<BirthDateFounder>Дата рождения учредителя</BirthDateFounder>
+			<BirthPlaceFounder>Место рождения учредителя</BirthPlaceFounder>
+			<PassportNumberFounder>Серия и номер паспорта учредителя</PassportNumberFounder>
+			<PassportGiveFounder>Кем выдан паспорт учредителя</PassportGiveFounder>
+			<DepartmentCodeFounder>Код подразделения</DepartmentCodeFounder>
+			<DateGiveFounder>Дата выдачи паспорта учредителя</DateGiveFounder>
+			<RegistrationFounder>Место жительства (прописка) руководителя</RegistrationFounder>
+			<Person>Лицо</Person>
+			<LegalEntity>Юридическое лицо</LegalEntity>
+			<NaturalPerson>Физическое лицо</NaturalPerson>
+			<CountMoney>Размер доли в уставном капитале</CountMoney>
+			<Share>Доля</Share>
+			<Head>Данные о руководителе</Head>
+			<BirthDateHead>Дата рождения руководителя</BirthDateHead>
+			<BirthPlaceHead>Место рождения руководителя</BirthPlaceHead>
+			<PassportNumberHead>Серия и номер паспорта руководителя</PassportNumberHead>
+			<PassportGiveHead>Кем выдан паспорт руководителя</PassportGiveHead>
+			<DepartmentCodeHead>Код подразделения</DepartmentCodeHead>
+			<DateGiveHead>Дата выдачи паспорта руководителя</DateGiveHead>
+			<RegistrationHead>Место жительства (прописка) руководителя</RegistrationHead>
+			<Position>Наименование должности</Position>
+			<OfficeTerm>Срок полномочий по уставу</OfficeTerm>
+			<Type>Виды деятельности</Type>
+			<ContactPhoneFor>Контактные телефоны для ИФНС</ContactPhoneFor>
+			<ContactPerson>Контактное лицо, телефон</ContactPerson>
+			<Email>Электронная почта</Email>
+			<Method>Cпособ получения декларации</Method>
+			<PostMethod>Отправить готовую декларацию по почте</PostMethod>
+			<OfficeMethod>Забрать декларацию в офисе компании</OfficeMethod>
+			<How>Как узнали о Компании «Превентива»</How>
+			<Doc>Документ</Doc>
+		</company_email.html>
+	</public>
+</Root>

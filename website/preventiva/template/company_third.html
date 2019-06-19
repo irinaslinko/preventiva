@@ -1,0 +1,116 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<TMPL_LOOP NAME='Navigation'>
+					<li <TMPL_IF NAME='__LAST__'>class="active"</TMPL_IF>>
+						<TMPL_IF NAME='__FIRST__'>
+							<a href="<TMPL_VAR NAME='URL_PREFIX'>"><TMPL_VAR NAME='Title'></a>
+						<TMPL_ELSE>
+							<TMPL_VAR NAME='Title'>
+						</TMPL_IF>
+					</li>
+				</TMPL_LOOP>
+			</ol>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="content__aside">
+			<header><h1 class="header_page"><TMPL_VAR NAME='TitleH1'></h1></header>
+			<div class="form_type2">
+				<div class="form-inline">
+				<label for="formTown"><TMPL_VAR NAME='LNG_YourCity'></label>
+					<div class="form-group custom-select">
+						<select id="formTown" class="form-control">
+							<TMPL_LOOP NAME='CityList'>
+								<option value="<TMPL_VAR NAME='CostCompanyToFive'>,<TMPL_VAR NAME='CostCompanyFive'>" <TMPL_IF NAME='Selected'>selected</TMPL_IF>><TMPL_VAR NAME='CityName'></option>
+							</TMPL_LOOP>
+						</select>
+					</div>
+					<div class="form_type2__text">
+						<TMPL_VAR NAME='LNG_Cost'>
+						<TMPL_LOOP NAME='CityList'>
+							<TMPL_IF NAME='Selected'>
+								<span id="costCompanyToFive"><TMPL_VAR NAME='CostCompanyToFive'></span> <TMPL_VAR NAME='LNG_RubToFive'>
+							</TMPL_IF>
+						</TMPL_LOOP>
+						<TMPL_LOOP NAME='CityList'>
+							<TMPL_IF NAME='Selected'>
+								<span id="costCompanyFiveMore"><TMPL_VAR NAME='CostCompanyFive'></span> <TMPL_VAR NAME='LNG_RubFive'>
+							</TMPL_IF>
+						</TMPL_LOOP>
+					</div>
+				</div>
+			</div>
+			<div class="form_progress">
+			<ul>
+				<li class="active"><span><TMPL_VAR NAME='LNG_Title'></span></li>
+				<li class="active"><span><TMPL_VAR NAME='LNG_Data'></span></li>
+				<li class="active"><span><TMPL_VAR NAME='LNG_Type'></span></li>
+			</ul>
+			</div>
+
+			<form method="post" class="ajax-form" action="<TMPL_VAR NAME='PROJECT_PATH'>module/company/ajax_public.php?Part=Third">
+				<div class="form_bottom form_bottom--white">
+					<h3 class="form_bottom__header form_bottom__header--big"><TMPL_VAR NAME='LNG_Type'></h3>
+					<div class="form_bottom__need"><TMPL_VAR NAME='LNG_Necessary'></div>
+					<div class="form-group">
+						<textarea rows="6" name="Type" class="form-control form-control_need"></textarea>
+					</div>
+				</div>
+	
+				<div class="form_bottom form_bottom--lasttext">
+					<div class="form_bottom__wrap">
+						<h4 class="form_bottom__header"><TMPL_VAR NAME='LNG_Info'></h4>
+						
+						<label for="form12"><TMPL_VAR NAME='LNG_How'></label>
+						<div class="form-group custom-select">
+							<select id="form12" name="How" class="form-control form-control_need">
+								<option disabled selected><TMPL_VAR NAME='LNG_Choose'></option>
+								<option><TMPL_VAR NAME='LNG_Internet'></option>
+								<option><TMPL_VAR NAME='LNG_Recommendation'></option>
+								<option><TMPL_VAR NAME='LNG_Other'></option>
+							</select>
+						</div>
+	
+						<p><TMPL_VAR NAME='LNG_PersonalData'></p>
+	
+						<div class="checkbox">
+							<input id="checkbox-01" name="Familiarize" type="checkbox" checked>
+							<label for="checkbox-01"><TMPL_VAR NAME='LNG_Familiarize'><span></span></label>
+						</div>
+						
+						<span><TMPL_VAR NAME='LNG_Method'></span>
+	
+						<div class="checkbox">
+							<input id="checkbox-02" name="PostMethod" type="checkbox" checked>
+							<label for="checkbox-02"><TMPL_VAR NAME='LNG_PostMethod'><span></span></label>
+						</div>
+						<div class="checkbox">
+							<input id="checkbox-03" name="OfficeMethod" type="checkbox">
+							<label for="checkbox-03"><TMPL_VAR NAME='LNG_OfficeMethod'><span></span></label>
+						</div>
+	
+					</div>
+	
+				</div>
+	
+				<div class="bottom_2btn">
+					<div class="form-error"></div>
+					<div class="form-message"></div>
+					<div class="row">
+						<div class="col-xs-7">
+							<button type="submit" class="main_btn main_btn--right"><img src="<TMPL_VAR NAME='PATH2MAIN'>img/send-2.png" alt=""> <TMPL_VAR NAME='LNG_Application'></button>
+						</div>
+						<div class="col-xs-5">
+							<a class="main_btn" href="<TMPL_VAR NAME='CompanySecondURL'>"><TMPL_VAR NAME='LNG_Prev'></a>
+						</div>
+					</div>
+				</div>
+				<input type="hidden" name="PageID" value="<TMPL_VAR NAME='PageID'>" />
+			</form>
+		</div>
+		<TMPL_INCLUDE FILE='_navigation.html'>
+	</div>
+</div>

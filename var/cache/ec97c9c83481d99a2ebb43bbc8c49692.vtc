@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title><?php if ($this->_vars['MetaTitle'] !== null) { print(htmlspecialchars($this->_vars['MetaTitle'], ENT_QUOTES)); } ?></title>
+		<?php if ($this->_vars['MetaDescription']) { ?><meta name="description" content="<?php if ($this->_vars['MetaDescription'] !== null) { print(htmlspecialchars($this->_vars['MetaDescription'], ENT_QUOTES)); } ?>" ><?php } ?>
+		<?php if ($this->_vars['MetaKeywords']) { ?><meta name="keywords" content="<?php if ($this->_vars['MetaKeywords'] !== null) { print(htmlspecialchars($this->_vars['MetaKeywords'], ENT_QUOTES)); } ?>" ><?php } ?>
+		<link rel="shortcut icon" href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>img/favicon.png" type="image/x-icon" />
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>css/font-awesome.min.css" rel="stylesheet">
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>js/fancybox/jquery.fancybox.css?v=2.1.5.css" rel="stylesheet">
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>css/main.css" rel="stylesheet">
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>js/jquery-1.8.3.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>js/company.js"></script>
+	</head>
+	<body>
+	<div class="block_header">
+		<div class="container">
+			<a class="block_header__logo" href="<?php if ($this->_vars['URL_PREFIX'] !== null) { print(htmlspecialchars($this->_vars['URL_PREFIX'], ENT_QUOTES)); } ?>"><img src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>img/logo.svg" alt=""></a>
+			<div class="block_header__contacts">
+				<ul class="block_header__contacts-town">
+					<li><label for="yourTown"><?php if ($this->_vars['LNG_City'] !== null) { print(htmlspecialchars($this->_vars['LNG_City'], ENT_QUOTES)); } ?></label></li>
+					<li class="custom-select">
+						<select id="yourTown" class="form-control" onchange="top.location=this.value">
+							<?php $row_count_0=count($this->_arrVars['CityList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+								<option value="<?php if ($this->_arrVars['CityList'][$_0]['URL'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['URL'], ENT_QUOTES)); } elseif ($this->_vars['URL'] !== null) { print(htmlspecialchars($this->_vars['URL'], ENT_QUOTES)); } ?>" <?php if ((($this->_arrVars['CityList'][$_0]['Selected'] !== null) ? $this->_arrVars['CityList'][$_0]['Selected'] : $this->_vars['Selected'])) { ?>selected<?php } ?> id="<?php if ($this->_arrVars['CityList'][$_0]['CityID'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['CityID'], ENT_QUOTES)); } elseif ($this->_vars['CityID'] !== null) { print(htmlspecialchars($this->_vars['CityID'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['CityList'][$_0]['CityName'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['CityName'], ENT_QUOTES)); } elseif ($this->_vars['CityName'] !== null) { print(htmlspecialchars($this->_vars['CityName'], ENT_QUOTES)); } ?></option>
+							<?php } ?>
+						</select>
+					</li>
+				</ul>
+				<script>
+
+				</script>
+				<?php $row_count_0=count($this->_arrVars['CityList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+					<?php if ((($this->_arrVars['CityList'][$_0]['Selected'] !== null) ? $this->_arrVars['CityList'][$_0]['Selected'] : $this->_vars['Selected'])) { ?>
+						<ul class="block_header__contacts-phone">
+							<li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:<?php if ($this->_arrVars['CityList'][$_0]['Phone'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['Phone'], ENT_QUOTES)); } elseif ($this->_vars['Phone'] !== null) { print(htmlspecialchars($this->_vars['Phone'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['CityList'][$_0]['Phone'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['Phone'], ENT_QUOTES)); } elseif ($this->_vars['Phone'] !== null) { print(htmlspecialchars($this->_vars['Phone'], ENT_QUOTES)); } ?></a></li>
+							<li><a class="main_btn" data-toggle="modal" data-target="#modal-call" href=""><?php if ($this->_arrVars['CityList'][$_0]['LNG_Call'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['LNG_Call'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Call'] !== null) { print(htmlspecialchars($this->_vars['LNG_Call'], ENT_QUOTES)); } ?></a></li>
+						</ul>
+						<ul>
+							<li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:<?php if ($this->_arrVars['CityList'][$_0]['Email'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['Email'], ENT_QUOTES)); } elseif ($this->_vars['Email'] !== null) { print(htmlspecialchars($this->_vars['Email'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['CityList'][$_0]['Email'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['Email'], ENT_QUOTES)); } elseif ($this->_vars['Email'] !== null) { print(htmlspecialchars($this->_vars['Email'], ENT_QUOTES)); } ?></a></li>
+							<li><a data-toggle="modal" data-target="#modal-bid" class="main_btn" href=""><?php if ($this->_arrVars['CityList'][$_0]['LNG_Application'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['LNG_Application'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Application'] !== null) { print(htmlspecialchars($this->_vars['LNG_Application'], ENT_QUOTES)); } ?></a></li>
+						</ul>
+					<?php } ?>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar">
+		<div class="container-fluid">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+						<span class="navbar-toggle__wrap">
+						<span class="sr-only"><?php if ($this->_vars['LNG_Menu'] !== null) { print(htmlspecialchars($this->_vars['LNG_Menu'], ENT_QUOTES)); } ?></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						</span>
+					</button>
+				</div>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<div class="container">
+					<ul class="nav navbar-nav">
+						<?php $row_count_0=count($this->_arrVars['MENU_main']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+							<li <?php if ((($this->_arrVars['MENU_main'][$_0]['Opened'] !== null) ? $this->_arrVars['MENU_main'][$_0]['Opened'] : $this->_vars['Opened'])) { ?>class="active"<?php } ?>><a href="<?php if ($this->_arrVars['MENU_main'][$_0]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_main'][$_0]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['MENU_main'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_main'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a></li>
+						<?php } ?>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>

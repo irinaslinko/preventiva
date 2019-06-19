@@ -1,0 +1,188 @@
+		<div class="container container-totop">
+			<div class="totop"><?php if ($this->_vars['LNG_Up'] !== null) { print(htmlspecialchars($this->_vars['LNG_Up'], ENT_QUOTES)); } ?></div>
+		</div>
+		<div role="contentinfo" class="footer">
+			<div class="footer__top">
+				<div class="container">
+					<div class="row">
+						<?php $row_count_0=count($this->_arrVars['MENU_seo']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+							<div class="col-xs-<?php if ((($this->_arrVars['MENU_seo'][$_0]['__FIRST__'] !== null) ? $this->_arrVars['MENU_seo'][$_0]['__FIRST__'] : $this->_vars['__FIRST__'])) { ?>5<?php } elseif ((($this->_arrVars['MENU_seo'][$_0]['__LAST__'] !== null) ? $this->_arrVars['MENU_seo'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>3<?php } else { ?>4<?php } ?>">
+							<nav>
+								<ul class="footer__list">
+									<?php $row_count_1=count($this->_arrVars['MENU_seo'][$_0]['Children1']); for ($_1=0 ; $_1<$row_count_1; $_1++) {?>
+										<li><a href="<?php if ($this->_arrVars['MENU_seo'][$_0]['Children1'][$_1]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_seo'][$_0]['Children1'][$_1]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['MENU_seo'][$_0]['Children1'][$_1]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_seo'][$_0]['Children1'][$_1]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a></li>
+									<?php } ?>
+									
+								</ul>
+							</nav>
+						</div>
+						<?php } ?>
+						<div class="col-xs-12">
+							<ul class="footer__contacts">
+							<?php $row_count_0=count($this->_arrVars['CityList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+								<?php if ((($this->_arrVars['CityList'][$_0]['Selected'] !== null) ? $this->_arrVars['CityList'][$_0]['Selected'] : $this->_vars['Selected'])) { ?>
+									<?php $row_count_1=count($this->_arrVars['CityList'][$_0]['BranchList']); for ($_1=0 ; $_1<$row_count_1; $_1++) {?>
+										<li>
+											<?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['FullAddress'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['FullAddress'], ENT_QUOTES)); } elseif ($this->_vars['FullAddress'] !== null) { print(htmlspecialchars($this->_vars['FullAddress'], ENT_QUOTES)); } ?><br>
+											<span class="phone">
+												<?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['LNG_Phone'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['LNG_Phone'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Phone'] !== null) { print(htmlspecialchars($this->_vars['LNG_Phone'], ENT_QUOTES)); } ?>
+												<?php $row_count_2=count($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList']); for ($_2=0 ; $_2<$row_count_2; $_2++) {?>
+													<a href="tel:<?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['Phone'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['Phone'], ENT_QUOTES)); } elseif ($this->_vars['Phone'] !== null) { print(htmlspecialchars($this->_vars['Phone'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['Phone'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['Phone'], ENT_QUOTES)); } elseif ($this->_vars['Phone'] !== null) { print(htmlspecialchars($this->_vars['Phone'], ENT_QUOTES)); } ?><?php if ((($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['__LAST__'] !== null) ? $this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['__LAST__'] : $this->_vars['__LAST__'])) { ?>.<?php } else { ?>,<?php } ?></a>
+												<?php } ?>
+											</span>
+										</li>
+									<?php } ?>
+								<?php } ?>
+							<?php } ?>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer__bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-md-4">
+							<img class="footer__logo" src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>img/logo-foot.png" alt="">
+							<ul class="footer__social">
+								<?php $row_count_0=count($this->_arrVars['MENU_social']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+									<li><a href="<?php if ($this->_arrVars['MENU_social'][$_0]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_social'][$_0]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>" target="_blank"><img src="<?php if ($this->_arrVars['MENU_social'][$_0]['MenuImage3Path'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_social'][$_0]['MenuImage3Path'], ENT_QUOTES)); } elseif ($this->_vars['MenuImage3Path'] !== null) { print(htmlspecialchars($this->_vars['MenuImage3Path'], ENT_QUOTES)); } ?>" alt=""></a></li>
+								<?php } ?>
+							</ul>
+						</div>
+						<div class="col-xs-12 col-md-8">
+							<nav>
+								<ul class="footer__bottom-menu">
+									<?php $row_count_0=count($this->_arrVars['MENU_main']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+										<li><a href="<?php if ($this->_arrVars['MENU_main'][$_0]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_main'][$_0]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['MENU_main'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_main'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a></li>
+									<?php } ?>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="modal-call" tabindex="-1" role="dialog" aria-labelledby="modalCall">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal" aria-label="<?php if ($this->_vars['LNG_Close'] !== null) { print(htmlspecialchars($this->_vars['LNG_Close'], ENT_QUOTES)); } ?>">&times;</button>
+						<h4 class="modal-title" id="modalCall"><?php if ($this->_vars['LNG_CallRequest'] !== null) { print(htmlspecialchars($this->_vars['LNG_CallRequest'], ENT_QUOTES)); } ?></h4>
+						<p><?php if ($this->_vars['LNG_CallRequestDescription'] !== null) { print(htmlspecialchars($this->_vars['LNG_CallRequestDescription'], ENT_QUOTES)); } ?></p>
+						<form action="<?php if ($this->_vars['FORM_call_URL'] !== null) { print(htmlspecialchars($this->_vars['FORM_call_URL'], ENT_QUOTES)); } ?>" method="post" class="ajax-form">
+							<div class="form-group">
+								<input type="text" name="Text_Name_r" class="form-control" placeholder="<?php if ($this->_vars['LNG_CallName'] !== null) { print(htmlspecialchars($this->_vars['LNG_CallName'], ENT_QUOTES)); } ?>">
+							</div>
+							<div class="form-group">
+								<input type="text" name="Text_Phone_r" class="form-control form_phone" placeholder="<?php if ($this->_vars['LNG_CallPhone'] !== null) { print(htmlspecialchars($this->_vars['LNG_CallPhone'], ENT_QUOTES)); } ?>">
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="Text_Comment_r" rows="5" placeholder="<?php if ($this->_vars['LNG_CallComment'] !== null) { print(htmlspecialchars($this->_vars['LNG_CallComment'], ENT_QUOTES)); } ?>"></textarea>
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<input type="checkbox" name="PrivacyPolicyAgreement" value="Y" checked=""> <?php if ($this->_vars['LNG_PrivacyPolicy1'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy1'], ENT_QUOTES)); } ?> <a href="<?php if ($this->_vars['URL_PREFIX'] !== null) { print(htmlspecialchars($this->_vars['URL_PREFIX'], ENT_QUOTES)); } ?>privacy-policy.html"><?php if ($this->_vars['LNG_PrivacyPolicy2'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy2'], ENT_QUOTES)); } ?></a> <?php if ($this->_vars['LNG_PrivacyPolicy3'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy3'], ENT_QUOTES)); } ?> <br>
+									<small><?php if ($this->_vars['LNG_PrivacyPolicy4'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy4'], ENT_QUOTES)); } ?></small>
+								</div>
+							</div>
+							<div class="form-error"></div>
+							<div class="form-message"></div>
+							<button type="submit" class="main_btn"><?php if ($this->_vars['LNG_CallRequestSend'] !== null) { print(htmlspecialchars($this->_vars['LNG_CallRequestSend'], ENT_QUOTES)); } ?></button>
+							<input type="hidden" name="FormSubmitted" value="Yes" />
+							<input type="hidden" name="UseAjax" value="Yes" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="modal fade" id="modal-bid" tabindex="-1" role="dialog" aria-labelledby="modalBid">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal" aria-label="<?php if ($this->_vars['LNG_Close'] !== null) { print(htmlspecialchars($this->_vars['LNG_Close'], ENT_QUOTES)); } ?>">&times;</button>
+						<h4 class="modal-title" id="modalBid"><?php if ($this->_vars['LNG_OrderRequest'] !== null) { print(htmlspecialchars($this->_vars['LNG_OrderRequest'], ENT_QUOTES)); } ?></h4>
+						<p><?php if ($this->_vars['LNG_OrderRequestDescription'] !== null) { print(htmlspecialchars($this->_vars['LNG_OrderRequestDescription'], ENT_QUOTES)); } ?></p>
+						<form action="<?php if ($this->_vars['FORM_order_URL'] !== null) { print(htmlspecialchars($this->_vars['FORM_order_URL'], ENT_QUOTES)); } ?>" method="post" class="ajax-form">
+							<div class="form-group">
+								<input type="text" name="Text_Name_r" class="form-control" placeholder="<?php if ($this->_vars['LNG_OrderName'] !== null) { print(htmlspecialchars($this->_vars['LNG_OrderName'], ENT_QUOTES)); } ?>">
+							</div>
+							<div class="form-group">
+								<input type="text" name="Text_Email" class="form-control" placeholder="<?php if ($this->_vars['LNG_OrderEmail'] !== null) { print(htmlspecialchars($this->_vars['LNG_OrderEmail'], ENT_QUOTES)); } ?>">
+							</div>
+							<div class="form-group">
+								<input type="text" name="Text_Phone_r" class="form-control form_phone" placeholder="<?php if ($this->_vars['LNG_OrderPhone'] !== null) { print(htmlspecialchars($this->_vars['LNG_OrderPhone'], ENT_QUOTES)); } ?>">
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="Text_Comment_r" rows="5" placeholder="<?php if ($this->_vars['LNG_OrderComment'] !== null) { print(htmlspecialchars($this->_vars['LNG_OrderComment'], ENT_QUOTES)); } ?>"></textarea>
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<input type="checkbox" name="PrivacyPolicyAgreement" value="Y" checked=""> <?php if ($this->_vars['LNG_PrivacyPolicy1'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy1'], ENT_QUOTES)); } ?> <a href="<?php if ($this->_vars['URL_PREFIX'] !== null) { print(htmlspecialchars($this->_vars['URL_PREFIX'], ENT_QUOTES)); } ?>privacy-policy.html"><?php if ($this->_vars['LNG_PrivacyPolicy2'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy2'], ENT_QUOTES)); } ?></a> <?php if ($this->_vars['LNG_PrivacyPolicy3'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy3'], ENT_QUOTES)); } ?> <br>
+									<small><?php if ($this->_vars['LNG_PrivacyPolicy4'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy4'], ENT_QUOTES)); } ?></small>
+								</div>
+							</div>
+							<div class="form-error"></div>
+							<div class="form-message"></div>
+							<button type="submit" class="main_btn"><?php if ($this->_vars['LNG_OrderRequestSend'] !== null) { print(htmlspecialchars($this->_vars['LNG_OrderRequestSend'], ENT_QUOTES)); } ?></button>
+							<input type="hidden" name="FormSubmitted" value="Yes" />
+							<input type="hidden" name="UseAjax" value="Yes" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="modal-service" tabindex="-1" role="dialog" aria-labelledby="modalService">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal" aria-label="<?php if ($this->_vars['LNG_Close'] !== null) { print(htmlspecialchars($this->_vars['LNG_Close'], ENT_QUOTES)); } ?>">&times;</button>
+						<h4 class="modal-title" id="modalBid"><?php if ($this->_vars['LNG_ServiceOrder'] !== null) { print(htmlspecialchars($this->_vars['LNG_ServiceOrder'], ENT_QUOTES)); } ?></h4>
+						<p><?php if ($this->_vars['LNG_ServiceDescription'] !== null) { print(htmlspecialchars($this->_vars['LNG_ServiceDescription'], ENT_QUOTES)); } ?></p>
+						<form action="<?php if ($this->_vars['FORM_service_order_URL'] !== null) { print(htmlspecialchars($this->_vars['FORM_service_order_URL'], ENT_QUOTES)); } ?>" method="post" class="ajax-form">
+							<div class="form-group">
+								<input type="text" name="Text_Name_r" class="form-control" placeholder="<?php if ($this->_vars['LNG_ServiceName'] !== null) { print(htmlspecialchars($this->_vars['LNG_ServiceName'], ENT_QUOTES)); } ?>">
+							</div>
+							<div class="form-group custom-select">
+								<select id="bottomTopic" name="Topic" class="form-control form-service" onchange="this.setAttribute('class', 'form-control')">
+									<option hidden value=""><?php if ($this->_vars['LNG_ChooseService'] !== null) { print(htmlspecialchars($this->_vars['LNG_ChooseService'], ENT_QUOTES)); } ?></option>
+									<?php $row_count_0=count($this->_arrVars['MENU_service']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+										<option class="selectService"><?php if ($this->_arrVars['MENU_service'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_service'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></option>
+									<?php } ?>	
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="text" name="Text_Email" class="form-control" placeholder="<?php if ($this->_vars['LNG_ServiceEmail'] !== null) { print(htmlspecialchars($this->_vars['LNG_ServiceEmail'], ENT_QUOTES)); } ?>">
+							</div>
+							<div class="form-group">
+								<input type="text" name="Text_Phone_r" class="form-control form_phone" placeholder="<?php if ($this->_vars['LNG_ServicePhone'] !== null) { print(htmlspecialchars($this->_vars['LNG_ServicePhone'], ENT_QUOTES)); } ?>">
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="Text_Comment_r" rows="5" placeholder="<?php if ($this->_vars['LNG_ServiceComment'] !== null) { print(htmlspecialchars($this->_vars['LNG_ServiceComment'], ENT_QUOTES)); } ?>"></textarea>
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<input type="checkbox" name="PrivacyPolicyAgreement" value="Y" checked=""> <?php if ($this->_vars['LNG_PrivacyPolicy1'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy1'], ENT_QUOTES)); } ?> <a href="<?php if ($this->_vars['URL_PREFIX'] !== null) { print(htmlspecialchars($this->_vars['URL_PREFIX'], ENT_QUOTES)); } ?>privacy-policy.html"><?php if ($this->_vars['LNG_PrivacyPolicy2'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy2'], ENT_QUOTES)); } ?></a> <?php if ($this->_vars['LNG_PrivacyPolicy3'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy3'], ENT_QUOTES)); } ?> <br>
+									<small><?php if ($this->_vars['LNG_PrivacyPolicy4'] !== null) { print(htmlspecialchars($this->_vars['LNG_PrivacyPolicy4'], ENT_QUOTES)); } ?></small>
+								</div>
+							</div>
+							<div class="form-error"></div>
+							<div class="form-message"></div>
+							<button type="submit" class="main_btn"><?php if ($this->_vars['LNG_OrderRequestSend'] !== null) { print(htmlspecialchars($this->_vars['LNG_OrderRequestSend'], ENT_QUOTES)); } ?></button>
+							<input type="hidden" name="FormSubmitted" value="Yes" />
+							<input type="hidden" name="UseAjax" value="Yes" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>js/bootstrap.min.js"></script>
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>js/main.js"></script>
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+	</body>
+</html>

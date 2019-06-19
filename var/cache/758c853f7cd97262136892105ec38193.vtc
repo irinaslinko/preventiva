@@ -1,0 +1,106 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<?php $row_count_0=count($this->_arrVars['Navigation']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+					<li <?php if ((($this->_arrVars['Navigation'][$_0]['__LAST__'] !== null) ? $this->_arrVars['Navigation'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>class="active"<?php } ?>>
+						<?php if ((($this->_arrVars['Navigation'][$_0]['__LAST__'] !== null) ? $this->_arrVars['Navigation'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>
+							<?php if ($this->_arrVars['Navigation'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?>
+						<?php } else { ?>
+							<a href="<?php if ($this->_arrVars['Navigation'][$_0]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['Navigation'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a>
+						<?php } ?>
+					</li>
+				<?php } ?>
+			</ol>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="content__aside">
+			<header><h1 class="header_page"><?php if ($this->_vars['TitleH1'] !== null) { print(htmlspecialchars($this->_vars['TitleH1'], ENT_QUOTES)); } ?></h1></header>
+			<form method="post" class="ajax-form" action="<?php if ($this->_vars['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_vars['PROJECT_PATH'], ENT_QUOTES)); } ?>module/payment/ajax_public.php">
+				<div class="page_payment">
+					<div class="form_bottom form_bottom--white">
+						<div class="form_bottom__need"><?php if ($this->_vars['LNG_Necessary'] !== null) { print(htmlspecialchars($this->_vars['LNG_Necessary'], ENT_QUOTES)); } ?></div>
+						<div class="section_radio">
+							<h3 class="form_bottom__header"><?php if ($this->_vars['LNG_Payment'] !== null) { print(htmlspecialchars($this->_vars['LNG_Payment'], ENT_QUOTES)); } ?></h3>
+							<div class="radio">
+								<input type="radio" name="radioPayment" id="radio1" value="NaturalPerson" checked>
+								<label for="radio1"><?php if ($this->_vars['LNG_Entrepreneur'] !== null) { print(htmlspecialchars($this->_vars['LNG_Entrepreneur'], ENT_QUOTES)); } ?><span></span></label>
+							</div>
+							<div class="radio">
+								<input type="radio" name="radioPayment" id="radio2" value="LegalEntity">
+								<label for="radio2"><?php if ($this->_vars['LNG_LegalEntity'] !== null) { print(htmlspecialchars($this->_vars['LNG_LegalEntity'], ENT_QUOTES)); } ?><span></span></label>
+							</div>
+							<div class="radio">
+								<input type="radio" name="radioPayment" id="radio3" value="NaturalPerson">
+								<label for="radio3"><?php if ($this->_vars['LNG_NaturalPerson'] !== null) { print(htmlspecialchars($this->_vars['LNG_NaturalPerson'], ENT_QUOTES)); } ?><span></span></label>
+							</div>
+			
+							<h3 class="form_bottom__header"><?php if ($this->_vars['LNG_ServiceType'] !== null) { print(htmlspecialchars($this->_vars['LNG_ServiceType'], ENT_QUOTES)); } ?></h3>
+							<div class="radio">
+								<input type="radio" name="optionsRadios2" id="radio11" checked>
+								<label for="radio11"><?php if ($this->_vars['LNG_SubscriptionService'] !== null) { print(htmlspecialchars($this->_vars['LNG_SubscriptionService'], ENT_QUOTES)); } ?><span></span></label>
+							</div>
+							<div class="radio">
+								<input type="radio" name="optionsRadios2" id="radio12">
+								<label for="radio12"><?php if ($this->_vars['LNG_DeclarationFilling'] !== null) { print(htmlspecialchars($this->_vars['LNG_DeclarationFilling'], ENT_QUOTES)); } ?><span></span></label>
+							</div>
+							<div class="radio">
+								<input type="radio" name="optionsRadios2" id="radio13">
+								<label for="radio13"><?php if ($this->_vars['LNG_Registration'] !== null) { print(htmlspecialchars($this->_vars['LNG_Registration'], ENT_QUOTES)); } ?><span></span></label>
+							</div>
+						</div>
+		
+						<div class="form_bottom__wrap">
+							<h3 class="form_bottom__header"><?php if ($this->_vars['LNG_Branch'] !== null) { print(htmlspecialchars($this->_vars['LNG_Branch'], ENT_QUOTES)); } ?></h3>
+							<div class="form-group">
+								<input class="form-control form-control_need" name="Branch" type="text">
+							</div>
+			
+							<h3 class="form_bottom__header"><?php if ($this->_vars['LNG_Payer'] !== null) { print(htmlspecialchars($this->_vars['LNG_Payer'], ENT_QUOTES)); } ?></h3>
+							
+							<div id="changefromRadio">
+								<label for="form11"><?php if ($this->_vars['LNG_NameLegalEntity'] !== null) { print(htmlspecialchars($this->_vars['LNG_NameLegalEntity'], ENT_QUOTES)); } ?></label>
+								<div class="form-group">
+									<input id="form11" class="form-control form-control_need" name="NameLegalEntity" type="text">
+								</div>
+							</div>
+			
+							<label for="form12"><?php if ($this->_vars['LNG_Name'] !== null) { print(htmlspecialchars($this->_vars['LNG_Name'], ENT_QUOTES)); } ?></label>
+							<div class="form-group">
+								<input id="form12" class="form-control form-control_need" name="PayerName" type="text">
+							</div>
+			
+							<label for="form13"><?php if ($this->_vars['LNG_Phone'] !== null) { print(htmlspecialchars($this->_vars['LNG_Phone'], ENT_QUOTES)); } ?></label>
+							<div class="form-group">
+								<input id="form13" class="form-control form-control_need" name="Phone" type="text">
+							</div>
+			
+							<label for="form14"><?php if ($this->_vars['LNG_Email'] !== null) { print(htmlspecialchars($this->_vars['LNG_Email'], ENT_QUOTES)); } ?></label>
+							<div class="form-group">
+								<input id="form14" class="form-control" name="Email" type="text">
+							</div>
+							<div class="help-block"><?php if ($this->_vars['LNG_EmailHelp'] !== null) { print(htmlspecialchars($this->_vars['LNG_EmailHelp'], ENT_QUOTES)); } ?></div>
+						</div>
+					</div>
+					
+					<div class="payment_bottom">
+						<label for="formPayment"><?php if ($this->_vars['LNG_Rub'] !== null) { print(htmlspecialchars($this->_vars['LNG_Rub'], ENT_QUOTES)); } ?></label>
+						<div class="row">
+							<div class="col-xs-6">
+								<input id="formPayment" class="form-control form-control_need" name="Sum" type="text" value="">
+							</div>
+							<div class="col-xs-6">
+								<button class="main_btn"><img src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>img/rouble-2.png" alt=""> <?php if ($this->_vars['LNG_Pay'] !== null) { print(htmlspecialchars($this->_vars['LNG_Pay'], ENT_QUOTES)); } ?></button>
+							</div>
+						</div>
+					</div>
+					<div class="form-error"></div>
+					<div class="form-message"></div>
+				</div>
+			</form>
+		</div>
+		<?php $this->_GetData($this->_FileSearch('_navigation.html'), 1); ?>
+	</div>
+</div>

@@ -1,0 +1,137 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<TMPL_LOOP NAME='Navigation'>
+					<li <TMPL_IF NAME='__LAST__'>class="active"</TMPL_IF>>
+						<TMPL_IF NAME='__LAST__'>
+							<TMPL_VAR NAME='Title'>
+						<TMPL_ELSE>
+							<a href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a>
+						</TMPL_IF>
+					</li>
+				</TMPL_LOOP>
+			</ol>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="content__aside">
+			<header>
+				<header><h1 class="header_page"><TMPL_VAR NAME='PageTitleH1'></h1></header>
+			</header>
+			 <div class="questions_form">
+				<div class="row">
+					<div class="col-xs-12 col-lg-7">
+						<div class="questions_form__text"><TMPL_VAR NAME='PageContent' ESCAPE='none'></div>
+					</div>
+					<div class="col-xs-12 col-lg-5">
+						<a href="" data-toggle="modal" data-target="#modal-question" class="main_btn"><img src="<TMPL_VAR NAME='PATH2MAIN'>img/ask.png" alt=""> <TMPL_VAR NAME='LNG_Ask'></a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="section_questions">
+				<TMPL_LOOP NAME='CategoryList'>
+					<div class="block_question <TMPL_IF NAME='Selected'>open</TMPL_IF>">
+						<div class="block_question__header"><TMPL_VAR NAME='Title'></div>
+						<div class="block_question__content" <TMPL_IF NAME='Selected'>style="display: block;"</TMPL_IF>">
+							<TMPL_LOOP NAME='ItemList'>
+								<div class="block_question__ask">
+									<div class="clearfix">
+										<div class="block_question__time"><TMPL_VAR NAME='ItemDateRu'></div>
+										<div class="block_question__name"><TMPL_VAR NAME='Title'></div>
+									</div>
+									<p><TMPL_VAR NAME='Description'></p>
+								</div>
+								<div class="block_question__answer"><b><TMPL_VAR NAME='LNG_Answer'> </b><TMPL_VAR NAME='Content' ESCAPE='none'></div>
+							</TMPL_LOOP>
+							<nav aria-label="<TMPL_VAR NAME='LNG_Paging'>">
+								<ul class="pagination">
+									<TMPL_LOOP NAME='Paging'>
+										<TMPL_UNLESS NAME='__FIRST__'>
+											<TMPL_UNLESS NAME='__LAST__'>
+												<li <TMPL_IF NAME='Selected'>class="active"</TMPL_IF>><a href="<TMPL_VAR NAME='URL'>"><TMPL_VAR NAME='Title'></a></li>
+											</TMPL_UNLESS>
+										</TMPL_UNLESS>
+									</TMPL_LOOP>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</TMPL_LOOP>
+			</div>
+
+			<div class="questions_form">
+				<div class="row">
+					<div class="col-xs-12 col-lg-7">
+						<div class="questions_form__text"><TMPL_VAR NAME='PageContent' ESCAPE='none'></div>
+					</div>
+					<div class="col-xs-12 col-lg-5">
+						<a href="" data-toggle="modal" data-target="#modal-question" class="main_btn"><img src="<TMPL_VAR NAME='PATH2MAIN'>img/ask.png" alt=""> <TMPL_VAR NAME='LNG_Ask'></a>
+					</div>
+				</div>
+			</div>
+			
+			 <div class="modal fade modal-question" id="modal-question" tabindex="-1" role="dialog" aria-labelledby="modalQestion">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-body">
+							<button type="button" class="close" data-dismiss="modal" aria-label="<TMPL_VAR NAME='LNG_Close'>">&times;</button>
+							<h4 class="modal-title" id="modalQestion"><TMPL_VAR NAME='LNG_AskQuestion'></h4>
+							<form action="<TMPL_VAR NAME='PROJECT_PATH'>module/infoblock/ajax_public.php" method="post" class="ajax-form">
+								<div class="form_bottom">
+									<div class="form_bottom__header"><TMPL_VAR NAME='LNG_QuestionInfo'></div>	 
+									<div class="form_bottom__need"><TMPL_VAR NAME='LNG_Necessary'></div>
+									<div class="form_bottom__wrap">
+										<label><TMPL_VAR NAME='LNG_QuestionName'></label>
+										<div class="form-group">
+											<input type="text" name="Name" class="form-control form-control_need">
+										</div>
+										<label><TMPL_VAR NAME='LNG_QuestionEmail'></label>
+										<div class="form-group">
+											<input type="text" name="Email" class="form-control form-control_need">
+										</div>
+										<label><TMPL_VAR NAME='LNG_QuestionCity'></label>
+										<div class="form-group custom-select">
+											<select id="formTown" name="City" class="form-control form-control_need">
+												<TMPL_LOOP NAME='CityList'>
+													<option <TMPL_IF NAME='Selected'>selected</TMPL_IF>><TMPL_VAR NAME='CityName'></option>
+												</TMPL_LOOP>
+											</select>
+										</div>
+										<label><TMPL_VAR NAME='LNG_QuestionTopic'></label>
+										<div class="form-group custom-select">
+											<select name="Topic" class="form-control form-control_need">
+												<option value=""> </option>
+												<TMPL_LOOP NAME='CategoryList'>
+													<option><TMPL_VAR NAME='Title'></option>
+												</TMPL_LOOP>
+											</select>
+										</div>
+									</div>
+									<label><TMPL_VAR NAME='LNG_Question'></label>
+									<div class="form-group">
+										<textarea name="Question" class="form-control form-control_need" rows="5"></textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="checkbox">
+										<input type="checkbox" name="PrivacyPolicyAgreement" value="Y" checked=""> <TMPL_VAR NAME='LNG_PrivacyPolicy1'> <a href="<TMPL_VAR NAME='URL_PREFIX'>privacy-policy.html"><TMPL_VAR NAME='LNG_PrivacyPolicy2'></a> <TMPL_VAR NAME='LNG_PrivacyPolicy3'> <br>
+										<small><TMPL_VAR NAME='LNG_PrivacyPolicy4'></small>
+									</div>
+								</div>
+								<div class="form-error"></div>
+								<div class="form-message"></div>
+								<button type="submit" class="main_btn"><TMPL_VAR NAME='LNG_QuestionSend'></button>
+								<input type="hidden" name="PageID" value="<TMPL_VAR NAME='PageID'>" />
+								<input type="hidden" name="Action" value="Question" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<TMPL_INCLUDE FILE='_navigation.html'>
+	</div>
+</div>

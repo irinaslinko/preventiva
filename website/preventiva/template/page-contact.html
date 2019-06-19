@@ -1,0 +1,74 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<TMPL_LOOP NAME='Navigation'>
+					<li <TMPL_IF NAME='__LAST__'>class="active"</TMPL_IF>>
+						<TMPL_IF NAME='__LAST__'>
+							<TMPL_VAR NAME='Title'>
+						<TMPL_ELSE>
+							<a href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a>
+						</TMPL_IF>
+					</li>
+				</TMPL_LOOP>
+			</ol>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="content__aside">
+		<header><h1 class="header_page"><TMPL_VAR NAME='TitleH1'></h1></header>
+			<div class="section_contacts">
+				<div class="block_textcontent">
+					<TMPL_LOOP NAME='CityList'>
+						<TMPL_IF NAME='Selected'>
+							<b><TMPL_VAR NAME='LNG_Director'></b> <TMPL_VAR NAME='Director'>
+							<p><a href="mailto:<TMPL_VAR NAME='Email'>"><TMPL_VAR NAME='Email'></a> &nbsp;&nbsp; <a href="mailto:<TMPL_VAR NAME='FormEmail'>"><TMPL_VAR NAME='FormEmail'></a></p>
+						</TMPL_IF>
+					</TMPL_LOOP>
+				</div>
+				<TMPL_LOOP NAME='CityList'>
+					<TMPL_IF NAME='Selected'>
+						<TMPL_LOOP NAME='BranchList'>
+							<div class="block_contacts">
+								<div class="block_contacts__text">
+									<div class="block_contacts__header"><TMPL_VAR NAME='BranchName'></div>
+									<ul>
+										<li>
+											<span><b><TMPL_VAR NAME='Address'></b></span>
+											<span><a class="main_link" href=""><TMPL_VAR NAME='LNG_Location'></a></span>
+										</li>
+										<li class="block_contacts__tel">
+											<TMPL_LOOP NAME='PhoneList'>
+												<TMPL_IF NAME='ShowOffice'>
+													<TMPL_UNLESS NAME='__FIRST__'>
+														</div>
+													</TMPL_UNLESS>
+													<div class="block_contacts__text-col">
+														<span><b><TMPL_VAR NAME='Office'></b></span>
+												</TMPL_IF>
+												<span><a href="tel:<TMPL_VAR NAME='Phone'>"><TMPL_VAR NAME='Phone'></a></span>
+												<TMPL_IF NAME='__LAST__'>
+													</div>
+												</TMPL_IF>
+											</TMPL_LOOP>
+										</li>
+										<li class="block_contacts__time">
+											<TMPL_LOOP NAME='HourList'>
+												<span><span><TMPL_VAR NAME='Day'></span><TMPL_VAR NAME='Hour'></span>
+											</TMPL_LOOP>
+										</li>
+									</ul>
+								</div>
+								<div class="block_contacts__map">
+									<TMPL_VAR NAME='Map' ESCAPE='none'>
+								</div>
+							</div>
+						</TMPL_LOOP>
+					</TMPL_IF>
+				</TMPL_LOOP>
+			</div>
+		</div>
+		<TMPL_INCLUDE FILE='_navigation.html'>
+	</div>
+</div>

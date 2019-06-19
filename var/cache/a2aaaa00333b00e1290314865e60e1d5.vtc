@@ -1,0 +1,192 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=<?php if ($this->_vars['CHARSET'] !== null) { print(htmlspecialchars($this->_vars['CHARSET'], ENT_QUOTES)); } ?>">
+	</head>
+	<body>
+		<p><?php if ($this->_vars['LNG_Name'] !== null) { print(htmlspecialchars($this->_vars['LNG_Name'], ENT_QUOTES)); } ?></p>
+		<table border="1" width="100%" cellpadding="5">
+			<tr>
+				<td><?php if ($this->_vars['LNG_FullTitle'] !== null) { print(htmlspecialchars($this->_vars['LNG_FullTitle'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['FullTitle'] !== null) { print(htmlspecialchars($this->_vars['FullTitle'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_ShortTitle'] !== null) { print(htmlspecialchars($this->_vars['LNG_ShortTitle'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['ShortTitle'] !== null) { print(htmlspecialchars($this->_vars['ShortTitle'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_City'] !== null) { print(htmlspecialchars($this->_vars['LNG_City'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['City'] !== null) { print(htmlspecialchars($this->_vars['City'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_Street'] !== null) { print(htmlspecialchars($this->_vars['LNG_Street'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['Street'] !== null) { print(htmlspecialchars($this->_vars['Street'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_House'] !== null) { print(htmlspecialchars($this->_vars['LNG_House'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['House'] !== null) { print(htmlspecialchars($this->_vars['House'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_Building'] !== null) { print(htmlspecialchars($this->_vars['LNG_Building'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['Building'] !== null) { print(htmlspecialchars($this->_vars['Building'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_Flat'] !== null) { print(htmlspecialchars($this->_vars['LNG_Flat'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['Flat'] !== null) { print(htmlspecialchars($this->_vars['Flat'], ENT_QUOTES)); } ?></td>
+			</tr>
+		</table>
+		
+		<p><?php if ($this->_vars['LNG_Founder'] !== null) { print(htmlspecialchars($this->_vars['LNG_Founder'], ENT_QUOTES)); } ?></p>
+		<table border="1" width="100%" cellpadding="5">
+			<?php $row_count_0=count($this->_arrVars['FilePathListFounder']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+				<tr>
+					<td><?php if ($this->_arrVars['FilePathListFounder'][$_0]['LNG_Doc'] !== null) { print(htmlspecialchars($this->_arrVars['FilePathListFounder'][$_0]['LNG_Doc'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Doc'] !== null) { print(htmlspecialchars($this->_vars['LNG_Doc'], ENT_QUOTES)); } ?></td>
+					<td><?php if ($this->_arrVars['FilePathListFounder'][$_0]['FilePath'] !== null) { print(htmlspecialchars($this->_arrVars['FilePathListFounder'][$_0]['FilePath'], ENT_QUOTES)); } elseif ($this->_vars['FilePath'] !== null) { print(htmlspecialchars($this->_vars['FilePath'], ENT_QUOTES)); } ?></td>
+				</tr>
+			<?php } ?>
+			<tr>
+				<td><?php if ($this->_vars['LNG_BirthDateFounder'] !== null) { print(htmlspecialchars($this->_vars['LNG_BirthDateFounder'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['BirthDateFounder'] !== null) { print(htmlspecialchars($this->_vars['BirthDateFounder'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_BirthPlaceFounder'] !== null) { print(htmlspecialchars($this->_vars['LNG_BirthPlaceFounder'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['BirthPlaceFounder'] !== null) { print(htmlspecialchars($this->_vars['BirthPlaceFounder'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_PassportNumberFounder'] !== null) { print(htmlspecialchars($this->_vars['LNG_PassportNumberFounder'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['PassportNumberFounder'] !== null) { print(htmlspecialchars($this->_vars['PassportNumberFounder'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_PassportGiveFounder'] !== null) { print(htmlspecialchars($this->_vars['LNG_PassportGiveFounder'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['PassportGiveFounder'] !== null) { print(htmlspecialchars($this->_vars['PassportGiveFounder'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_DepartmentCodeFounder'] !== null) { print(htmlspecialchars($this->_vars['LNG_DepartmentCodeFounder'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['DepartmentCodeFounder'] !== null) { print(htmlspecialchars($this->_vars['DepartmentCodeFounder'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_DateGiveFounder'] !== null) { print(htmlspecialchars($this->_vars['LNG_DateGiveFounder'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['DateGiveFounder'] !== null) { print(htmlspecialchars($this->_vars['DateGiveFounder'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_RegistrationFounder'] !== null) { print(htmlspecialchars($this->_vars['LNG_RegistrationFounder'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['RegistrationFounder'] !== null) { print(htmlspecialchars($this->_vars['RegistrationFounder'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_Person'] !== null) { print(htmlspecialchars($this->_vars['LNG_Person'], ENT_QUOTES)); } ?></td>
+				<td>
+					<?php if ($this->_vars['paymentFace']=='NaturalPerson') { ?>
+						<?php if ($this->_vars['LNG_NaturalPerson'] !== null) { print(htmlspecialchars($this->_vars['LNG_NaturalPerson'], ENT_QUOTES)); } ?>
+					<?php } else { ?>
+						<?php if ($this->_vars['LNG_LegalEntity'] !== null) { print(htmlspecialchars($this->_vars['LNG_LegalEntity'], ENT_QUOTES)); } ?>
+					<?php } ?>
+				</td>
+			</tr>
+			<tr>
+				<?php if ($this->_vars['paymentFace']=='NaturalPerson') { ?>
+					<td><?php if ($this->_vars['LNG_CountMoney'] !== null) { print(htmlspecialchars($this->_vars['LNG_CountMoney'], ENT_QUOTES)); } ?></td>
+				<?php } else { ?>
+					<td><?php if ($this->_vars['LNG_Share'] !== null) { print(htmlspecialchars($this->_vars['LNG_Share'], ENT_QUOTES)); } ?></td>
+				<?php } ?>
+				<td><?php if ($this->_vars['CountMoney'] !== null) { print(htmlspecialchars($this->_vars['CountMoney'], ENT_QUOTES)); } ?></td>
+			</tr>
+		</table>
+		
+		<p><?php if ($this->_vars['LNG_Head'] !== null) { print(htmlspecialchars($this->_vars['LNG_Head'], ENT_QUOTES)); } ?></p>
+		<table border="1" width="100%" cellpadding="5">
+			<?php $row_count_0=count($this->_arrVars['FilePathListHead']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+				<tr>
+					<td><?php if ($this->_arrVars['FilePathListHead'][$_0]['LNG_Doc'] !== null) { print(htmlspecialchars($this->_arrVars['FilePathListHead'][$_0]['LNG_Doc'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Doc'] !== null) { print(htmlspecialchars($this->_vars['LNG_Doc'], ENT_QUOTES)); } ?></td>
+					<td><?php if ($this->_arrVars['FilePathListHead'][$_0]['FilePath'] !== null) { print(htmlspecialchars($this->_arrVars['FilePathListHead'][$_0]['FilePath'], ENT_QUOTES)); } elseif ($this->_vars['FilePath'] !== null) { print(htmlspecialchars($this->_vars['FilePath'], ENT_QUOTES)); } ?></td>
+				</tr>
+			<?php } ?>
+			<tr>
+				<td><?php if ($this->_vars['LNG_BirthDateHead'] !== null) { print(htmlspecialchars($this->_vars['LNG_BirthDateHead'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['BirthDateHead'] !== null) { print(htmlspecialchars($this->_vars['BirthDateHead'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_BirthPlaceHead'] !== null) { print(htmlspecialchars($this->_vars['LNG_BirthPlaceHead'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['BirthPlaceHead'] !== null) { print(htmlspecialchars($this->_vars['BirthPlaceHead'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_PassportNumberHead'] !== null) { print(htmlspecialchars($this->_vars['LNG_PassportNumberHead'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['PassportNumberHead'] !== null) { print(htmlspecialchars($this->_vars['PassportNumberHead'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_PassportGiveHead'] !== null) { print(htmlspecialchars($this->_vars['LNG_PassportGiveHead'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['PassportGiveHead'] !== null) { print(htmlspecialchars($this->_vars['PassportGiveHead'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_DepartmentCodeHead'] !== null) { print(htmlspecialchars($this->_vars['LNG_DepartmentCodeHead'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['DepartmentCodeHead'] !== null) { print(htmlspecialchars($this->_vars['DepartmentCodeHead'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_DateGiveHead'] !== null) { print(htmlspecialchars($this->_vars['LNG_DateGiveHead'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['DateGiveHead'] !== null) { print(htmlspecialchars($this->_vars['DateGiveHead'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_RegistrationHead'] !== null) { print(htmlspecialchars($this->_vars['LNG_RegistrationHead'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['RegistrationHead'] !== null) { print(htmlspecialchars($this->_vars['RegistrationHead'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_Position'] !== null) { print(htmlspecialchars($this->_vars['LNG_Position'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['Position'] !== null) { print(htmlspecialchars($this->_vars['Position'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_OfficeTerm'] !== null) { print(htmlspecialchars($this->_vars['LNG_OfficeTerm'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['OfficeTerm'] !== null) { print(htmlspecialchars($this->_vars['OfficeTerm'], ENT_QUOTES)); } ?></td>
+			</tr>
+		</table>
+		
+		<p>&nbsp;</p>
+		<table border="1" width="100%" cellpadding="5">
+			<tr>
+				<td><?php if ($this->_vars['LNG_Money'] !== null) { print(htmlspecialchars($this->_vars['LNG_Money'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['Money'] !== null) { print(htmlspecialchars($this->_vars['Money'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_Payment'] !== null) { print(htmlspecialchars($this->_vars['LNG_Payment'], ENT_QUOTES)); } ?></td>
+				<td>
+					<?php if ($this->_vars['paymentCapital']=='Cash') { ?>
+						<?php if ($this->_vars['LNG_Cash'] !== null) { print(htmlspecialchars($this->_vars['LNG_Cash'], ENT_QUOTES)); } ?>
+					<?php } else { ?>
+						<?php if ($this->_vars['LNG_Property'] !== null) { print(htmlspecialchars($this->_vars['LNG_Property'], ENT_QUOTES)); } ?>
+					<?php } ?>
+				</td>
+			</tr>
+			<?php if ($this->_vars['paymentCapital']=='Property') { ?>
+				<tr>
+					<td><?php if ($this->_vars['LNG_NameProperty'] !== null) { print(htmlspecialchars($this->_vars['LNG_NameProperty'], ENT_QUOTES)); } ?></td>
+					<td><?php if ($this->_vars['NameProperty'] !== null) { print(htmlspecialchars($this->_vars['NameProperty'], ENT_QUOTES)); } ?></td>
+				</tr>
+			<?php } ?>
+			<tr>
+				<td><?php if ($this->_vars['LNG_ContactPhoneFor'] !== null) { print(htmlspecialchars($this->_vars['LNG_ContactPhoneFor'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['ContactPhoneFor'] !== null) { print(htmlspecialchars($this->_vars['ContactPhoneFor'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_ContactPerson'] !== null) { print(htmlspecialchars($this->_vars['LNG_ContactPerson'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['ContactPerson'] !== null) { print(htmlspecialchars($this->_vars['ContactPerson'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_Email'] !== null) { print(htmlspecialchars($this->_vars['LNG_Email'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['Email'] !== null) { print(htmlspecialchars($this->_vars['Email'], ENT_QUOTES)); } ?></td>
+			</tr>
+				<td><?php if ($this->_vars['LNG_Type'] !== null) { print(htmlspecialchars($this->_vars['LNG_Type'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['Type'] !== null) { print(htmlspecialchars($this->_vars['Type'], ENT_QUOTES)); } ?></td>
+			<tr>
+				<td><?php if ($this->_vars['LNG_How'] !== null) { print(htmlspecialchars($this->_vars['LNG_How'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['How'] !== null) { print(htmlspecialchars($this->_vars['How'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_Method'] !== null) { print(htmlspecialchars($this->_vars['LNG_Method'], ENT_QUOTES)); } ?></td>
+				<td>
+					<?php if ($this->_vars['PostMethod']) { ?>
+						<?php if ($this->_vars['LNG_PostMethod'] !== null) { print(htmlspecialchars($this->_vars['LNG_PostMethod'], ENT_QUOTES)); } ?>
+					<?php } elseif ($this->_vars['OfficeMethod']) { ?>
+						<?php if ($this->_vars['LNG_OfficeMethod'] !== null) { print(htmlspecialchars($this->_vars['LNG_OfficeMethod'], ENT_QUOTES)); } ?>
+					<?php } ?>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

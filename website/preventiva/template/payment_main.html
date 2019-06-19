@@ -1,0 +1,106 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<TMPL_LOOP NAME='Navigation'>
+					<li <TMPL_IF NAME='__LAST__'>class="active"</TMPL_IF>>
+						<TMPL_IF NAME='__LAST__'>
+							<TMPL_VAR NAME='Title'>
+						<TMPL_ELSE>
+							<a href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a>
+						</TMPL_IF>
+					</li>
+				</TMPL_LOOP>
+			</ol>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="content__aside">
+			<header><h1 class="header_page"><TMPL_VAR NAME='TitleH1'></h1></header>
+			<form method="post" class="ajax-form" action="<TMPL_VAR NAME='PROJECT_PATH'>module/payment/ajax_public.php">
+				<div class="page_payment">
+					<div class="form_bottom form_bottom--white">
+						<div class="form_bottom__need"><TMPL_VAR NAME='LNG_Necessary'></div>
+						<div class="section_radio">
+							<h3 class="form_bottom__header"><TMPL_VAR NAME='LNG_Payment'></h3>
+							<div class="radio">
+								<input type="radio" name="radioPayment" id="radio1" value="NaturalPerson" checked>
+								<label for="radio1"><TMPL_VAR NAME='LNG_Entrepreneur'><span></span></label>
+							</div>
+							<div class="radio">
+								<input type="radio" name="radioPayment" id="radio2" value="LegalEntity">
+								<label for="radio2"><TMPL_VAR NAME='LNG_LegalEntity'><span></span></label>
+							</div>
+							<div class="radio">
+								<input type="radio" name="radioPayment" id="radio3" value="NaturalPerson">
+								<label for="radio3"><TMPL_VAR NAME='LNG_NaturalPerson'><span></span></label>
+							</div>
+			
+							<h3 class="form_bottom__header"><TMPL_VAR NAME='LNG_ServiceType'></h3>
+							<div class="radio">
+								<input type="radio" name="optionsRadios2" id="radio11" checked>
+								<label for="radio11"><TMPL_VAR NAME='LNG_SubscriptionService'><span></span></label>
+							</div>
+							<div class="radio">
+								<input type="radio" name="optionsRadios2" id="radio12">
+								<label for="radio12"><TMPL_VAR NAME='LNG_DeclarationFilling'><span></span></label>
+							</div>
+							<div class="radio">
+								<input type="radio" name="optionsRadios2" id="radio13">
+								<label for="radio13"><TMPL_VAR NAME='LNG_Registration'><span></span></label>
+							</div>
+						</div>
+		
+						<div class="form_bottom__wrap">
+							<h3 class="form_bottom__header"><TMPL_VAR NAME='LNG_Branch'></h3>
+							<div class="form-group">
+								<input class="form-control form-control_need" name="Branch" type="text">
+							</div>
+			
+							<h3 class="form_bottom__header"><TMPL_VAR NAME='LNG_Payer'></h3>
+							
+							<div id="changefromRadio">
+								<label for="form11"><TMPL_VAR NAME='LNG_NameLegalEntity'></label>
+								<div class="form-group">
+									<input id="form11" class="form-control form-control_need" name="NameLegalEntity" type="text">
+								</div>
+							</div>
+			
+							<label for="form12"><TMPL_VAR NAME='LNG_Name'></label>
+							<div class="form-group">
+								<input id="form12" class="form-control form-control_need" name="PayerName" type="text">
+							</div>
+			
+							<label for="form13"><TMPL_VAR NAME='LNG_Phone'></label>
+							<div class="form-group">
+								<input id="form13" class="form-control form-control_need" name="Phone" type="text">
+							</div>
+			
+							<label for="form14"><TMPL_VAR NAME='LNG_Email'></label>
+							<div class="form-group">
+								<input id="form14" class="form-control" name="Email" type="text">
+							</div>
+							<div class="help-block"><TMPL_VAR NAME='LNG_EmailHelp'></div>
+						</div>
+					</div>
+					
+					<div class="payment_bottom">
+						<label for="formPayment"><TMPL_VAR NAME='LNG_Rub'></label>
+						<div class="row">
+							<div class="col-xs-6">
+								<input id="formPayment" class="form-control form-control_need" name="Sum" type="text" value="">
+							</div>
+							<div class="col-xs-6">
+								<button class="main_btn"><img src="<TMPL_VAR NAME='PATH2MAIN'>img/rouble-2.png" alt=""> <TMPL_VAR NAME='LNG_Pay'></button>
+							</div>
+						</div>
+					</div>
+					<div class="form-error"></div>
+					<div class="form-message"></div>
+				</div>
+			</form>
+		</div>
+		<TMPL_INCLUDE FILE='_navigation.html'>
+	</div>
+</div>

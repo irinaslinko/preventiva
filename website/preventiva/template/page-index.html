@@ -1,0 +1,168 @@
+<div id="carousel-big" class="carousel slide carousel-big" data-ride="carousel">
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<TMPL_LOOP NAME='MENU_slider'>
+			<li data-target="#carousel-big" data-slide-to="<TMPL_VAR NAME='__INDEX__'>" <TMPL_IF NAME='__FIRST__'>class="active"</TMPL_IF>></li>
+		</TMPL_LOOP>
+	</ol>
+
+	<div class="carousel-inner" role="listbox">
+		<TMPL_LOOP NAME='MENU_slider'>
+			<div class="item <TMPL_IF NAME='__FIRST__'> active</TMPL_IF>">
+				<div class="container">
+					<div class="carousel-caption">
+						<div class="carousel-caption__text">
+							<div class="bold"><TMPL_VAR NAME='Title'></div>
+							<p><TMPL_VAR NAME='Content' ESCAPE='none'></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</TMPL_LOOP>
+	</div>
+</div>
+
+<div class="wrap__service-bottom">
+	<div class="service-bottom">
+		<div class="container">
+			<div class="row">
+				<TMPL_LOOP NAME='MENU_menu_service'>
+					<div class="col-xs-6">
+						<a	class="service-bottom__text" href="<TMPL_VAR NAME='PageURL'>"><span><TMPL_VAR NAME='Title'></span></a>
+					</div>
+				</TMPL_LOOP>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section_service">
+	<div class="container">
+		<div class="row">
+			<TMPL_LOOP NAME='MENU_opportunity'>
+				<div class="col-xs-6 col-md-3">
+					<a class="block_service" href="<TMPL_VAR NAME='PageURL'>">
+						<div class="block_service__image"><img src="<TMPL_VAR NAME='MenuImage1Path'>" alt=""></div>
+						<div class="block_service__text"><TMPL_VAR NAME='Title' ESCAPE='none'></div>
+					</a>
+				</div>
+			</TMPL_LOOP>
+		</div>
+	</div>
+</div>
+
+<div class="section_clients">
+	<div class="container">
+		<header><h3 class="header_section"><TMPL_VAR NAME='LNG_Trust'></h3></header>
+		<div id="carousel-clients" class="carousel slide carousel-clients" data-ride="carousel">
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+					<TMPL_LOOP NAME='MENU_partner'>
+							<TMPL_IF NAME='__INDEX__' OP='%5==' VALUE='0'>
+								<div class="item<TMPL_IF NAME='__FIRST__'> active</TMPL_IF>">
+									<div class="row">
+							</TMPL_IF>
+								<div class="col-xs-2"><img src="<TMPL_VAR NAME='MenuImage2Path'>" alt=""></div>
+							<TMPL_IF NAME='__INDEX__' OP='%5==' VALUE='4'>
+									</div>
+								</div>
+							<TMPL_ELSEIF NAME='__LAST__'>
+									</div>
+								</div>
+							</TMPL_IF>
+					</TMPL_LOOP>
+			</div>
+	
+			<!-- Controls -->
+			<div class="container">
+			<a class="left carousel-control" href="#carousel-clients" role="button" data-slide="prev">
+				<span class="carousel-control__left"></span>
+				<span class="sr-only"><TMPL_VAR NAME='LNG_Prev'></span>
+			</a>
+			<a class="right carousel-control" href="#carousel-clients" role="button" data-slide="next">
+				<span class="carousel-control__right"></span>
+				<span class="sr-only"><TMPL_VAR NAME='LNG_Next'></span>
+			</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="section_action">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					<section class="section_action__left">
+						<header><h3 class="header_section"><TMPL_VAR NAME='LNG_News'></h3></header>
+						<ul class="section_action__list">
+							<TMPL_LOOP NAME='INFOBLOCK_news_ItemList'>
+								<li>
+									<div class="section_action__date">
+										<span class="date"><TMPL_VAR NAME='Day'></span>
+										<span><TMPL_VAR NAME='Month'></span>
+										<span class="year"><TMPL_VAR NAME='Year'></span>
+									</div>	
+									<div class="section_action__text">
+										<div>
+											<a href="<TMPL_VAR NAME='ItemURL'>" class="section_action__link"><TMPL_VAR NAME='Title'></a>
+											<TMPL_VAR NAME='Description'>
+										</div>
+									</div>
+								</li>
+							</TMPL_LOOP>
+						</ul>
+					</section>
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<section class="section_action__right">
+						<header><h3 class="header_section"><TMPL_VAR NAME='LNG_Event'></h3></header>
+						<ul class="section_action__list">
+							<TMPL_LOOP NAME='INFOBLOCK_event_ItemList'>
+								<li>
+									<div class="section_action__date">
+										<span class="date"><TMPL_VAR NAME='Day'></span>
+										<span><TMPL_VAR NAME='Month'></span>
+										<span class="year"><TMPL_VAR NAME='Year'></span>
+									</div>	
+									<div class="section_action__text">
+										<div>
+											<a class="section_action__link" href="<TMPL_VAR NAME='ItemURL'>"><TMPL_VAR NAME='Title' ESCAPE='none'></a>
+											<TMPL_VAR NAME='Description'>
+										</div>	
+									</div>
+								</li>	
+							</TMPL_LOOP>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="section_popular">
+	<div class="container">
+		<header><h3 class="header_section"><TMPL_VAR NAME='LNG_Service'></h3></header>
+		<div class="row">
+			<TMPL_LOOP NAME='MENU_popular'>
+			<div class="col-xs-6 col-md-3">
+				<div class="block_popular">
+					<div class="block_popular__header"><TMPL_VAR NAME='Title' ESCAPE='none'></div>
+					<div class="block_popular__price"><TMPL_VAR NAME='Description3'> <span><TMPL_VAR NAME='Description2'></span> <TMPL_VAR NAME='LNG_Rub'></div>
+					<div class="block_popular__text"><TMPL_VAR NAME='Description'></div>
+					<a class="block_popular__link" data-toggle="modal" data-target="#modal-bid" href=""><TMPL_VAR NAME='LNG_Order'></a>
+				</div>
+			</div>
+			</TMPL_LOOP>
+		</div>
+	</div>
+</div>
+<section>
+	<div class="section_about">
+		<div class="container">
+			<header><h3 class="header_section"><TMPL_VAR NAME='LNG_AboutUs'></h3></header>
+			<div class="section_about__text">
+				<TMPL_VAR NAME='Content' ESCAPE='none'>
+				<a href="<TMPL_VAR NAME='PROJECT_PATH'>payment.html" class="main_btn main_btn--big"><img src="<TMPL_VAR NAME='PATH2MAIN'>img/rouble.png" alt=""> <TMPL_VAR NAME='LNG_ServicePayment'></a>
+			</div>
+		</div>
+	</div>
+</section>

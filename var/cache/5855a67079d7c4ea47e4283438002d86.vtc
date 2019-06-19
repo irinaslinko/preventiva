@@ -1,0 +1,28 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<?php $row_count_0=count($this->_arrVars['Navigation']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+					<li <?php if ((($this->_arrVars['Navigation'][$_0]['__LAST__'] !== null) ? $this->_arrVars['Navigation'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>class="active"<?php } ?>>
+						<?php if ((($this->_arrVars['Navigation'][$_0]['__FIRST__'] !== null) ? $this->_arrVars['Navigation'][$_0]['__FIRST__'] : $this->_vars['__FIRST__'])) { ?>
+							<a href="<?php if ($this->_arrVars['Navigation'][$_0]['URL_PREFIX'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['URL_PREFIX'], ENT_QUOTES)); } elseif ($this->_vars['URL_PREFIX'] !== null) { print(htmlspecialchars($this->_vars['URL_PREFIX'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['Navigation'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a>
+						<?php } else { ?>
+							<?php if ($this->_arrVars['Navigation'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?>
+						<?php } ?>
+					</li>
+				<?php } ?>
+			</ol>
+		</div>
+	</div>
+	<div class="container">
+		
+		<div class="content__aside">
+			<header><h1 class="header_page"><?php if ($this->_vars['TitleH1'] !== null) { print(htmlspecialchars($this->_vars['TitleH1'], ENT_QUOTES)); } ?></h1></header>
+			<div class="block_textcontent">
+				<?php if ($this->_vars['Content'] !== null) { print($this->_vars['Content']); } ?>
+				<a href="" data-toggle="modal" data-target="#modal-call" class="main_btn main_btn--big"><img src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>img/phone.png" alt=""> <?php if ($this->_vars['LNG_Call'] !== null) { print(htmlspecialchars($this->_vars['LNG_Call'], ENT_QUOTES)); } ?></a>
+			</div>
+		</div>
+		<?php $this->_GetData($this->_FileSearch('_navigation.html'), 1); ?>
+	</div>
+</div>

@@ -1,0 +1,188 @@
+		<div class="container container-totop">
+			<div class="totop"><TMPL_VAR NAME='LNG_Up'></div>
+		</div>
+		<div role="contentinfo" class="footer">
+			<div class="footer__top">
+				<div class="container">
+					<div class="row">
+						<TMPL_LOOP NAME='MENU_seo'>
+							<div class="col-xs-<TMPL_IF NAME='__FIRST__'>5<TMPL_ELSEIF NAME='__LAST__'>3<TMPL_ELSE>4</TMPL_IF>">
+							<nav>
+								<ul class="footer__list">
+									<TMPL_LOOP NAME='Children1'>
+										<li><a href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a></li>
+									</TMPL_LOOP>
+									
+								</ul>
+							</nav>
+						</div>
+						</TMPL_LOOP>
+						<div class="col-xs-12">
+							<ul class="footer__contacts">
+							<TMPL_LOOP NAME='CityList'>
+								<TMPL_IF NAME='Selected'>
+									<TMPL_LOOP NAME='BranchList'>
+										<li>
+											<TMPL_VAR NAME='FullAddress'><br>
+											<span class="phone">
+												<TMPL_VAR NAME='LNG_Phone'>
+												<TMPL_LOOP NAME='PhoneList'>
+													<a href="tel:<TMPL_VAR NAME='Phone'>"><TMPL_VAR NAME='Phone'><TMPL_IF NAME='__LAST__'>.<TMPL_ELSE>,</TMPL_IF></a>
+												</TMPL_LOOP>
+											</span>
+										</li>
+									</TMPL_LOOP>
+								</TMPL_IF>
+							</TMPL_LOOP>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer__bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-md-4">
+							<img class="footer__logo" src="<TMPL_VAR NAME='PATH2MAIN'>img/logo-foot.png" alt="">
+							<ul class="footer__social">
+								<TMPL_LOOP NAME='MENU_social'>
+									<li><a href="<TMPL_VAR NAME='PageURL'>" target="_blank"><img src="<TMPL_VAR NAME='MenuImage3Path'>" alt=""></a></li>
+								</TMPL_LOOP>
+							</ul>
+						</div>
+						<div class="col-xs-12 col-md-8">
+							<nav>
+								<ul class="footer__bottom-menu">
+									<TMPL_LOOP NAME='MENU_main'>
+										<li><a href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a></li>
+									</TMPL_LOOP>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="modal-call" tabindex="-1" role="dialog" aria-labelledby="modalCall">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal" aria-label="<TMPL_VAR NAME='LNG_Close'>">&times;</button>
+						<h4 class="modal-title" id="modalCall"><TMPL_VAR NAME='LNG_CallRequest'></h4>
+						<p><TMPL_VAR NAME='LNG_CallRequestDescription'></p>
+						<form action="<TMPL_VAR NAME='FORM_call_URL'>" method="post" class="ajax-form">
+							<div class="form-group">
+								<input type="text" name="Text_Name_r" class="form-control" placeholder="<TMPL_VAR NAME='LNG_CallName'>">
+							</div>
+							<div class="form-group">
+								<input type="text" name="Text_Phone_r" class="form-control form_phone" placeholder="<TMPL_VAR NAME='LNG_CallPhone'>">
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="Text_Comment_r" rows="5" placeholder="<TMPL_VAR NAME='LNG_CallComment'>"></textarea>
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<input type="checkbox" name="PrivacyPolicyAgreement" value="Y" checked=""> <TMPL_VAR NAME='LNG_PrivacyPolicy1'> <a href="<TMPL_VAR NAME='URL_PREFIX'>privacy-policy.html"><TMPL_VAR NAME='LNG_PrivacyPolicy2'></a> <TMPL_VAR NAME='LNG_PrivacyPolicy3'> <br>
+									<small><TMPL_VAR NAME='LNG_PrivacyPolicy4'></small>
+								</div>
+							</div>
+							<div class="form-error"></div>
+							<div class="form-message"></div>
+							<button type="submit" class="main_btn"><TMPL_VAR NAME='LNG_CallRequestSend'></button>
+							<input type="hidden" name="FormSubmitted" value="Yes" />
+							<input type="hidden" name="UseAjax" value="Yes" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="modal fade" id="modal-bid" tabindex="-1" role="dialog" aria-labelledby="modalBid">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal" aria-label="<TMPL_VAR NAME='LNG_Close'>">&times;</button>
+						<h4 class="modal-title" id="modalBid"><TMPL_VAR NAME='LNG_OrderRequest'></h4>
+						<p><TMPL_VAR NAME='LNG_OrderRequestDescription'></p>
+						<form action="<TMPL_VAR NAME='FORM_order_URL'>" method="post" class="ajax-form">
+							<div class="form-group">
+								<input type="text" name="Text_Name_r" class="form-control" placeholder="<TMPL_VAR NAME='LNG_OrderName'>">
+							</div>
+							<div class="form-group">
+								<input type="text" name="Text_Email" class="form-control" placeholder="<TMPL_VAR NAME='LNG_OrderEmail'>">
+							</div>
+							<div class="form-group">
+								<input type="text" name="Text_Phone_r" class="form-control form_phone" placeholder="<TMPL_VAR NAME='LNG_OrderPhone'>">
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="Text_Comment_r" rows="5" placeholder="<TMPL_VAR NAME='LNG_OrderComment'>"></textarea>
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<input type="checkbox" name="PrivacyPolicyAgreement" value="Y" checked=""> <TMPL_VAR NAME='LNG_PrivacyPolicy1'> <a href="<TMPL_VAR NAME='URL_PREFIX'>privacy-policy.html"><TMPL_VAR NAME='LNG_PrivacyPolicy2'></a> <TMPL_VAR NAME='LNG_PrivacyPolicy3'> <br>
+									<small><TMPL_VAR NAME='LNG_PrivacyPolicy4'></small>
+								</div>
+							</div>
+							<div class="form-error"></div>
+							<div class="form-message"></div>
+							<button type="submit" class="main_btn"><TMPL_VAR NAME='LNG_OrderRequestSend'></button>
+							<input type="hidden" name="FormSubmitted" value="Yes" />
+							<input type="hidden" name="UseAjax" value="Yes" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="modal-service" tabindex="-1" role="dialog" aria-labelledby="modalService">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal" aria-label="<TMPL_VAR NAME='LNG_Close'>">&times;</button>
+						<h4 class="modal-title" id="modalBid"><TMPL_VAR NAME='LNG_ServiceOrder'></h4>
+						<p><TMPL_VAR NAME='LNG_ServiceDescription'></p>
+						<form action="<TMPL_VAR NAME='FORM_service_order_URL'>" method="post" class="ajax-form">
+							<div class="form-group">
+								<input type="text" name="Text_Name_r" class="form-control" placeholder="<TMPL_VAR NAME='LNG_ServiceName'>">
+							</div>
+							<div class="form-group custom-select">
+								<select id="bottomTopic" name="Topic" class="form-control form-service" onchange="this.setAttribute('class', 'form-control')">
+									<option hidden value=""><TMPL_VAR NAME='LNG_ChooseService'></option>
+									<TMPL_LOOP NAME='MENU_service'>
+										<option class="selectService"><TMPL_VAR NAME='Title'></option>
+									</TMPL_LOOP>	
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="text" name="Text_Email" class="form-control" placeholder="<TMPL_VAR NAME='LNG_ServiceEmail'>">
+							</div>
+							<div class="form-group">
+								<input type="text" name="Text_Phone_r" class="form-control form_phone" placeholder="<TMPL_VAR NAME='LNG_ServicePhone'>">
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="Text_Comment_r" rows="5" placeholder="<TMPL_VAR NAME='LNG_ServiceComment'>"></textarea>
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<input type="checkbox" name="PrivacyPolicyAgreement" value="Y" checked=""> <TMPL_VAR NAME='LNG_PrivacyPolicy1'> <a href="<TMPL_VAR NAME='URL_PREFIX'>privacy-policy.html"><TMPL_VAR NAME='LNG_PrivacyPolicy2'></a> <TMPL_VAR NAME='LNG_PrivacyPolicy3'> <br>
+									<small><TMPL_VAR NAME='LNG_PrivacyPolicy4'></small>
+								</div>
+							</div>
+							<div class="form-error"></div>
+							<div class="form-message"></div>
+							<button type="submit" class="main_btn"><TMPL_VAR NAME='LNG_OrderRequestSend'></button>
+							<input type="hidden" name="FormSubmitted" value="Yes" />
+							<input type="hidden" name="UseAjax" value="Yes" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="<TMPL_VAR NAME='PATH2MAIN'>js/bootstrap.min.js"></script>
+		<script src="<TMPL_VAR NAME='PATH2MAIN'>js/main.js"></script>
+		<script src="<TMPL_VAR NAME='PATH2MAIN'>js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+	</body>
+</html>

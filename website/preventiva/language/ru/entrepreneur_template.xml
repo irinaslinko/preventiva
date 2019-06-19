@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<public>
+		<entrepreneur_main.html>
+			<YourCity>Ваш город:</YourCity>
+			<Cost>Стоимость услуги составит</Cost>
+			<Rub>руб.</Rub>
+			<Data>Данные об индивидуальном предпринимателе</Data>
+			<DataMethods>Даные об индивидуальном предпринимателе вы можете ввести двумя способами:</DataMethods>
+			<Passport>Прикрепить скан паспорта (2, 3 стр. и страницу с последним местом прописки)</Passport>
+			<Form>Заполнить анкету, представленную ниже</Form>
+			<DownloadFile>Загрузить файл</DownloadFile>
+			<FillForm>Заполнить анкету</FillForm>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<Service>Услуги</Service>
+			<DataScan>Данные можно не заполнять, если прикреплены сканы</DataScan>
+			<NecessaryDoc>необходимых документов</NecessaryDoc>
+			<All>всех</All>
+			<Necessary>Поля формы, обязательные для заполнения</Necessary>
+			<Name>ФИО полностью</Name>
+			<TIN>ИНН</TIN>
+			<BirthDate>Дата рождения</BirthDate>
+			<BirthPlace>Место рождения</BirthPlace>
+			<PassportNumber>Серия и номер паспорта</PassportNumber>
+			<PassportGive>Кем выдан</PassportGive>
+			<DepartmentCode>Код подразделения</DepartmentCode>
+			<DateGive>Дата выдачи</DateGive>
+			<Registration>Место жительства (прописка)</Registration>
+			<ActivityType>Виды деятельности</ActivityType>
+			<Taxation>Налогообложение</Taxation>
+			<TaxOne>УСН: доходы, уменьшенные на величену расходов - 10%</TaxOne>
+			<TaxTwo>УСН: доходы - 6%</TaxTwo>
+			<TaxThree>Общая система налогообложения</TaxThree>
+			<TaxFour>Патетная система налогообложения</TaxFour>
+			<TaxFive>ЕНДВ</TaxFive>
+			<TaxAdvice>Обсудить выбор системы налогообложения со специалистами КО "Превентива"</TaxAdvice>
+			<ContactPhoneFor>Контактные телефоны для ИФНС</ContactPhoneFor>
+			<ContactPerson>Контактное лицо, телефон</ContactPerson>
+			<Email>Электронная почта</Email>
+			<Internet>Через Интернет</Internet>
+			<Recommendation>По рекомендации</Recommendation>
+			<Other>Другое</Other>
+			<PersonalData>Заполняя настоящую заявку, я, в соответствии с требованиями Федерального закона «О персональных данных» от 27.07.2006 №152-ФЗ, даю согласие на обработку указанных в ней персональных данных в целях совершения действий, необходимых для регистрации индивидуального предпринимателя, а также в целях осуществления информационной рассылки с рекламой и сведениями о необходимости сдачи отчетности в налоговый орган, ПФ и ФСС.</PersonalData>
+			<Familiarize>Ознакомлен(а)</Familiarize>
+			<Method>Выберите способ получения декларации:</Method>
+			<PostMethod>Отправить готовую декларацию по почте</PostMethod>
+			<OfficeMethod>Забрать декларацию в офисе компании</OfficeMethod>
+			<Info>Информация, необходимая для обработки заявки</Info>
+			<How>Как Вы узнали о Компании «Превентива»</How>
+			<Choose>Выберите вариант</Choose>
+			<Delete>удалить</Delete>
+			<Application>Отправить заявку</Application>
+		</entrepreneur_main.html>
+		<entrepreneur_email.html>
+			<Name>ФИО полностью</Name>
+			<TIN>ИНН</TIN>
+			<BirthDate>Дата рождения</BirthDate>
+			<BirthPlace>Место рождения</BirthPlace>
+			<PassportNumber>Серия и номер паспорта</PassportNumber>
+			<PassportGive>Кем выдан</PassportGive>
+			<DepartmentCode>Код подразделения</DepartmentCode>
+			<DateGive>Дата выдачи</DateGive>
+			<Registration>Место жительства (прописка)</Registration>
+			<ActivityType>Виды деятельности</ActivityType>
+			<Taxation>Налогообложение</Taxation>
+			<ContactPhoneFor>Контактные телефоны для ИФНС</ContactPhoneFor>
+			<ContactPerson>Контактное лицо, телефон</ContactPerson>
+			<Email>Электронная почта</Email>
+			<Method>Cпособ получения декларации</Method>
+			<PostMethod>Отправить готовую декларацию по почте</PostMethod>
+			<OfficeMethod>Забрать декларацию в офисе компании</OfficeMethod>
+			<How>Как узнали о Компании «Превентива»</How>
+			<Doc>Документ</Doc>
+		</entrepreneur_email.html>
+	</public>
+</Root>

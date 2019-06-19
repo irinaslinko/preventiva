@@ -1,0 +1,37 @@
+<div class="aside-wrap">
+	<div class="aside">
+		<div class="aside__header"><TMPL_VAR NAME='LNG_Service'></div>
+		<nav>
+			<ul class="aside__menu">
+				<TMPL_LOOP NAME='MENU_service'>
+					<li <TMPL_IF NAME='Opened'>class="active"</TMPL_IF>>
+						<a <TMPL_IF NAME='Children1'>class="has-child"</TMPL_IF> href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a>
+						<ul <TMPL_UNLESS NAME='Opened'>class="hidden"</TMPL_UNLESS>>
+							<TMPL_LOOP NAME='Children1'>
+								<li 
+									<TMPL_IF NAME='Children2'>
+										<TMPL_IF NAME='Opened'>
+											class="active togg"
+										<TMPL_ELSE>
+											class = "togg"
+										</TMPL_IF>
+									</TMPL_IF>
+									<TMPL_IF NAME='Opened'>
+										class="active"
+									</TMPL_IF>>
+									<a <TMPL_IF NAME='Children2'>class="has-child"</TMPL_IF> href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a>
+									<ul <TMPL_UNLESS NAME='Opened'>class="hidden"</TMPL_UNLESS>>
+										<TMPL_LOOP NAME='Children2'>
+											<li <TMPL_IF NAME='Opened'>class="active"</TMPL_IF>><a href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a></li>
+										</TMPL_LOOP>
+									</ul>
+								</li>	
+							</TMPL_LOOP>
+						</ul>
+					</li>
+				</TMPL_LOOP>
+			</ul>
+		</nav>
+	</div>
+	<a href="" data-toggle="modal" data-target="#modal-service" class="side_link"><img src="<TMPL_VAR NAME='PATH2MAIN'>img/aside-btn.png" alt=""> <TMPL_VAR NAME='LNG_ServiceOrder'></a>
+</div>

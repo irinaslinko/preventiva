@@ -1,0 +1,70 @@
+<div class="col-md-12">
+	<section class="box">
+		<header class="panel_header">
+			<h2 class="title pull-left"><?php if ($this->_vars['LNG_Title'] !== null) { print(htmlspecialchars($this->_vars['LNG_Title'], ENT_QUOTES)); } ?></h2>
+		</header>
+		<div class="content-body">
+			<form action="variable.php" method="get" class="form-inline">
+				<select name="section" onchange="this.form.submit();" class="form-control">
+					<?php $row_count_0=count($this->_arrVars['SectionList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+						<optgroup label="<?php if ($this->_arrVars['SectionList'][$_0]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['SectionList'][$_0]['Name'], ENT_QUOTES)); } elseif ($this->_vars['Name'] !== null) { print(htmlspecialchars($this->_vars['Name'], ENT_QUOTES)); } ?>">
+							<?php $row_count_1=count($this->_arrVars['SectionList'][$_0]['Sections']); for ($_1=0 ; $_1<$row_count_1; $_1++) {?>
+								<option value="<?php if ($this->_arrVars['SectionList'][$_0]['Sections'][$_1]['Value'] !== null) { print(htmlspecialchars($this->_arrVars['SectionList'][$_0]['Sections'][$_1]['Value'], ENT_QUOTES)); } elseif ($this->_vars['Value'] !== null) { print(htmlspecialchars($this->_vars['Value'], ENT_QUOTES)); } ?>"<?php if ((($this->_arrVars['SectionList'][$_0]['Sections'][$_1]['Selected'] !== null) ? $this->_arrVars['SectionList'][$_0]['Sections'][$_1]['Selected'] : $this->_vars['Selected'])) { ?> selected="selected"<?php } ?>><?php if ($this->_arrVars['SectionList'][$_0]['Sections'][$_1]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['SectionList'][$_0]['Sections'][$_1]['Name'], ENT_QUOTES)); } elseif ($this->_vars['Name'] !== null) { print(htmlspecialchars($this->_vars['Name'], ENT_QUOTES)); } ?></option>
+							<?php } ?>
+						</optgroup>
+					<?php } ?>
+				</select>
+			</form>
+			
+			<hr />
+			
+			<?php if ($this->_vars['VariableList']) { ?>
+				<table class="table table-hover" id="listing">
+					<thead>
+						<tr>
+							<th width="20%"><?php if ($this->_vars['TagName'] !== null) { print(htmlspecialchars($this->_vars['TagName'], ENT_QUOTES)); } ?></th>
+							<th width="80%"><?php if ($this->_vars['VariableValue'] !== null) { print(htmlspecialchars($this->_vars['VariableValue'], ENT_QUOTES)); } ?></th>
+						</tr>
+					</thead>
+					<?php $row_count_0=count($this->_arrVars['VariableList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+						<tr class="variable-edit clickable" Tag="<?php if ($this->_arrVars['VariableList'][$_0]['TagName'] !== null) { print(htmlspecialchars($this->_arrVars['VariableList'][$_0]['TagName'], ENT_QUOTES)); } elseif ($this->_vars['TagName'] !== null) { print(htmlspecialchars($this->_vars['TagName'], ENT_QUOTES)); } ?>" title="<?php if ($this->_arrVars['VariableList'][$_0]['LNG_Edit'] !== null) { print(htmlspecialchars($this->_arrVars['VariableList'][$_0]['LNG_Edit'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Edit'] !== null) { print(htmlspecialchars($this->_vars['LNG_Edit'], ENT_QUOTES)); } ?>"
+							<?php $row_count_1=count($this->_arrVars['VariableList'][$_0]['AttributeList']); for ($_1=0 ; $_1<$row_count_1; $_1++) {?><?php if ($this->_arrVars['VariableList'][$_0]['AttributeList'][$_1]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['VariableList'][$_0]['AttributeList'][$_1]['Title'], ENT_QUOTES)); } ?>="<?php if ($this->_arrVars['VariableList'][$_0]['AttributeList'][$_1]['Value'] !== null) { print(htmlspecialchars($this->_arrVars['VariableList'][$_0]['AttributeList'][$_1]['Value'], ENT_QUOTES)); } ?>"<?php } ?>
+						>
+							<td><?php if ($this->_arrVars['VariableList'][$_0]['TagName'] !== null) { print(htmlspecialchars($this->_arrVars['VariableList'][$_0]['TagName'], ENT_QUOTES)); } elseif ($this->_vars['TagName'] !== null) { print(htmlspecialchars($this->_vars['TagName'], ENT_QUOTES)); } ?></td>
+							<td><div class="variable-value" Tag="<?php if ($this->_arrVars['VariableList'][$_0]['TagName'] !== null) { print(htmlspecialchars($this->_arrVars['VariableList'][$_0]['TagName'], ENT_QUOTES)); } elseif ($this->_vars['TagName'] !== null) { print(htmlspecialchars($this->_vars['TagName'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['VariableList'][$_0]['Value'] !== null) { print($this->_arrVars['VariableList'][$_0]['Value']); } elseif ($this->_vars['Value'] !== null) { print($this->_vars['Value']); } ?></div></td>
+						</tr>
+					<?php } ?>
+				</table>
+			<?php } else { ?>
+				<div class="alert alert-success"><?php if ($this->_vars['LNG_Empty'] !== null) { print(htmlspecialchars($this->_vars['LNG_Empty'], ENT_QUOTES)); } ?></div>
+			<?php } ?>
+		</div>
+	</section>
+</div>
+
+<div id="variable-edit" class="modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form id="variable-edit-form" onsubmit="SaveVariable();return false;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title"><?php if ($this->_vars['LNG_EditVariable'] !== null) { print(htmlspecialchars($this->_vars['LNG_EditVariable'], ENT_QUOTES)); } ?></h4>
+			</div>
+			<div class="modal-body"></div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-icon variable-cancel"><i class="fa fa-ban"></i><?php if ($this->_vars['LNG_Cancel'] !== null) { print(htmlspecialchars($this->_vars['LNG_Cancel'], ENT_QUOTES)); } ?></button>
+				<button type="submit" class="btn btn-success btn-icon"><i class="fa fa-save"></i><?php if ($this->_vars['LNG_Save'] !== null) { print(htmlspecialchars($this->_vars['LNG_Save'], ENT_QUOTES)); } ?></button>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		InitVariableEdit('<?php if ($this->_vars['SelectedSection'] !== null) { print($this->_EscapeJS($this->_vars['SelectedSection'])); } ?>');
+	});
+	
+</script>

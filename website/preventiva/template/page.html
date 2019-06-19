@@ -1,0 +1,28 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<TMPL_LOOP NAME='Navigation'>
+					<li <TMPL_IF NAME='__LAST__'>class="active"</TMPL_IF>>
+						<TMPL_IF NAME='__FIRST__'>
+							<a href="<TMPL_VAR NAME='URL_PREFIX'>"><TMPL_VAR NAME='Title'></a>
+						<TMPL_ELSE>
+							<TMPL_VAR NAME='Title'>
+						</TMPL_IF>
+					</li>
+				</TMPL_LOOP>
+			</ol>
+		</div>
+	</div>
+	<div class="container">
+		
+		<div class="content__aside">
+			<header><h1 class="header_page"><TMPL_VAR NAME='TitleH1'></h1></header>
+			<div class="block_textcontent">
+				<TMPL_VAR NAME='Content' ESCAPE='none'>
+				<a href="" data-toggle="modal" data-target="#modal-call" class="main_btn main_btn--big"><img src="<TMPL_VAR NAME='PATH2MAIN'>img/phone.png" alt=""> <TMPL_VAR NAME='LNG_Call'></a>
+			</div>
+		</div>
+		<TMPL_INCLUDE FILE='_navigation.html'>
+	</div>
+</div>

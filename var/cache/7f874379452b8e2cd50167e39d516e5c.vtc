@@ -1,0 +1,22 @@
+<div class="col-md-12">
+	<section class="box">
+		<header class="panel_header">
+			<h2 class="title pull-left"><?php if ($this->_vars['LNG_EditSitemap'] !== null) { print(htmlspecialchars($this->_vars['LNG_EditSitemap'], ENT_QUOTES)); } ?></h2>
+		</header>
+		<div class="content-body">
+			<?php if ($this->_vars['Message']) { ?>
+				<div class="alert alert-success"><?php if ($this->_vars['Message'] !== null) { print(htmlspecialchars($this->_vars['Message'], ENT_QUOTES)); } ?></div>
+			<?php } ?>
+			<?php if ($this->_vars['Error']) { ?>
+				<div class="alert alert-error"><?php if ($this->_vars['Error'] !== null) { print(htmlspecialchars($this->_vars['Error'], ENT_QUOTES)); } ?></div>
+			<?php } ?>
+			<form action="<?php if ($this->_vars['ADMIN_PATH'] !== null) { print(htmlspecialchars($this->_vars['ADMIN_PATH'], ENT_QUOTES)); } ?>sitemap.php" method="POST">
+				<div class="form-group">
+					<textarea name="SitemapContent" rows="20" cols="120" class="form-control"><?php if ($this->_vars['SitemapContent'] !== null) { print($this->_vars['SitemapContent']); } ?></textarea>
+				</div>
+				<button type="submit" class="btn btn-success btn-icon"><i class="fa fa-save"></i><?php if ($this->_vars['LNG_Save'] !== null) { print(htmlspecialchars($this->_vars['LNG_Save'], ENT_QUOTES)); } ?></button>
+				<input type="hidden" name="Save" value="1" />
+			</form>
+		</div>
+	</section>
+</div>

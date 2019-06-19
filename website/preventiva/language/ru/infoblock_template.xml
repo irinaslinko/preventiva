@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<public>
+		<infoblock-news_item_list.html>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<Paging>Навигация по страницам</Paging>
+			<Service>Услуги</Service>
+		</infoblock-news_item_list.html>
+		<infoblock-news_item_view.html>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<Call>Заказать обратный звонок</Call>
+			<Service>Услуги</Service>
+		</infoblock-news_item_view.html>
+		<infoblock-event_item_list.html>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<Paging>Навигация по страницам</Paging>
+			<Service>Услуги</Service>
+		</infoblock-event_item_list.html>
+		<infoblock-event_item_view.html>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<Call>Заказать обратный звонок</Call>
+			<Service>Услуги</Service>
+		</infoblock-event_item_view.html>
+		<infoblock-review_item_list.html>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<Service>Услуги</Service>
+			<Paging>Навигация по страницам</Paging>
+			<Preventiva>Компания "Превентива":</Preventiva>
+			<Review>Оставьте свой отзыв</Review>
+			<Necessary>Поля формы, обязательные для заполнения</Necessary>
+			<Name>Ваше имя:</Name>
+			<Email>Ваш email:</Email>
+			<City>Укажите город:</City>
+			<Text>Текст отзыва:</Text>
+			<Send>Отправить</Send>
+			<PrivacyPolicy1>Я</PrivacyPolicy1>
+			<PrivacyPolicy2>согласен</PrivacyPolicy2>
+			<PrivacyPolicy3>на обработку персональных данных</PrivacyPolicy3>
+			<PrivacyPolicy4>В соответствии с Федеральным законом РФ от 27 июля 2006 г. №152-ФЗ «О персональных данных».</PrivacyPolicy4>
+		</infoblock-review_item_list.html>
+		<infoblock-review_email.html>
+			<Name>Имя</Name>
+			<Email>Email</Email>
+			<City>Город</City>
+			<Description>Отзыв</Description>
+		</infoblock-review_email.html>
+		<infoblock-question_category_list.html>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<Ask>Задать вопрос</Ask>
+			<Service>Услуги</Service>
+			<Answer>Ответ:</Answer>
+			<AskQuestion>Задать вопрос</AskQuestion>
+			<QuestionName>Ваше имя:</QuestionName>
+			<QuestionEmail>Ваш email:</QuestionEmail>
+			<QuestionCity>Укажите город:</QuestionCity>
+			<QuestionTopic>Тематика вопросов-ответов:</QuestionTopic>
+			<Question>Ваш вопрос:</Question>
+			<QuestionSend>Отправить</QuestionSend>
+			<QuestionInfo>Информация, необходимая для обработки заявки</QuestionInfo>
+			<Necessary>Поля формы, обязательные для заполнения</Necessary>
+			<PrivacyPolicy1>Я</PrivacyPolicy1>
+			<PrivacyPolicy2>согласен</PrivacyPolicy2>
+			<PrivacyPolicy3>на обработку персональных данных</PrivacyPolicy3>
+			<PrivacyPolicy4>В соответствии с Федеральным законом РФ от 27 июля 2006 г. №152-ФЗ «О персональных данных».</PrivacyPolicy4>
+		</infoblock-question_category_list.html>
+		<infoblock-question_email.html>
+			<Name>Имя</Name>
+			<Email>Email</Email>
+			<City>Город</City>
+			<Topic>Тема вопроса</Topic>
+			<Question>Вопрос</Question>
+		</infoblock-question_email.html>
+	</public>
+</Root>

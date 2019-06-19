@@ -1,0 +1,146 @@
+<div class="col-md-12">
+	<section class="box">
+		<header class="panel_header">
+			<?php if ($this->_vars['BranchID']) { ?>
+				<h2 class="title pull-left"><?php if ($this->_vars['LNG_EditBranch'] !== null) { print(htmlspecialchars($this->_vars['LNG_EditBranch'], ENT_QUOTES)); } ?></h2>
+			<?php } else { ?>
+				<h2 class="title pull-left"><?php if ($this->_vars['LNG_AddBranch'] !== null) { print(htmlspecialchars($this->_vars['LNG_AddBranch'], ENT_QUOTES)); } ?></h2>
+			<?php } ?>
+		</header>
+		<div class="content-body">
+			<form action="<?php if ($this->_vars['ADMIN_PATH'] !== null) { print(htmlspecialchars($this->_vars['ADMIN_PATH'], ENT_QUOTES)); } ?>city.php?CityID=<?php if ($this->_vars['CityID'] !== null) { print(htmlspecialchars($this->_vars['CityID'], ENT_QUOTES)); } ?>" method="post" enctype="multipart/form-data">
+				<?php if ($this->_vars['ErrorList']) { ?>
+					<div class="col-md-12">
+						<div class="alert alert-error"><?php $row_count_0=count($this->_arrVars['ErrorList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?><?php if ($this->_arrVars['ErrorList'][$_0]['Message'] !== null) { print(htmlspecialchars($this->_arrVars['ErrorList'][$_0]['Message'], ENT_QUOTES)); } elseif ($this->_vars['Message'] !== null) { print(htmlspecialchars($this->_vars['Message'], ENT_QUOTES)); } ?><?php if (!(($this->_arrVars['ErrorList'][$_0]['__LAST__'] !== null) ? $this->_arrVars['ErrorList'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?><br /><?php } ?><?php } ?></div>
+					</div>
+				<?php } ?>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="BranchName" class="required"><?php if ($this->_vars['LNG_BranchName'] !== null) { print(htmlspecialchars($this->_vars['LNG_BranchName'], ENT_QUOTES)); } ?></label><br />
+							<input class="form-control" type="text" name="BranchName" id="BranchName" value="<?php if ($this->_vars['BranchName'] !== null) { print(htmlspecialchars($this->_vars['BranchName'], ENT_QUOTES)); } ?>" />
+						</div>
+						<div class="form-group">
+							<label for="FullAddress" class="required"><?php if ($this->_vars['LNG_FullAddress'] !== null) { print(htmlspecialchars($this->_vars['LNG_FullAddress'], ENT_QUOTES)); } ?></label><br />
+							<input class="form-control" type="text" name="FullAddress" id="FullAddress" value="<?php if ($this->_vars['FullAddress'] !== null) { print(htmlspecialchars($this->_vars['FullAddress'], ENT_QUOTES)); } ?>" />
+						</div>
+						<div class="form-group">
+							<label for="Address" class="required"><?php if ($this->_vars['LNG_Address'] !== null) { print(htmlspecialchars($this->_vars['LNG_Address'], ENT_QUOTES)); } ?></label><br />
+							<input class="form-control" type="text" name="Address" id="Address" value="<?php if ($this->_vars['Address'] !== null) { print(htmlspecialchars($this->_vars['Address'], ENT_QUOTES)); } ?>" />
+						</div>
+						<div class="form-group">
+							<label for="Map"><?php if ($this->_vars['LNG_Map'] !== null) { print(htmlspecialchars($this->_vars['LNG_Map'], ENT_QUOTES)); } ?></label><br />
+							<textarea class="form-control" name="Map" id="Map" rows="5" cols="80"><?php if ($this->_vars['Map'] !== null) { print(htmlspecialchars($this->_vars['Map'], ENT_QUOTES)); } ?></textarea>
+						</div>
+					</div>
+ 				
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="PhoneList" class="required"><?php if ($this->_vars['LNG_PhoneList'] !== null) { print(htmlspecialchars($this->_vars['LNG_PhoneList'], ENT_QUOTES)); } ?></label><br />
+							<table class="table" id="phone-list">
+								<thead>
+									<tr>
+										<th width="400"><?php if ($this->_vars['LNG_Office'] !== null) { print(htmlspecialchars($this->_vars['LNG_Office'], ENT_QUOTES)); } ?></th>
+										<th width="400"><?php if ($this->_vars['LNG_Phone'] !== null) { print(htmlspecialchars($this->_vars['LNG_Phone'], ENT_QUOTES)); } ?></th>
+										<th width="25">&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							<script>
+								$(document).ready(function(){
+									<?php $row_count_0=count($this->_arrVars['PhoneList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+										var clone = $(".hidden tr#phone-new").clone();
+										clone.removeAttr("id");
+										clone.find("input.office").val($("<div>").html("<?php if ($this->_arrVars['PhoneList'][$_0]['Office'] !== null) { print(htmlspecialchars($this->_arrVars['PhoneList'][$_0]['Office'], ENT_QUOTES)); } elseif ($this->_vars['Office'] !== null) { print(htmlspecialchars($this->_vars['Office'], ENT_QUOTES)); } ?>").text());
+										clone.find("input.phone").val($("<div>").html("<?php if ($this->_arrVars['PhoneList'][$_0]['Phone'] !== null) { print(htmlspecialchars($this->_arrVars['PhoneList'][$_0]['Phone'], ENT_QUOTES)); } elseif ($this->_vars['Phone'] !== null) { print(htmlspecialchars($this->_vars['Phone'], ENT_QUOTES)); } ?>").text());
+										clone.appendTo("#phone-list tbody");
+									<?php } ?>
+								});
+							</script>
+							<a id="phone-add" class="btn btn-primary btn-icon right15" href="#"><i class="fa fa-plus-square"></i><?php if ($this->_vars['LNG_Add'] !== null) { print(htmlspecialchars($this->_vars['LNG_Add'], ENT_QUOTES)); } ?></a>
+						</div>
+						<div class="form-group">
+							<label for="HourList" class="required"><?php if ($this->_vars['LNG_HourList'] !== null) { print(htmlspecialchars($this->_vars['LNG_HourList'], ENT_QUOTES)); } ?></label><br />
+							<table class="table" id="hour-list">
+								<thead>
+									<tr>
+										<th width="400"><?php if ($this->_vars['LNG_Day'] !== null) { print(htmlspecialchars($this->_vars['LNG_Day'], ENT_QUOTES)); } ?></th>
+										<th width="400"><?php if ($this->_vars['LNG_Hour'] !== null) { print(htmlspecialchars($this->_vars['LNG_Hour'], ENT_QUOTES)); } ?></th>
+										<th width="25">&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							<script>
+								$(document).ready(function(){
+									<?php $row_count_0=count($this->_arrVars['HourList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+										var clone = $(".hidden tr#hour-new").clone();
+										clone.removeAttr("id");
+										clone.find("input.day").val($("<div>").html("<?php if ($this->_arrVars['HourList'][$_0]['Day'] !== null) { print(htmlspecialchars($this->_arrVars['HourList'][$_0]['Day'], ENT_QUOTES)); } elseif ($this->_vars['Day'] !== null) { print(htmlspecialchars($this->_vars['Day'], ENT_QUOTES)); } ?>").text());
+										clone.find("input.hour").val($("<div>").html("<?php if ($this->_arrVars['HourList'][$_0]['Hour'] !== null) { print(htmlspecialchars($this->_arrVars['HourList'][$_0]['Hour'], ENT_QUOTES)); } elseif ($this->_vars['Hour'] !== null) { print(htmlspecialchars($this->_vars['Hour'], ENT_QUOTES)); } ?>").text());
+										clone.appendTo("#hour-list tbody");
+									<?php } ?>
+								});
+							</script>
+							<a id="hour-add" class="btn btn-primary btn-icon right15" href="#"><i class="fa fa-plus-square"></i><?php if ($this->_vars['LNG_Add'] !== null) { print(htmlspecialchars($this->_vars['LNG_Add'], ENT_QUOTES)); } ?></a>
+						</div>		
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="top15">
+					<button type="submit" class="btn btn-success btn-icon right15"><i class="fa fa-save"></i><?php if ($this->_vars['LNG_Save'] !== null) { print(htmlspecialchars($this->_vars['LNG_Save'], ENT_QUOTES)); } ?></button>
+					<a class="btn btn-icon right15" href="<?php if ($this->_vars['ADMIN_PATH'] !== null) { print(htmlspecialchars($this->_vars['ADMIN_PATH'], ENT_QUOTES)); } ?>city.php?CityID=<?php if ($this->_vars['CityID'] !== null) { print(htmlspecialchars($this->_vars['CityID'], ENT_QUOTES)); } ?>"><i class="fa fa-ban"></i><?php if ($this->_vars['LNG_Cancel'] !== null) { print(htmlspecialchars($this->_vars['LNG_Cancel'], ENT_QUOTES)); } ?></a>
+				</div>
+				<input type="hidden" name="Save" value="1" />
+				<input type="hidden" name="BranchID" id="BranchID" value="<?php if ($this->_vars['BranchID'] !== null) { print(htmlspecialchars($this->_vars['BranchID'], ENT_QUOTES)); } ?>" />
+				<input type="hidden" name="CityID" id="CityID" value="<?php if ($this->_vars['CityID'] !== null) { print(htmlspecialchars($this->_vars['CityID'], ENT_QUOTES)); } ?>" />
+				<?php if ($this->_vars['ParamsForForm'] !== null) { print($this->_vars['ParamsForForm']); } ?>
+			</form>
+		</div>
+	</section>
+</div>
+
+<div class="hidden">
+	<table>
+		<tr id="phone-new">
+			<td><input class="form-control office" type="text" name="Office[]" value="" /></td>
+			<td><input class="form-control phone" type="text" name="Phone[]" value="" /></td>
+			<td><a href="#" class="phone-delete"><i class="fa fa-close delete"></i></a></td>
+		</tr>
+	</table>
+</div>
+
+<div class="hidden">
+	<table>
+		<tr id="hour-new">
+			<td><input class="form-control day" type="text" name="Day[]" value="" /></td>
+			<td><input class="form-control hour" type="text" name="Hour[]" value="" /></td>
+			<td><a href="#" class="hour-delete"><i class="fa fa-close delete"></i></a></td>
+		</tr>
+	</table>
+</div>
+
+<script>
+$(document).ready(function(){
+	$("#phone-add").click(function(event){
+		$("#phone-new").clone().removeAttr("id").appendTo("#phone-list tbody");
+		event.preventDefault();
+	});
+	$(document).on("click", ".phone-delete", function(event){
+		$(this).parent().parent().remove();
+		event.preventDefault();
+	});
+	
+	$("#hour-add").click(function(event){
+		$("#hour-new").clone().removeAttr("id").appendTo("#hour-list tbody");
+		event.preventDefault();
+	});
+	$(document).on("click", ".hour-delete", function(event){
+		$(this).parent().parent().remove();
+		event.preventDefault();
+	});
+});
+</script>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<Website WebsiteID="1" Folder="preventiva" Name="Preventiva" WebDir="/preventiva/" ModuleList="form,infoblock,gallery,catalog,payment,entrepreneur,company" Logo="img/admin_logo.png">
+		<Language Folder="ru" Name="Russian" NativeName="Русский" Encoding="utf-8" DateFormat="j F Y" TimeFormat="H:i" Default="1">
+			<Domain HostName="localhost" LangDir="" />
+			<Domain HostName="novosibirsk.localhost" LangDir="" Redirect="no"/>
+			<Domain HostName="seversk.localhost" LangDir="" Redirect="no"/>
+			<Domain HostName="prokopevsk.localhost" LangDir="" Redirect="no"/>
+			<Domain HostName="novokuznetsk.localhost" LangDir="" Redirect="no"/>
+			<Domain HostName="biysk.localhost" LangDir="" Redirect="no"/>
+		</Language>
+	</Website>
+</Root>

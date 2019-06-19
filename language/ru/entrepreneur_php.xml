@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<module-title>Регистрация ИП</module-title>
+	<config-Subject>Тема письма</config-Subject>
+	<config-details><![CDATA[
+		<h3>Описание параметров</h3>
+		<p>Тема пиcьма - заголовок с которым будет приходить E-mail</p>
+	]]></config-details>
+	<name-empty>Введите ФИО</name-empty>
+	<tin-empty>Введите ИНН</tin-empty>
+	<birth-date-empty>Введите дату рождения</birth-date-empty>
+	<birth-place-empty>Введите место рождения</birth-place-empty>
+	<passport-number-empty>Введите серию и номер паспорта</passport-number-empty>
+	<passport-give-empty>Введите кем выдан паспорт</passport-give-empty>
+	<department-code-empty>Введите код подразделения</department-code-empty>
+	<data-give-empty>Введите дату выдачи паспорта</data-give-empty>
+	<registration-empty>Введите место жительства (прописку)</registration-empty>
+	<activity-type-empty>Введите виды деятельности</activity-type-empty>
+	<taxation-empty>Выберите вид налогообложения</taxation-empty>
+	<contact-phone-empty>Введите контактный телефон для ИФНС</contact-phone-empty>
+	<contact-person-empty>Введите контактное лицо, телефон</contact-person-empty>
+	<email-incorrect>Введите email в формате info@yoursite.ru</email-incorrect>
+	<how-empty>Выберите, как вы узнали о нашей компании</how-empty>
+	<familiarize-empty>Пожалуйста, подтвердите, что вы ознакомлены с требованиями Федерального закона «О персональных данных» </familiarize-empty>
+	<method-empty>Пожалуйста, выберите хотя бы один способ получения декларации</method-empty>
+	<entrepreneur-success>Ваша заявка отправлена</entrepreneur-success>
+	<entrepreneur-error>Извините, по техническим причинам Вы временно не можете оcтавить заявку на регистрацию ИП</entrepreneur-error>
+</Root>

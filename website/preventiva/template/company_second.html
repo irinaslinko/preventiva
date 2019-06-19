@@ -1,0 +1,359 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<TMPL_LOOP NAME='Navigation'>
+					<li <TMPL_IF NAME='__LAST__'>class="active"</TMPL_IF>>
+						<TMPL_IF NAME='__FIRST__'>
+							<a href="<TMPL_VAR NAME='URL_PREFIX'>"><TMPL_VAR NAME='Title'></a>
+						<TMPL_ELSE>
+							<TMPL_VAR NAME='Title'>
+						</TMPL_IF>
+					</li>
+				</TMPL_LOOP>
+			</ol>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="content__aside">
+			<header><h1 class="header_page"><TMPL_VAR NAME='TitleH1'></h1></header>
+			<div class="form_progress">
+				<ul>
+					<li class="active"><span><TMPL_VAR NAME='LNG_Title'></span></li>
+					<li class="active"><span><TMPL_VAR NAME='LNG_Data'></span></li>
+					<li><span><TMPL_VAR NAME='LNG_Type'></span></li>
+				</ul>
+			</div>
+			
+			<form method="post" class="ajax-form" action="<TMPL_VAR NAME='PROJECT_PATH'>module/company/ajax_public.php?Part=Second">
+				<div class="page_ooo2">
+					<div class="form_bottom form_bottom--white">
+						<header><h3 class="form_bottom__header form_bottom__header--big"><TMPL_VAR NAME='LNG_AboutHead'></h3></header>
+						<div class="form_bottom__need"><TMPL_VAR NAME='LNG_Necessary'></div>
+						<div class="form_bottom__wrap">
+							<label class="label_comment" for="formCapital">
+								<b><TMPL_VAR NAME='LNG_Money'></b>
+								<span class="comment_tooltip"	data-toggle="tooltip" data-placement="top" title="<TMPL_VAR NAME='LNG_QuestionMoney'>"></span>
+							</label>
+							<div class="form-group">
+								<input id="formCapital" name="Money" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='Money'>">
+							</div>
+						</div>
+						<div class="section_radio">
+							<p class="italic">
+								<TMPL_VAR NAME='LNG_MinMoney'> <br>
+								<TMPL_VAR NAME='LNG_AnotherMoney'>
+							</p>
+		
+							<h3 class="form_bottom__header"><TMPL_VAR NAME='LNG_Payment'></h3>
+							<div class="form_bottom__need form_bottom__need-notbord"><TMPL_VAR NAME='LNG_Must'></div>
+							<div class="radio">
+								<input type="radio" name="paymentCapital" id="Cash" value="Cash" <TMPL_IF NAME='paymentCapital' OP='!=' VALUE='Property'>checked</TMPL_IF>>
+								<label for="Cash"><TMPL_VAR NAME='LNG_Cash'><span></span></label>
+							</div>
+							<div class="radio">
+								<input type="radio" name="paymentCapital" id="Property" value="Property" <TMPL_IF NAME='paymentCapital' VALUE='Property'>checked</TMPL_IF>>
+								<label for="Property"><TMPL_VAR NAME='LNG_Property'><span></span></label>
+							</div>
+						</div>
+					</div>
+					
+					<div id="form_bottom-hide" class="form_bottom form_bottom--white" <TMPL_IF NAME='paymentCapital' VALUE='Property'>style="display: block;"</TMPL_IF>>
+						<div class="form_bottom__wrap">
+							<label for="NameProperty"><TMPL_VAR NAME='LNG_NameProperty'></label>
+							<div class="form-group">
+								<input id="NameProperty" name="NameProperty" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='NameProperty'>">
+							</div>
+						</div>
+					</div>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							<TMPL_LOOP NAME='FounderList'>
+								AddFounder();
+								$('#BirthDateFounder-' + '<TMPL_VAR NAME="FounderNumber">').val($('<div>').html("<TMPL_VAR NAME='BirthDateFounder'>").text());
+								$('#BirthPlaceFounder-' + '<TMPL_VAR NAME="FounderNumber">').val($('<div>').html("<TMPL_VAR NAME='BirthPlaceFounder'>").text()); 
+								$('#PassportNumberFounder-' + '<TMPL_VAR NAME="FounderNumber">').val($('<div>').html("<TMPL_VAR NAME='PassportNumberFounder'>").text());
+								$('#PassportGiveFounder-' + '<TMPL_VAR NAME="FounderNumber">').val($('<div>').html("<TMPL_VAR NAME='PassportGiveFounder'>").text());
+								$('#DepartmentCodeFounder-' + '<TMPL_VAR NAME="FounderNumber">').val($('<div>').html("<TMPL_VAR NAME='DepartmentCodeFounder'>").text()); 
+								$('#DateGiveFounder-' + '<TMPL_VAR NAME="FounderNumber">').val($('<div>').html("<TMPL_VAR NAME='DateGiveFounder'>").text()); 
+								$('#RegistrationFounder-' + '<TMPL_VAR NAME="FounderNumber">').val($('<div>').html("<TMPL_VAR NAME='RegistrationFounder'>").text());
+								<TMPL_IF NAME='paymentFace' VALUE='LegalEntity'>
+									$('#LegalEntity-' + '<TMPL_VAR NAME="FounderNumber">').attr('checked', true).parent().siblings().find('.paymentFaceChange').text("<TMPL_VAR NAME='LNG_Share'>");
+									
+								</TMPL_IF>
+								<TMPL_IF NAME='paymentFace' VALUE='NaturalPerson'>
+									$('#NaturalPerson-' + '<TMPL_VAR NAME="FounderNumber">').attr('checked', true).parent().siblings().find('.paymentFaceChange').text("<TMPL_VAR NAME='LNG_CountMoney'>");
+								</TMPL_IF>
+								$('#CountMoney-' + '<TMPL_VAR NAME="FounderNumber">').val($('<div>').html("<TMPL_VAR NAME='CountMoney'>").text());
+								<TMPL_LOOP NAME='FileList'>
+									$('.upload-file-founder-' + '<TMPL_VAR NAME="Founder">').html("<span><span class='file-name'>" + 
+										"<TMPL_VAR NAME='FileName'>" + 
+										"<span data-url=\"<TMPL_VAR NAME='PROJECT_PATH'>module/company/ajax_public.php\" class=\"fa fa-close\" title=\"<TMPL_VAR NAME='LNG_Delete'>\" id=\"<TMPL_VAR NAME='File'>\"></span>" + 
+										"<input type=\"hidden\" class=\"FounderId\" name=\"FounderList[<TMPL_VAR NAME='Founder'>][FileListFounderID][]\" value=\"<TMPL_VAR NAME='File'>\"/>" +
+										"<input type=\"hidden\" class=\"FounderName\" name=\"FounderList[<TMPL_VAR NAME='Founder'>][FileListFounderName][]\" value=\"<TMPL_VAR NAME='FileName'>\"/>&nbsp;" +
+										"</span></span").text();
+								</TMPL_LOOP>	
+							</TMPL_LOOP>
+						});
+					</script>
+					
+					<div class="add">
+						
+					</div>
+					<div class="form_bottom form_bottom--border">
+						<h4 class="form_bottom__header"><TMPL_VAR NAME='LNG_Head'></h4>
+		
+						<p>
+							<TMPL_VAR NAME='LNG_DataWay'> <br>
+							<TMPL_VAR NAME='LNG_FirstWay'> <br>
+							<TMPL_VAR NAME='LNG_SecondWay'>
+						</p>
+	
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#tab-1" aria-controls="tab-1" role="tab" data-toggle="tab"><TMPL_VAR NAME='LNG_DownloadFile'></a></li>
+							<li role="presentation"><a href="#tab-2" aria-controls="tab-2" role="tab" data-toggle="tab"><TMPL_VAR NAME='LNG_FillForm'></a></li>
+						</ul>
+	
+						<!-- Tab panes -->
+						<div class="tab-content">
+						
+							<div role="tabpanel" class="tab-pane fade in active" id="tab-1">
+								<div class="form_bottom__upload">
+									<div class="form-upload">
+										<input id="uploadFileHead" data-url="<TMPL_VAR NAME='PROJECT_PATH'>module/company/ajax_public.php" type="file">
+									</div>
+									<div class="form_bottom__upload-text upload-file-head">
+										<TMPL_LOOP NAME='FileListHead'>
+											<span>
+												<span class="file-name"><TMPL_VAR NAME='FileName'></span>
+												<span data-url="<TMPL_VAR NAME='PROJECT_PATH'>module/company/ajax_public.php" class="fa fa-close" title="<TMPL_VAR NAME='LNG_Delete'>" id="<TMPL_VAR NAME='File'>"></span>
+												<input type="hidden" class="HeadId" name="FileListHeadID[]" value="<TMPL_VAR NAME='File'>"/>
+												<input type="hidden" class="HeadName" name="FileListHeadName[]" value="<TMPL_VAR NAME='FileName'>"/>&nbsp;
+											</span>
+										</TMPL_LOOP>
+									</div>
+								</div>
+							</div>
+							
+							<div role="tabpanel" class="tab-pane fade" id="tab-2">
+								<div class="form_bottom__italic"><TMPL_VAR NAME='LNG_NotFill'> <b><TMPL_VAR NAME='LNG_All'></b> <TMPL_VAR NAME='LNG_Doc'></div>
+								<div class="form_bottom__need"><TMPL_VAR NAME='LNG_Necessary'></div>
+								
+								<div class="form_bottom__wrap">
+									<label for="BirthDateHead"><TMPL_VAR NAME='LNG_BirthDate'></label>
+									<div class="form-group">
+										<input id="BirthDateHead" name="BirthDateHead" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='BirthDateHead'>">
+									</div>
+			
+									<label for="BirthPlaceHead"><TMPL_VAR NAME='LNG_BirthPlace'></label>
+									<div class="form-group">
+										<input id="BirthPlaceHead" name="BirthPlaceHead" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='BirthPlaceHead'>">
+									</div>
+			
+									<label for="PassportNumberHead"><TMPL_VAR NAME='LNG_PassportNumber'></label>
+									<div class="form-group">
+										<input id="PassportNumberHead" name="PassportNumberHead" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='PassportNumberHead'>">
+									</div>
+			
+									<label for="PassportGiveHead"><TMPL_VAR NAME='LNG_PassportGive'></label>
+									<div class="form-group">
+										<input id="PassportGiveHead" name="PassportGiveHead" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='PassportGiveHead'>">
+									</div>
+			
+									<label for="DepartmentCodeHead"><TMPL_VAR NAME='LNG_DepartmentCode'></label>
+									<div class="form-group">
+										<input id="DepartmentCodeHead" name="DepartmentCodeHead" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='DepartmentCodeHead'>">
+									</div>
+			
+									<label for="DateGiveHead"><TMPL_VAR NAME='LNG_DateGive'></label>
+									<div class="form-group">
+										<input id="DateGiveHead" name="DateGiveHead" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='DateGiveHead'>">
+									</div>
+			
+									<label for="RegistrationHead"><TMPL_VAR NAME='LNG_Registration'></label>
+									<div class="form-group">
+										<input id="RegistrationHead" name="RegistrationHead" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='RegistrationHead'>">
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form_bottom--border__last">
+							<div class="form_bottom__wrap">
+								<label for="Position"><TMPL_VAR NAME='LNG_Position'></label>
+								<div class="form-group custom-select form-control_need">
+									<select id="Position" name="Position" class="form-control">
+										<option disabled selected><TMPL_VAR NAME='LNG_Choose'></option>
+										<option <TMPL_IF NAME='Position' VALUE='1'>selected</TMPL_IF>>1</option>
+										<option <TMPL_IF NAME='Position' VALUE='2'>selected</TMPL_IF>>2</option>
+										<option <TMPL_IF NAME='Position' VALUE='3'>selected</TMPL_IF>>3</option>
+									</select>
+								</div>
+								
+								<label class="label_comment" for="OfficeTerm"><TMPL_VAR NAME='LNG_OfficeTerm'>
+									<span class="comment_tooltip"	data-toggle="tooltip" data-placement="top" title="<TMPL_VAR NAME='LNG_QuestionHead'>"></span>
+								</label>
+								<div class="form-group">
+									<input id="OfficeTerm" name="OfficeTerm" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='OfficeTerm'>">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="page_ooo2__bottom">
+						<div class="form_bottom form_bottom--white">
+							<div class="form_bottom__wrap">
+								<label for="form10"><TMPL_VAR NAME='LNG_ContactPhoneFor'></label>
+								<div class="form-group">
+									<input id="form10" name="ContactPhoneFor" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='ContactPhoneFor'>">
+								</div>
+			
+								<label for="form11"><TMPL_VAR NAME='LNG_ContactPerson'></label>
+								<div class="form-group">
+									<input id="form11" name="ContactPerson" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='ContactPerson'>">
+								</div>
+			
+								<label for="form12"><TMPL_VAR NAME='LNG_Email'></label>
+								<div class="form-group">
+									<input id="form12" name="Email" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='Email'>">
+								</div>
+							</div>
+						</div>
+					</div>
+	
+				</div>
+				
+				<div class="bottom_2btn">
+					<div class="form-error"></div>
+					<div class="row">
+						<div class="col-xs-7">
+							<button type="submit" name="Note" class="main_btn main_btn--right" id="Next" data-url="<TMPL_VAR NAME='CompanyThirdURL'>"><TMPL_VAR NAME='LNG_Next'></button>
+						</div>
+						<div class="col-xs-5">
+							<a class="main_btn" href="<TMPL_VAR NAME='CompanyFirstURL'>"><TMPL_VAR NAME='LNG_Prev'></a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<TMPL_INCLUDE FILE='_navigation.html'>
+	</div>
+</div>
+
+<div class="hidden">
+	<span id="new-file-head">
+		<span class="file-name"></span>
+		<span data-url="<TMPL_VAR NAME='PROJECT_PATH'>module/company/ajax_public.php" class="fa fa-close" title="<TMPL_VAR NAME='LNG_Delete'>"></span>
+		<input type="hidden" class="HeadId" name="FileListHeadID[]" />
+		<input type="hidden" class="HeadName" name="FileListHeadName[]" />&nbsp;
+	</span>
+</div>
+<div class="hidden">
+	<span id="new-file-founder">
+		<span class="file-name"></span>
+		<span data-url="<TMPL_VAR NAME='PROJECT_PATH'>module/company/ajax_public.php" class="fa fa-close" title="<TMPL_VAR NAME='LNG_Delete'>"></span>
+		<input type="hidden" class="FounderID" />
+		<input type="hidden" class="FounderName" />&nbsp;
+	</span>
+</div>
+<div class="hidden">
+	<div class="form_bottom form_bottom--border" id="new-founder">
+		<div class="form_bottom__wrap">
+			<h4 class="form_bottom__header"><TMPL_VAR NAME='LNG_Founder'> <span class="count">1</span></h4>
+
+			<p>
+				<TMPL_VAR NAME='LNG_DataWay'><br>
+				<TMPL_VAR NAME='LNG_FirstWay'> <br>
+				<TMPL_VAR NAME='LNG_SecondWay'>
+			</p>
+
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active" id="upload"><a href="#tab-1" aria-controls="tab-1" role="tab" data-toggle="tab"><TMPL_VAR NAME='LNG_DownloadFile'></a></li>
+				<li role="presentation" id='fill-form'><a href="#tab-2" aria-controls="tab-2" role="tab" data-toggle="tab"><TMPL_VAR NAME='LNG_FillForm'></a></li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+			
+				<div role="tabpanel" class="tab-pane fade in active" id="tab-01">
+					<div class="form_bottom__upload">
+						<div class="form-upload">
+							<input class="uploadFileFounder" data-url="<TMPL_VAR NAME='PROJECT_PATH'>module/company/ajax_public.php" type="file">
+						</div>
+						<div class="form_bottom__upload-text upload-file-founder">
+						</div>
+					</div>
+				</div>
+				
+				<div role="tabpanel" class="tab-pane fade" id="tab-02">
+					<div class="form_bottom__italic"><TMPL_VAR NAME='LNG_NotFill'> <b><TMPL_VAR NAME='LNG_All'></b> <TMPL_VAR NAME='LNG_Doc'></div>
+					<div class="form_bottom__need"><TMPL_VAR NAME='LNG_Necessary'></div>
+					
+					<div class="form_bottom__wrap">
+						<label for="BirthDateFounder"><TMPL_VAR NAME='LNG_BirthDate'></label>
+						<div class="form-group">
+							<input id="BirthDateFounder" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='BirthDateFounder'>">
+						</div>
+
+						<label for="BirthPlaceFounder"><TMPL_VAR NAME='LNG_BirthPlace'></label>
+						<div class="form-group">
+							<input id="BirthPlaceFounder" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='BirthPlaceFounder'>">
+						</div>
+
+						<label for="PassportNumberFounder"><TMPL_VAR NAME='LNG_PassportNumber'></label>
+						<div class="form-group">
+							<input id="PassportNumberFounder" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='PassportNumberFounder'>">
+						</div>
+
+						<label for="PassportGiveFounder"><TMPL_VAR NAME='LNG_PassportGive'></label>
+						<div class="form-group">
+							<input id="PassportGiveFounder"class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='PassportGiveFounder'>">
+						</div>
+
+						<label for="DepartmentCodeFounder"><TMPL_VAR NAME='LNG_DepartmentCode'></label>
+						<div class="form-group">
+							<input id="DepartmentCodeFounder" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='DepartmentCodeFounder'>">
+						</div>
+
+						<label for="DateGiveFounder"><TMPL_VAR NAME='LNG_DateGive'></label>
+						<div class="form-group">
+							<input id="DateGiveFounder" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='DateGiveFounder'>">
+						</div>
+
+						<label for="RegistrationFounder"><TMPL_VAR NAME='LNG_Registration'></label>
+						<div class="form-group">
+							<input id="RegistrationFounder" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='RegistrationFounder'>">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form_bottom--border__radio">
+				<div class="radio">
+					<input class="Person" type="radio" name="paymentFace" id="NaturalPerson" value="NaturalPerson" <TMPL_IF NAME='paymentFace' OP='!=' VALUE='LegalEntity'>checked</TMPL_IF>>
+					<label for="radio3"><TMPL_VAR NAME='LNG_NaturalPerson'><span></span></label>
+				</div>
+				<div class="radio">
+					<input class="Person" type="radio" name="paymentFace" id="LegalEntity" value="LegalEntity" <TMPL_IF NAME='paymentFace' VALUE='LegalEntity'>checked</TMPL_IF>>
+					<label for="radio4"><TMPL_VAR NAME='LNG_LegalEntity'><span></span></label>
+				</div>
+
+				<div class="form_bottom__wrap">
+					<label class="paymentFaceChange" for="form100">
+
+					</label>
+					<div class="form-group">
+						<input id="CountMoney" class="form-control form-control_need" type="text" value="<TMPL_VAR NAME='CountMoney'>">
+					</div>
+				</div>
+			</div>
+			
+			<div class="form_bottom--border__btn">
+				<a class="main_btn add-founder" href=""><i class="fa fa-plus"></i> <TMPL_VAR NAME='LNG_AddFounder'></a>
+			</div>
+		</div>
+	</div>
+</div>

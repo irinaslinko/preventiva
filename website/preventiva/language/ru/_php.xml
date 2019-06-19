@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<template-index>Главная</template-index>
+	<template-contact>Контакты</template-contact>
+	<privacy-policy-agreement-required>Пожалуйста, дайте согласие на обработку персональных данных</privacy-policy-agreement-required>
+</Root>

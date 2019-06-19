@@ -1,0 +1,37 @@
+<div class="aside-wrap">
+	<div class="aside">
+		<div class="aside__header"><?php if ($this->_vars['LNG_Service'] !== null) { print(htmlspecialchars($this->_vars['LNG_Service'], ENT_QUOTES)); } ?></div>
+		<nav>
+			<ul class="aside__menu">
+				<?php $row_count_0=count($this->_arrVars['MENU_service']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+					<li <?php if ((($this->_arrVars['MENU_service'][$_0]['Opened'] !== null) ? $this->_arrVars['MENU_service'][$_0]['Opened'] : $this->_vars['Opened'])) { ?>class="active"<?php } ?>>
+						<a <?php if ((($this->_arrVars['MENU_service'][$_0]['Children1'] !== null) ? $this->_arrVars['MENU_service'][$_0]['Children1'] : $this->_vars['Children1'])) { ?>class="has-child"<?php } ?> href="<?php if ($this->_arrVars['MENU_service'][$_0]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_service'][$_0]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['MENU_service'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_service'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a>
+						<ul <?php if (!(($this->_arrVars['MENU_service'][$_0]['Opened'] !== null) ? $this->_arrVars['MENU_service'][$_0]['Opened'] : $this->_vars['Opened'])) { ?>class="hidden"<?php } ?>>
+							<?php $row_count_1=count($this->_arrVars['MENU_service'][$_0]['Children1']); for ($_1=0 ; $_1<$row_count_1; $_1++) {?>
+								<li 
+									<?php if ((($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2'] !== null) ? $this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2'] : $this->_vars['Children2'])) { ?>
+										<?php if ((($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Opened'] !== null) ? $this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Opened'] : $this->_vars['Opened'])) { ?>
+											class="active togg"
+										<?php } else { ?>
+											class = "togg"
+										<?php } ?>
+									<?php } ?>
+									<?php if ((($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Opened'] !== null) ? $this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Opened'] : $this->_vars['Opened'])) { ?>
+										class="active"
+									<?php } ?>>
+									<a <?php if ((($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2'] !== null) ? $this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2'] : $this->_vars['Children2'])) { ?>class="has-child"<?php } ?> href="<?php if ($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a>
+									<ul <?php if (!(($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Opened'] !== null) ? $this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Opened'] : $this->_vars['Opened'])) { ?>class="hidden"<?php } ?>>
+										<?php $row_count_2=count($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2']); for ($_2=0 ; $_2<$row_count_2; $_2++) {?>
+											<li <?php if ((($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2'][$_2]['Opened'] !== null) ? $this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2'][$_2]['Opened'] : $this->_vars['Opened'])) { ?>class="active"<?php } ?>><a href="<?php if ($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2'][$_2]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2'][$_2]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2'][$_2]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_service'][$_0]['Children1'][$_1]['Children2'][$_2]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a></li>
+										<?php } ?>
+									</ul>
+								</li>	
+							<?php } ?>
+						</ul>
+					</li>
+				<?php } ?>
+			</ul>
+		</nav>
+	</div>
+	<a href="" data-toggle="modal" data-target="#modal-service" class="side_link"><img src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>img/aside-btn.png" alt=""> <?php if ($this->_vars['LNG_ServiceOrder'] !== null) { print(htmlspecialchars($this->_vars['LNG_ServiceOrder'], ENT_QUOTES)); } ?></a>
+</div>

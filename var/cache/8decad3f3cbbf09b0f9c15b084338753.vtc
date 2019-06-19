@@ -1,0 +1,156 @@
+<div class="col-md-12">
+	<section class="box">
+		<header class="panel_header">
+			<?php if ($this->_vars['ItemID']) { ?>
+				<h2 class="title pull-left"><?php if ($this->_vars['LNG_EditItem'] !== null) { print(htmlspecialchars($this->_vars['LNG_EditItem'], ENT_QUOTES)); } ?></h2>
+			<?php } else { ?>
+				<h2 class="title pull-left"><?php if ($this->_vars['LNG_AddItem'] !== null) { print(htmlspecialchars($this->_vars['LNG_AddItem'], ENT_QUOTES)); } ?></h2>
+			<?php } ?>
+		</header>
+		<div class="content-body">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab-1" data-toggle='tab'><?php if ($this->_vars['LNG_TabMain'] !== null) { print(htmlspecialchars($this->_vars['LNG_TabMain'], ENT_QUOTES)); } ?></a></li>
+				<li><a href="#tab-2" data-toggle='tab'><?php if ($this->_vars['LNG_TabSEO'] !== null) { print(htmlspecialchars($this->_vars['LNG_TabSEO'], ENT_QUOTES)); } ?></a></li>
+			</ul>
+
+			<form action="<?php if ($this->_vars['MODULE_URL'] !== null) { print(htmlspecialchars($this->_vars['MODULE_URL'], ENT_QUOTES)); } ?>" method="post" enctype="multipart/form-data">
+				<div class="tab-content">
+					<?php if ($this->_vars['ErrorList']) { ?>
+						<div class="col-md-12">
+							<div class="alert alert-error"><?php $row_count_0=count($this->_arrVars['ErrorList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?><?php if ($this->_arrVars['ErrorList'][$_0]['Message'] !== null) { print(htmlspecialchars($this->_arrVars['ErrorList'][$_0]['Message'], ENT_QUOTES)); } elseif ($this->_vars['Message'] !== null) { print(htmlspecialchars($this->_vars['Message'], ENT_QUOTES)); } ?><?php if (!(($this->_arrVars['ErrorList'][$_0]['__LAST__'] !== null) ? $this->_arrVars['ErrorList'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?><br /><?php } ?><?php } ?></div>
+						</div>
+					<?php } ?>
+					<div id="tab-1" class="tab-pane active">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="Title" class="required"><?php if ($this->_vars['LNG_Title'] !== null) { print(htmlspecialchars($this->_vars['LNG_Title'], ENT_QUOTES)); } ?></label><br />
+								<input class="form-control" type="text" name="Title" id="Title" value="<?php if ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?>" />
+							</div>
+							<div class="form-group">
+								<label for="Description"><?php if ($this->_vars['LNG_Description'] !== null) { print(htmlspecialchars($this->_vars['LNG_Description'], ENT_QUOTES)); } ?></label><br />
+								<textarea class="form-control" name="Description" id="Description" rows="8" cols="80"><?php if ($this->_vars['Description'] !== null) { print(htmlspecialchars($this->_vars['Description'], ENT_QUOTES)); } ?></textarea>
+							</div>
+							<?php $row_count_0=count($this->_arrVars['FieldList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+								<div class="form-group">
+									<label for="<?php if ($this->_arrVars['FieldList'][$_0]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['FieldList'][$_0]['Name'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['FieldList'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['FieldList'][$_0]['Title'], ENT_QUOTES)); } ?></label><br />
+									<input type="text" class="form-control" name="<?php if ($this->_arrVars['FieldList'][$_0]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['FieldList'][$_0]['Name'], ENT_QUOTES)); } ?>" id="<?php if ($this->_arrVars['FieldList'][$_0]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['FieldList'][$_0]['Name'], ENT_QUOTES)); } ?>" value="<?php if ($this->_arrVars['FieldList'][$_0]['Value'] !== null) { print(htmlspecialchars($this->_arrVars['FieldList'][$_0]['Value'], ENT_QUOTES)); } ?>" />
+								</div>
+							<?php } ?>
+							<?php if ($this->_vars['CategoryList']) { ?>
+								<div class="form-group">
+									<label for="CategoryID"><?php if ($this->_vars['LNG_Category'] !== null) { print(htmlspecialchars($this->_vars['LNG_Category'], ENT_QUOTES)); } ?></label><br />
+									<select name="CategoryID" id="CategoryID" onchange="SetParentURL(this.value);" class="form-control">
+										<option value=""></option>
+										<?php $row_count_0=count($this->_arrVars['CategoryList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+											<option value="<?php if ($this->_arrVars['CategoryList'][$_0]['CategoryID'] !== null) { print(htmlspecialchars($this->_arrVars['CategoryList'][$_0]['CategoryID'], ENT_QUOTES)); } elseif ($this->_vars['CategoryID'] !== null) { print(htmlspecialchars($this->_vars['CategoryID'], ENT_QUOTES)); } ?>"<?php if ((($this->_arrVars['CategoryList'][$_0]['Selected'] !== null) ? $this->_arrVars['CategoryList'][$_0]['Selected'] : $this->_vars['Selected'])) { ?> selected="selected"<?php } ?>><?php if ($this->_arrVars['CategoryList'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['CategoryList'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></option>
+										<?php } ?>
+									</select>
+								</div>
+							<?php } ?>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group form-inline">
+								<label for="Active"><?php if ($this->_vars['LNG_Active'] !== null) { print(htmlspecialchars($this->_vars['LNG_Active'], ENT_QUOTES)); } ?></label><br />
+								<input type="checkbox" name="Active" id="Active" value="Y" class="iswitch iswitch-md iswitch-primary" <?php if ($this->_vars['Active']=='Y') { ?>checked<?php } elseif ($this->_vars['ItemID']==0) { ?>checked<?php } ?> />
+							</div>
+							<div class="form-group form-inline">
+								<label for="ItemDate"><?php if ($this->_vars['LNG_Date'] !== null) { print(htmlspecialchars($this->_vars['LNG_Date'], ENT_QUOTES)); } ?></label><br />
+								<?php if ($this->_vars['CalendarField'] !== null) { print($this->_vars['CalendarField']); } ?>
+							</div>
+							<div class="form-group" id="ItemImage-box">
+								<label for="ItemImage"><?php if ($this->_vars['LNG_ItemImage'] !== null) { print(htmlspecialchars($this->_vars['LNG_ItemImage'], ENT_QUOTES)); } ?></label><br />
+							</div>
+							<script type="text/javascript">
+								$(document).ready(function(){
+									params = new Array();
+									<?php $row_count_0=count($this->_arrVars['ItemImageParamList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+										params.push({
+											"Name" : "<?php if ($this->_arrVars['ItemImageParamList'][$_0]['SourceName'] !== null) { print(htmlspecialchars($this->_arrVars['ItemImageParamList'][$_0]['SourceName'], ENT_QUOTES)); } elseif ($this->_vars['SourceName'] !== null) { print(htmlspecialchars($this->_vars['SourceName'], ENT_QUOTES)); } ?>",
+											"Width" : "<?php if ($this->_arrVars['ItemImageParamList'][$_0]['Width'] !== null) { print(htmlspecialchars($this->_arrVars['ItemImageParamList'][$_0]['Width'], ENT_QUOTES)); } elseif ($this->_vars['Width'] !== null) { print(htmlspecialchars($this->_vars['Width'], ENT_QUOTES)); } ?>",
+											"Height" : "<?php if ($this->_arrVars['ItemImageParamList'][$_0]['Height'] !== null) { print(htmlspecialchars($this->_arrVars['ItemImageParamList'][$_0]['Height'], ENT_QUOTES)); } elseif ($this->_vars['Height'] !== null) { print(htmlspecialchars($this->_vars['Height'], ENT_QUOTES)); } ?>",
+											"Resize" : "<?php if ($this->_arrVars['ItemImageParamList'][$_0]['Resize'] !== null) { print(htmlspecialchars($this->_arrVars['ItemImageParamList'][$_0]['Resize'], ENT_QUOTES)); } elseif ($this->_vars['Resize'] !== null) { print(htmlspecialchars($this->_vars['Resize'], ENT_QUOTES)); } ?>",
+											"X1" : "<?php if ($this->_arrVars['ItemImageParamList'][$_0]['X1'] !== null) { print(htmlspecialchars($this->_arrVars['ItemImageParamList'][$_0]['X1'], ENT_QUOTES)); } elseif ($this->_vars['X1'] !== null) { print(htmlspecialchars($this->_vars['X1'], ENT_QUOTES)); } ?>",
+											"X2" : "<?php if ($this->_arrVars['ItemImageParamList'][$_0]['X2'] !== null) { print(htmlspecialchars($this->_arrVars['ItemImageParamList'][$_0]['X2'], ENT_QUOTES)); } elseif ($this->_vars['X2'] !== null) { print(htmlspecialchars($this->_vars['X2'], ENT_QUOTES)); } ?>",
+											"Y1" : "<?php if ($this->_arrVars['ItemImageParamList'][$_0]['Y1'] !== null) { print(htmlspecialchars($this->_arrVars['ItemImageParamList'][$_0]['Y1'], ENT_QUOTES)); } elseif ($this->_vars['Y1'] !== null) { print(htmlspecialchars($this->_vars['Y1'], ENT_QUOTES)); } ?>",
+											"Y2" : "<?php if ($this->_arrVars['ItemImageParamList'][$_0]['Y2'] !== null) { print(htmlspecialchars($this->_arrVars['ItemImageParamList'][$_0]['Y2'], ENT_QUOTES)); } elseif ($this->_vars['Y2'] !== null) { print(htmlspecialchars($this->_vars['Y2'], ENT_QUOTES)); } ?>"
+										});
+									<?php } ?>
+									CreateImageInput('ItemImage', '<?php if ($this->_vars['ItemImageAdminPath'] !== null) { print(htmlspecialchars($this->_vars['ItemImageAdminPath'], ENT_QUOTES)); } ?>', '<?php if ($this->_vars['ItemImageFullPath'] !== null) { print(htmlspecialchars($this->_vars['ItemImageFullPath'], ENT_QUOTES)); } ?>', '<?php if ($this->_vars['ItemImage'] !== null) { print(htmlspecialchars($this->_vars['ItemImage'], ENT_QUOTES)); } ?>', '<?php if ($this->_vars['ItemID'] !== null) { print(htmlspecialchars($this->_vars['ItemID'], ENT_QUOTES)); } ?>', 'RemoveItemImage', '<?php if ($this->_vars['MODULE_PATH'] !== null) { print(htmlspecialchars($this->_vars['MODULE_PATH'], ENT_QUOTES)); } ?>ajax.php', <?php if ($this->_vars['PageID'] !== null) { print(htmlspecialchars($this->_vars['PageID'], ENT_QUOTES)); } ?>, params);
+								});
+							</script>	
+							<div class="clearfix"></div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-12">
+							<div class="form-group form-inline">
+								<label for="StaticPath" class="required"><?php if ($this->_vars['LNG_StaticPath'] !== null) { print(htmlspecialchars($this->_vars['LNG_StaticPath'], ENT_QUOTES)); } ?></label><br />
+								<?php if ($this->_vars['URL_PREFIX'] !== null) { print(htmlspecialchars($this->_vars['URL_PREFIX'], ENT_QUOTES)); } ?><span id="ParentURL"><?php if ($this->_vars['ParentURL'] !== null) { print(htmlspecialchars($this->_vars['ParentURL'], ENT_QUOTES)); } ?></span><input type="text" class="form-control" name="StaticPath" id="StaticPath" value="<?php if ($this->_vars['StaticPath'] !== null) { print(htmlspecialchars($this->_vars['StaticPath'], ENT_QUOTES)); } ?>" /><?php if ($this->_vars['URLClose'] !== null) { print(htmlspecialchars($this->_vars['URLClose'], ENT_QUOTES)); } ?>
+							</div>
+							<div class="form-group">
+								<textarea class="" rows="20" name="Content" id="Content"><?php if ($this->_vars['Content'] !== null) { print(htmlspecialchars($this->_vars['Content'], ENT_QUOTES)); } ?></textarea>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div id="tab-2" class="tab-pane">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="TitleH1"><?php if ($this->_vars['L_TitleH1'] !== null) { print(htmlspecialchars($this->_vars['L_TitleH1'], ENT_QUOTES)); } ?></label><br />
+								<input class="form-control" type="text" name="TitleH1" id="TitleH1" value="<?php if ($this->_vars['TitleH1'] !== null) { print(htmlspecialchars($this->_vars['TitleH1'], ENT_QUOTES)); } ?>" />
+							</div>
+							<div class="form-group">
+								<label for="MetaTitle"><?php if ($this->_vars['L_MetaTitle'] !== null) { print(htmlspecialchars($this->_vars['L_MetaTitle'], ENT_QUOTES)); } ?></label><br />
+								<input class="form-control" type="text" name="MetaTitle" id="MetaTitle" value="<?php if ($this->_vars['MetaTitle'] !== null) { print(htmlspecialchars($this->_vars['MetaTitle'], ENT_QUOTES)); } ?>" />
+							</div>
+							<div class="form-group">
+								<label for="MetaKeywords"><?php if ($this->_vars['L_MetaKeywords'] !== null) { print(htmlspecialchars($this->_vars['L_MetaKeywords'], ENT_QUOTES)); } ?></label><br />
+								<textarea class="form-control" name="MetaKeywords" id="MetaKeywords" rows="5" cols="80"><?php if ($this->_vars['MetaKeywords'] !== null) { print(htmlspecialchars($this->_vars['MetaKeywords'], ENT_QUOTES)); } ?></textarea>
+							</div>
+							<div class="form-group">
+								<label for="MetaDescription"><?php if ($this->_vars['L_MetaDescription'] !== null) { print(htmlspecialchars($this->_vars['L_MetaDescription'], ENT_QUOTES)); } ?></label><br />
+								<textarea class="form-control" name="MetaDescription" id="MetaDescription" rows="5" cols="80"><?php if ($this->_vars['MetaDescription'] !== null) { print(htmlspecialchars($this->_vars['MetaDescription'], ENT_QUOTES)); } ?></textarea>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="top15">
+					<button type="submit" class="btn btn-success btn-icon right15"><i class="fa fa-save"></i><?php if ($this->_vars['LNG_Save'] !== null) { print(htmlspecialchars($this->_vars['LNG_Save'], ENT_QUOTES)); } ?></button>
+					<a class="btn btn-icon right15" href="<?php if ($this->_vars['MODULE_URL'] !== null) { print(htmlspecialchars($this->_vars['MODULE_URL'], ENT_QUOTES)); } ?>&<?php if ($this->_vars['ParamsForURL'] !== null) { print(htmlspecialchars($this->_vars['ParamsForURL'], ENT_QUOTES)); } ?>"><i class="fa fa-ban"></i><?php if ($this->_vars['LNG_Cancel'] !== null) { print(htmlspecialchars($this->_vars['LNG_Cancel'], ENT_QUOTES)); } ?></a>
+				</div>
+				<input type="hidden" name="Save" value="1" />
+				<input type="hidden" name="ItemID" id="ItemID" value="<?php if ($this->_vars['ItemID'] !== null) { print(htmlspecialchars($this->_vars['ItemID'], ENT_QUOTES)); } ?>" />
+				<?php if ($this->_vars['ParamsForForm'] !== null) { print($this->_vars['ParamsForForm']); } ?>
+			</form>
+		</div>
+	</section>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	createCKEditor('Content');
+	$('#Title').focus();
+	
+	<?php if (!$this->_vars['ItemID']) { ?>
+		$('.content-body').liTranslit({
+			elName: '#Title',
+			elAlias: '#StaticPath',
+			table: 'infoblock_item'
+		});
+	<?php } ?>
+});
+
+function SetParentURL(categoryID)
+{
+	var categoryList = new Object();
+	<?php $row_count_0=count($this->_arrVars['CategoryList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+		categoryList['<?php if ($this->_arrVars['CategoryList'][$_0]['CategoryID'] !== null) { print(htmlspecialchars($this->_arrVars['CategoryList'][$_0]['CategoryID'], ENT_QUOTES)); } elseif ($this->_vars['CategoryID'] !== null) { print(htmlspecialchars($this->_vars['CategoryID'], ENT_QUOTES)); } ?>'] = "<?php if ($this->_arrVars['CategoryList'][$_0]['StaticPath'] !== null) { print($this->_EscapeJS($this->_arrVars['CategoryList'][$_0]['StaticPath'])); } elseif ($this->_vars['StaticPath'] !== null) { print($this->_EscapeJS($this->_vars['StaticPath'])); } ?>";
+	<?php } ?>
+
+	if (categoryList[categoryID])
+		$('#ParentURL').html(categoryList[categoryID]+'/');
+	else
+		$('#ParentURL').html('');
+}
+</script>

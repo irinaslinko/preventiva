@@ -1,0 +1,277 @@
+<div class="col-md-12">
+	<section class="box">
+		<header class="panel_header">
+			<?php if ($this->_vars['PageID']) { ?>
+				<h2 class="title pull-left"><?php if ($this->_vars['LNG_EditLink'] !== null) { print(htmlspecialchars($this->_vars['LNG_EditLink'], ENT_QUOTES)); } ?></h2>
+			<?php } else { ?>
+				<h2 class="title pull-left"><?php if ($this->_vars['LNG_AddLink'] !== null) { print(htmlspecialchars($this->_vars['LNG_AddLink'], ENT_QUOTES)); } ?></h2>
+			<?php } ?>
+		</header>
+		<div class="content-body">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab-1" data-toggle='tab'><?php if ($this->_vars['LNG_TabMain'] !== null) { print(htmlspecialchars($this->_vars['LNG_TabMain'], ENT_QUOTES)); } ?></a></li>
+				<?php if ($this->_vars['Show2Tabs']) { ?>
+					<li><a href="#tab-2" data-toggle='tab'><?php if ($this->_vars['LNG_TabAdditional'] !== null) { print(htmlspecialchars($this->_vars['LNG_TabAdditional'], ENT_QUOTES)); } ?></a></li>
+				<?php } ?>
+			</ul>
+
+			<form action="link_edit.php" method="post" name="page-form" id="page-form" enctype="multipart/form-data">
+				<div class="tab-content">
+					<?php if ($this->_vars['ErrorList']) { ?>
+						<div class="col-md-12">
+							<div class="alert alert-error"><?php $row_count_0=count($this->_arrVars['ErrorList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?><?php if ($this->_arrVars['ErrorList'][$_0]['Message'] !== null) { print(htmlspecialchars($this->_arrVars['ErrorList'][$_0]['Message'], ENT_QUOTES)); } elseif ($this->_vars['Message'] !== null) { print(htmlspecialchars($this->_vars['Message'], ENT_QUOTES)); } ?><?php if (!(($this->_arrVars['ErrorList'][$_0]['__LAST__'] !== null) ? $this->_arrVars['ErrorList'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?><br /><?php } ?><?php } ?></div>
+						</div>
+					<?php } ?>
+					<div id="tab-1" class="tab-pane active">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="Title" class="required"><?php if ($this->_vars['LNG_Title'] !== null) { print(htmlspecialchars($this->_vars['LNG_Title'], ENT_QUOTES)); } ?></label><br />
+								<input class="form-control" type="text" name="Title" id="Title" value="<?php if ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?>" />
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="Active"><?php if ($this->_vars['LNG_Active'] !== null) { print(htmlspecialchars($this->_vars['LNG_Active'], ENT_QUOTES)); } ?></label><br />
+									<input type="checkbox" name="Active" id="Active" value="Y" class="iswitch iswitch-md iswitch-primary" <?php if ($this->_vars['Active']=='Y') { ?>checked<?php } elseif ($this->_vars['PageID']==0) { ?>checked<?php } ?> />
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-6">
+							<div class="form-group form-inline">
+								<label for="ParentID" class="required"><?php if ($this->_vars['LNG_Parent'] !== null) { print(htmlspecialchars($this->_vars['LNG_Parent'], ENT_QUOTES)); } ?></label><br />
+								<select name="ParentID" id="ParentID" class="form-control">
+									<option value="0">...</option>
+									<?php $row_count_0=count($this->_arrVars['ParentPageList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+										<option value="<?php if ($this->_arrVars['ParentPageList'][$_0]['PageID'] !== null) { print(htmlspecialchars($this->_arrVars['ParentPageList'][$_0]['PageID'], ENT_QUOTES)); } elseif ($this->_vars['PageID'] !== null) { print(htmlspecialchars($this->_vars['PageID'], ENT_QUOTES)); } ?>" <?php if ((($this->_arrVars['ParentPageList'][$_0]['Selected'] !== null) ? $this->_arrVars['ParentPageList'][$_0]['Selected'] : $this->_vars['Selected'])) { ?> selected="selected"<?php } ?> Level="<?php if ($this->_arrVars['ParentPageList'][$_0]['Level'] !== null) { print(htmlspecialchars($this->_arrVars['ParentPageList'][$_0]['Level'], ENT_QUOTES)); } elseif ($this->_vars['Level'] !== null) { print(htmlspecialchars($this->_vars['Level'], ENT_QUOTES)); } ?>" StaticPath="<?php if ($this->_arrVars['ParentPageList'][$_0]['StaticPath'] !== null) { print(htmlspecialchars($this->_arrVars['ParentPageList'][$_0]['StaticPath'], ENT_QUOTES)); } elseif ($this->_vars['StaticPath'] !== null) { print(htmlspecialchars($this->_vars['StaticPath'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['ParentPageList'][$_0]['Title'] !== null) { print($this->_arrVars['ParentPageList'][$_0]['Title']); } elseif ($this->_vars['Title'] !== null) { print($this->_vars['Title']); } ?></option>
+									<?php } ?>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="LinkType" class="required"><?php if ($this->_vars['LNG_LinkType'] !== null) { print(htmlspecialchars($this->_vars['LNG_LinkType'], ENT_QUOTES)); } ?></label><br />
+								<select name="LinkType" id="LinkType" onchange="ChangeLinkType(this);" class="form-control"><option value="url" ><?php if ($this->_vars['LNG_URL'] !== null) { print(htmlspecialchars($this->_vars['LNG_URL'], ENT_QUOTES)); } ?></option><option value="email" ><?php if ($this->_vars['LNG_Email'] !== null) { print(htmlspecialchars($this->_vars['LNG_Email'], ENT_QUOTES)); } ?></option><option value="internal"><?php if ($this->_vars['LNG_InternalPage'] !== null) { print(htmlspecialchars($this->_vars['LNG_InternalPage'], ENT_QUOTES)); } ?></option></select>
+							</div>
+							<div id="divLinkTypeURL"<?php if (!$this->_vars['LinkType']=='url') { ?> style="display:none;"<?php } ?> class="form-group">
+								<table cellspacing="0" cellpadding="0" width="100%" border="0">
+									<tr>
+										<td width="25%">
+											<label for="cmbLinkProtocol"><?php if ($this->_vars['LNG_Protocol'] !== null) { print(htmlspecialchars($this->_vars['LNG_Protocol'], ENT_QUOTES)); } ?></label><br />
+											<select id="cmbLinkProtocol" class="form-control">
+												<option value="http://">http://</option>
+												<option value="https://">https://</option>
+												<option value="ftp://">ftp://</option>
+												<option value="news://">news://</option>
+												<option value=""><?php if ($this->_vars['LNG_Other'] !== null) { print(htmlspecialchars($this->_vars['LNG_Other'], ENT_QUOTES)); } ?></option>
+											</select>
+										</td>
+										<td>&nbsp;</td>
+										<td width="75%">
+											<label for="txtUrl" class="required"><?php if ($this->_vars['LNG_URL'] !== null) { print(htmlspecialchars($this->_vars['LNG_URL'], ENT_QUOTES)); } ?></label><br />
+											<input type="text" id="txtUrl" class="form-control" onkeyup="OnUrlChange();" onchange="OnUrlChange();" />
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div id="divLinkTypeEmail"<?php if (!$this->_vars['LinkType']=='email') { ?> style="display:none;"<?php } ?>>
+								<div class="form-group">
+									<label for="txtEmailAddress" class="required"><?php if ($this->_vars['LNG_EmailAddress'] !== null) { print(htmlspecialchars($this->_vars['LNG_EmailAddress'], ENT_QUOTES)); } ?></label><br />
+									<input type="text" id="txtEmailAddress" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label for="txtEmailSubject"><?php if ($this->_vars['LNG_EmailSubject'] !== null) { print(htmlspecialchars($this->_vars['LNG_EmailSubject'], ENT_QUOTES)); } ?></label><br />
+									<input type="text" id="txtEmailSubject" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label for="txtEmailBody"><?php if ($this->_vars['LNG_EmailBody'] !== null) { print(htmlspecialchars($this->_vars['LNG_EmailBody'], ENT_QUOTES)); } ?></label><br />
+									<textarea id="txtEmailBody" class="form-control" rows="4" cols="40"></textarea>
+								</div>
+							</div>
+							<div id="divLinkTypeInternalPage"<?php if (!$this->_vars['LinkType']=='internal') { ?> style="display:none;"<?php } ?> class="form-group">
+								<label for="cmbLinkInternalPage" class="required"><?php if ($this->_vars['LNG_ChooseInternalPage'] !== null) { print(htmlspecialchars($this->_vars['LNG_ChooseInternalPage'], ENT_QUOTES)); } ?></label><br />
+								<select id="cmbLinkInternalPage" class="form-control">
+									<option>...</option>
+									<?php $row_count_0=count($this->_arrVars['PageList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+										<?php if ((($this->_arrVars['PageList'][$_0]['PageURL'] !== null) ? $this->_arrVars['PageList'][$_0]['PageURL'] : $this->_vars['PageURL'])) { ?>
+											<option value="<?php if ($this->_arrVars['PageList'][$_0]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['PageList'][$_0]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>" <?php if ((($this->_arrVars['PageList'][$_0]['Disabled'] !== null) ? $this->_arrVars['PageList'][$_0]['Disabled'] : $this->_vars['Disabled'])) { ?>disabled<?php } ?>><?php if ($this->_arrVars['PageList'][$_0]['Title'] !== null) { print($this->_arrVars['PageList'][$_0]['Title']); } elseif ($this->_vars['Title'] !== null) { print($this->_vars['Title']); } ?></option>
+										<?php } else { ?>
+											<optgroup label="<?php if ($this->_arrVars['PageList'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['PageList'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?>">
+										<?php } ?>
+									<?php } ?>
+								</select>
+							</div>
+							<div id="divLinkTarget"<?php if ($this->_vars['LinkType']=='email') { ?> style="display:none;"<?php } ?>>
+								<div class="form-group">
+									<label for="cmbTarget"><?php if ($this->_vars['LNG_Target'] !== null) { print(htmlspecialchars($this->_vars['LNG_Target'], ENT_QUOTES)); } ?></label><br />
+									<select id="cmbTarget" onchange="SetTarget(this.value);" class="form-control">
+										<option value="" selected="selected"><?php if ($this->_vars['LNG_NotSet'] !== null) { print(htmlspecialchars($this->_vars['LNG_NotSet'], ENT_QUOTES)); } ?></option>
+										<option value="frame"><?php if ($this->_vars['LNG_TargetFrame'] !== null) { print(htmlspecialchars($this->_vars['LNG_TargetFrame'], ENT_QUOTES)); } ?></option>
+										<option value="popup"><?php if ($this->_vars['LNG_TargetPopup'] !== null) { print(htmlspecialchars($this->_vars['LNG_TargetPopup'], ENT_QUOTES)); } ?></option>
+										<option value="_blank"><?php if ($this->_vars['LNG_TargetBlank'] !== null) { print(htmlspecialchars($this->_vars['LNG_TargetBlank'], ENT_QUOTES)); } ?></option>
+										<option value="_top"><?php if ($this->_vars['LNG_TargetTop'] !== null) { print(htmlspecialchars($this->_vars['LNG_TargetTop'], ENT_QUOTES)); } ?></option>
+										<option value="_self"><?php if ($this->_vars['LNG_TargetSelf'] !== null) { print(htmlspecialchars($this->_vars['LNG_TargetSelf'], ENT_QUOTES)); } ?></option>
+										<option value="_parent"><?php if ($this->_vars['LNG_TargetParent'] !== null) { print(htmlspecialchars($this->_vars['LNG_TargetParent'], ENT_QUOTES)); } ?></option>
+									</select>
+								</div>
+								<div id="tdTargetFrame" style="display:none" class="form-group">
+									<label for="txtTargetFrame"><?php if ($this->_vars['LNG_TargetFrameName'] !== null) { print(htmlspecialchars($this->_vars['LNG_TargetFrameName'], ENT_QUOTES)); } ?></label><br />
+									<input type="text" id="txtTargetFrame" class="form-control" onkeyup="OnTargetNameChange();" onchange="OnTargetNameChange();" />
+								</div>
+								<div id="tdPopupName" style="display:none" class="form-group">
+									<label for="txtPopupName"><?php if ($this->_vars['LNG_PopupWindowName'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopupWindowName'], ENT_QUOTES)); } ?></label><br />
+									<input type="text" id="txtPopupName" class="form-control" />
+								</div>
+								<div class="clear"></div>
+								<div id="tablePopupFeatures" style="display:none;" class="form-group">
+									<label><?php if ($this->_vars['LNG_PopupWindowFeatures'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopupWindowFeatures'], ENT_QUOTES)); } ?></label><br />
+									<table cellspacing="0" cellpadding="0" border="0" width="50%">
+										<tr>
+											<td valign="top" nowrap="nowrap" width="50%">
+												<input id="chkPopupResizable" name="chkFeature" value="resizable" type="checkbox" class="icheck-minimal-green" /><label for="chkPopupResizable"><?php if ($this->_vars['LNG_PopResize'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopResize'], ENT_QUOTES)); } ?></label><br />
+												<input id="chkPopupLocationBar" name="chkFeature" value="location" type="checkbox" class="icheck-minimal-green" /><label for="chkPopupLocationBar"><?php if ($this->_vars['LNG_PopLocation'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopLocation'], ENT_QUOTES)); } ?></label><br />
+												<input id="chkPopupManuBar" name="chkFeature" value="menubar" type="checkbox" class="icheck-minimal-green" /><label for="chkPopupManuBar"><?php if ($this->_vars['LNG_PopMenu'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopMenu'], ENT_QUOTES)); } ?></label><br />
+												<input id="chkPopupScrollBars" name="chkFeature" value="scrollbars" type="checkbox" class="icheck-minimal-green" /><label for="chkPopupScrollBars"><?php if ($this->_vars['LNG_PopScroll'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopScroll'], ENT_QUOTES)); } ?></label>
+											</td>
+											<td></td>
+											<td valign="top" nowrap="nowrap" width="50%">
+												<input id="chkPopupStatusBar" name="chkFeature" value="status" type="checkbox" class="icheck-minimal-green" /><label for="chkPopupStatusBar"><?php if ($this->_vars['LNG_PopStatus'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopStatus'], ENT_QUOTES)); } ?></label><br />
+												<input id="chkPopupToolbar" name="chkFeature" value="toolbar" type="checkbox" class="icheck-minimal-green" /><label for="chkPopupToolbar"><?php if ($this->_vars['LNG_PopToolbar'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopToolbar'], ENT_QUOTES)); } ?></label><br />
+												<input id="chkPopupFullScreen" name="chkFeature" value="fullscreen" type="checkbox" class="icheck-minimal-green" /><label for="chkPopupFullScreen"><?php if ($this->_vars['LNG_PopFullScrn'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopFullScrn'], ENT_QUOTES)); } ?></label><br />
+												<input id="chkPopupDependent" name="chkFeature" value="dependent" type="checkbox" class="icheck-minimal-green" /><label for="chkPopupDependent"><?php if ($this->_vars['LNG_PopDependent'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopDependent'], ENT_QUOTES)); } ?></label>
+											</td>
+										</tr>
+										<tr>
+											<td valign="top" nowrap="nowrap" width="50%">&nbsp;</td>
+											<td></td>
+											<td valign="top" nowrap="nowrap" width="50%"></td>
+										</tr>
+	
+										<tr>
+											<td>
+												<table cellspacing="0" cellpadding="0" border="0">
+													<tr>
+														<td nowrap="nowrap"><span><?php if ($this->_vars['LNG_PopWidth'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopWidth'], ENT_QUOTES)); } ?></span></td>
+														<td><input id="txtPopupWidth" type="text" maxlength="4" size="4" class="form-control" /></td>
+													</tr>
+													<tr>
+														<td nowrap="nowrap"><span><?php if ($this->_vars['LNG_PopHeight'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopHeight'], ENT_QUOTES)); } ?></span></td>
+														<td><input id="txtPopupHeight" type="text" maxlength="4" size="4" class="form-control" /></td>
+													</tr>
+												</table>
+											</td>
+											<td>&nbsp;&nbsp;</td>
+											<td>
+												<table cellspacing="0" cellpadding="0" border="0">
+													<tr>
+														<td nowrap="nowrap"><span><?php if ($this->_vars['LNG_PopLeft'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopLeft'], ENT_QUOTES)); } ?></span></td>
+														<td><input id="txtPopupLeft" type="text" maxlength="4" size="4" class="form-control" /></td>
+													</tr>
+													<tr>
+														<td nowrap="nowrap"><span><?php if ($this->_vars['LNG_PopTop'] !== null) { print(htmlspecialchars($this->_vars['LNG_PopTop'], ENT_QUOTES)); } ?></span></td>
+														<td><input id="txtPopupTop" type="text" maxlength="4" size="4" class="form-control" /></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php if ($this->_vars['Show2Tabs']) { ?>
+						<div id="tab-2" class="tab-pane">
+							<?php if ($this->_vars['DescriptionList']) { ?>
+								<div class="col-md-6">
+									<section class="box">
+										<header class="panel_header">
+											<h2 class="title pull-left"><?php if ($this->_vars['LNG_Descriptions'] !== null) { print(htmlspecialchars($this->_vars['LNG_Descriptions'], ENT_QUOTES)); } ?></h2>
+										</header>
+										<div class="content-body">
+											<?php $row_count_0=count($this->_arrVars['DescriptionList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+												<div class="form-group">
+													<label for="<?php if ($this->_arrVars['DescriptionList'][$_0]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['DescriptionList'][$_0]['Name'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['DescriptionList'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['DescriptionList'][$_0]['Title'], ENT_QUOTES)); } ?></label><br />
+													<textarea class="form-control" name="<?php if ($this->_arrVars['DescriptionList'][$_0]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['DescriptionList'][$_0]['Name'], ENT_QUOTES)); } ?>" id="<?php if ($this->_arrVars['DescriptionList'][$_0]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['DescriptionList'][$_0]['Name'], ENT_QUOTES)); } ?>" rows="8" cols="80"><?php if ($this->_arrVars['DescriptionList'][$_0]['Value'] !== null) { print(htmlspecialchars($this->_arrVars['DescriptionList'][$_0]['Value'], ENT_QUOTES)); } ?></textarea>
+												</div>
+											<?php } ?>
+										</div>
+									</section>
+								</div>
+							<?php } ?>
+							<?php if ($this->_vars['MenuImages']) { ?>
+								<div class="col-md-6">
+									<section class="box">
+										<header class="panel_header">
+											<h2 class="title pull-left"><?php if ($this->_vars['LNG_Images'] !== null) { print(htmlspecialchars($this->_vars['LNG_Images'], ENT_QUOTES)); } ?> (<?php if ($this->_vars['UploadMaxFileSize'] !== null) { print(htmlspecialchars($this->_vars['UploadMaxFileSize'], ENT_QUOTES)); } ?>)</h2>
+										</header>
+										<div class="content-body">
+											<?php $row_count_0=count($this->_arrVars['MenuImages']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+												<div class="form-group" id="<?php if ($this->_arrVars['MenuImages'][$_0]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['Name'], ENT_QUOTES)); } elseif ($this->_vars['Name'] !== null) { print(htmlspecialchars($this->_vars['Name'], ENT_QUOTES)); } ?>-box">
+													<label for="<?php if ($this->_arrVars['MenuImages'][$_0]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['Name'], ENT_QUOTES)); } elseif ($this->_vars['Name'] !== null) { print(htmlspecialchars($this->_vars['Name'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['MenuImages'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></label><br />
+												</div>
+												<script type="text/javascript">
+													$(document).ready(function(){
+														params = new Array();
+														<?php $row_count_1=count($this->_arrVars['MenuImages'][$_0]['MenuImageParamList']); for ($_1=0 ; $_1<$row_count_1; $_1++) {?>
+															params.push({
+																"Name" : "<?php if ($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Name'], ENT_QUOTES)); } elseif ($this->_vars['Name'] !== null) { print(htmlspecialchars($this->_vars['Name'], ENT_QUOTES)); } ?>",
+																"Width" : "<?php if ($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Width'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Width'], ENT_QUOTES)); } elseif ($this->_vars['Width'] !== null) { print(htmlspecialchars($this->_vars['Width'], ENT_QUOTES)); } ?>",
+																"Height" : "<?php if ($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Height'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Height'], ENT_QUOTES)); } elseif ($this->_vars['Height'] !== null) { print(htmlspecialchars($this->_vars['Height'], ENT_QUOTES)); } ?>",
+																"Resize" : "<?php if ($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Resize'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Resize'], ENT_QUOTES)); } elseif ($this->_vars['Resize'] !== null) { print(htmlspecialchars($this->_vars['Resize'], ENT_QUOTES)); } ?>",
+																"X1" : "<?php if ($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['X1'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['X1'], ENT_QUOTES)); } elseif ($this->_vars['X1'] !== null) { print(htmlspecialchars($this->_vars['X1'], ENT_QUOTES)); } ?>",
+																"X2" : "<?php if ($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['X2'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['X2'], ENT_QUOTES)); } elseif ($this->_vars['X2'] !== null) { print(htmlspecialchars($this->_vars['X2'], ENT_QUOTES)); } ?>",
+																"Y1" : "<?php if ($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Y1'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Y1'], ENT_QUOTES)); } elseif ($this->_vars['Y1'] !== null) { print(htmlspecialchars($this->_vars['Y1'], ENT_QUOTES)); } ?>",
+																"Y2" : "<?php if ($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Y2'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['MenuImageParamList'][$_1]['Y2'], ENT_QUOTES)); } elseif ($this->_vars['Y2'] !== null) { print(htmlspecialchars($this->_vars['Y2'], ENT_QUOTES)); } ?>"
+															});
+														<?php } ?>
+														CreateImageInput('<?php if ($this->_arrVars['MenuImages'][$_0]['Name'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['Name'], ENT_QUOTES)); } elseif ($this->_vars['Name'] !== null) { print(htmlspecialchars($this->_vars['Name'], ENT_QUOTES)); } ?>', '<?php if ($this->_arrVars['MenuImages'][$_0]['Path'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['Path'], ENT_QUOTES)); } elseif ($this->_vars['Path'] !== null) { print(htmlspecialchars($this->_vars['Path'], ENT_QUOTES)); } ?>', '<?php if ($this->_arrVars['MenuImages'][$_0]['FullPath'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['FullPath'], ENT_QUOTES)); } elseif ($this->_vars['FullPath'] !== null) { print(htmlspecialchars($this->_vars['FullPath'], ENT_QUOTES)); } ?>', '<?php if ($this->_arrVars['MenuImages'][$_0]['Value'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['Value'], ENT_QUOTES)); } elseif ($this->_vars['Value'] !== null) { print(htmlspecialchars($this->_vars['Value'], ENT_QUOTES)); } ?>', '<?php if ($this->_arrVars['MenuImages'][$_0]['PageID'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['PageID'], ENT_QUOTES)); } elseif ($this->_vars['PageID'] !== null) { print(htmlspecialchars($this->_vars['PageID'], ENT_QUOTES)); } ?>', 'RemoveMenuImage', '<?php if ($this->_arrVars['MenuImages'][$_0]['ADMIN_PATH'] !== null) { print(htmlspecialchars($this->_arrVars['MenuImages'][$_0]['ADMIN_PATH'], ENT_QUOTES)); } elseif ($this->_vars['ADMIN_PATH'] !== null) { print(htmlspecialchars($this->_vars['ADMIN_PATH'], ENT_QUOTES)); } ?>ajax.php', '', params);
+													});
+												</script>
+											<?php } ?>
+										</div>
+									</section>
+								</div>
+							<?php } ?>
+						</div>
+					<?php } ?>
+					<div class="clearfix"></div>
+				</div>						
+				<div class="top15">
+					<button type="submit" class="btn btn-success btn-icon right15" onclick="return GenerateLinkHRef(this.form);"><i class="fa fa-save"></i><?php if ($this->_vars['LNG_Save'] !== null) { print(htmlspecialchars($this->_vars['LNG_Save'], ENT_QUOTES)); } ?></button>
+					<a class="btn btn-icon" href="<?php if ($this->_vars['ADMIN_PATH'] !== null) { print(htmlspecialchars($this->_vars['ADMIN_PATH'], ENT_QUOTES)); } ?>page_tree.php"><i class="fa fa-ban"></i><?php if ($this->_vars['LNG_Cancel'] !== null) { print(htmlspecialchars($this->_vars['LNG_Cancel'], ENT_QUOTES)); } ?></a>
+				</div>
+				<input type="hidden" name="PageID" id="PageID" value="<?php if ($this->_vars['PageID'] !== null) { print(htmlspecialchars($this->_vars['PageID'], ENT_QUOTES)); } ?>" />
+				<input type="hidden" name="Link" value="<?php if ($this->_vars['Link'] !== null) { print(htmlspecialchars($this->_vars['Link'], ENT_QUOTES)); } ?>" />
+				<input type="hidden" name="Target" value="<?php if ($this->_vars['Target'] !== null) { print(htmlspecialchars($this->_vars['Target'], ENT_QUOTES)); } ?>" />
+				<input type="hidden" name="Type" value="3" />
+				<input type="hidden" name="Save" value="Save" />	
+			</form>
+		</div>
+	</section>
+</div>
+
+<script type="text/javascript">
+
+	var menuList = new Object();
+	<?php $row_count_0=count($this->_arrVars['MenuList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+		menuList[<?php if ($this->_arrVars['MenuList'][$_0]['PageID'] !== null) { print(htmlspecialchars($this->_arrVars['MenuList'][$_0]['PageID'], ENT_QUOTES)); } elseif ($this->_vars['PageID'] !== null) { print(htmlspecialchars($this->_vars['PageID'], ENT_QUOTES)); } ?>] = [<?php $row_count_1=count($this->_arrVars['MenuList'][$_0]['ImageList']); for ($_1=0 ; $_1<$row_count_1; $_1++) {?>{'key': '<?php if ($this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['Key'] !== null) { print(htmlspecialchars($this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['Key'], ENT_QUOTES)); } elseif ($this->_vars['Key'] !== null) { print(htmlspecialchars($this->_vars['Key'], ENT_QUOTES)); } ?>', 'val': '<?php if ($this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['Value'] !== null) { print(htmlspecialchars($this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['Value'], ENT_QUOTES)); } elseif ($this->_vars['Value'] !== null) { print(htmlspecialchars($this->_vars['Value'], ENT_QUOTES)); } ?>'}<?php if (!(($this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['__LAST__'] !== null) ? $this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['__LAST__'] : $this->_vars['__LAST__'])) { ?>,<?php } ?><?php } ?>];//{<?php $row_count_1=count($this->_arrVars['MenuList'][$_0]['ImageList']); for ($_1=0 ; $_1<$row_count_1; $_1++) {?>'id<?php if ($this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['Key'] !== null) { print(htmlspecialchars($this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['Key'], ENT_QUOTES)); } elseif ($this->_vars['Key'] !== null) { print(htmlspecialchars($this->_vars['Key'], ENT_QUOTES)); } ?>': '<?php if ($this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['Value'] !== null) { print(htmlspecialchars($this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['Value'], ENT_QUOTES)); } elseif ($this->_vars['Value'] !== null) { print(htmlspecialchars($this->_vars['Value'], ENT_QUOTES)); } ?>'<?php if (!(($this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['__LAST__'] !== null) ? $this->_arrVars['MenuList'][$_0]['ImageList'][$_1]['__LAST__'] : $this->_vars['__LAST__'])) { ?>,<?php } ?><?php } ?>};
+	<?php } ?>
+	
+	pageList = new Array();
+	<?php $row_count_0=count($this->_arrVars['PageList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+		pageList[pageList.length] = {PageURL: "<?php if ($this->_arrVars['PageList'][$_0]['PageURL'] !== null) { print($this->_EscapeJS($this->_arrVars['PageList'][$_0]['PageURL'])); } elseif ($this->_vars['PageURL'] !== null) { print($this->_EscapeJS($this->_vars['PageURL'])); } ?>", Title: "<?php if ($this->_arrVars['PageList'][$_0]['Title'] !== null) { print($this->_EscapeJS($this->_arrVars['PageList'][$_0]['Title'])); } elseif ($this->_vars['Title'] !== null) { print($this->_EscapeJS($this->_vars['Title'])); } ?>", Type: "<?php if ($this->_arrVars['PageList'][$_0]['Type'] !== null) { print(htmlspecialchars($this->_arrVars['PageList'][$_0]['Type'], ENT_QUOTES)); } elseif ($this->_vars['Type'] !== null) { print(htmlspecialchars($this->_vars['Type'], ENT_QUOTES)); } ?>"};
+	<?php } ?>
+	
+	$(document).ready(function(){
+		$('#ParentID').change(function(){
+			ToggleMenuImages();
+		});
+		
+		ToggleMenuImages();
+		$('#Title').focus();
+		
+		var sType = FillLinkDivFromHRef("<?php if ($this->_vars['Link'] !== null) { print($this->_EscapeJS($this->_vars['Link'])); } ?>", "<?php if ($this->_vars['Target'] !== null) { print($this->_EscapeJS($this->_vars['Target'])); } ?>", pageList);
+		ShowLinkTypeDiv(sType);
+		$('#LinkType').val(sType);
+	});
+	
+</script>

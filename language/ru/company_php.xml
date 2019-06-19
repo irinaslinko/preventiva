@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<module-title>Регистрация ООО</module-title>
+	<config-Subject>Тема письма</config-Subject>
+	<config-details><![CDATA[
+		<h3>Описание параметров</h3>
+		<p>Тема пиcьма - заголовок с которым будет приходить E-mail</p>
+	]]></config-details>
+	<full-title-empty>Введите полное наименование</full-title-empty>
+	<short-title-empty>Введите сокращенное наименование</short-title-empty>
+	<city-empty>Введите город</city-empty>
+	<street-empty>Введите улицу</street-empty>
+	<house-empty>Введите дом</house-empty>
+	<money-empty>Введите размер уставного капитала</money-empty>
+	<property-name-empty>Введите наименование имущества</property-name-empty>
+	<birth-date-founder-empty>Введите дату рождения учредителя</birth-date-founder-empty>
+	<birth-place-founder-empty>Введите место рождения учредителя</birth-place-founder-empty>
+	<passport-number-founder-empty>Введите серию и номер паспорта учредителя</passport-number-founder-empty>
+	<passport-give-founder-empty>Введите кем выдан паспорт учредителя</passport-give-founder-empty>
+	<department-code-founder-empty>Введите код подразделения учредителя</department-code-founder-empty>
+	<data-give-founder-empty>Введите дату выдачи паспорта учредителя</data-give-founder-empty>
+	<registration-founder-empty>Введите место жительства (прописку) учредителя</registration-founder-empty>
+	<natural-person-money-empty>Введите размер доли в уставном капитале</natural-person-money-empty>
+	<legal-entity-money-empty>Введите долю</legal-entity-money-empty>
+	<birth-date-head-empty>Введите дату рождения руководителя</birth-date-head-empty>
+	<birth-place-head-empty>Введите место рождения руководителя</birth-place-head-empty>
+	<passport-number-head-empty>Введите серию и номер паспорта руководителя</passport-number-head-empty>
+	<passport-give-head-empty>Введите кем выдан паспорт руководителя</passport-give-head-empty>
+	<department-code-head-empty>Введите код подразделения руководителя</department-code-head-empty>
+	<data-give-head-empty>Введите дату выдачи паспорта руководителя</data-give-head-empty>
+	<registration-head-empty>Введите место жительства (прописку) руководителя</registration-head-empty>
+	<position-empty>Введите наименование должности</position-empty>
+	<office-term-empty>Введите срок полномочий по уставу</office-term-empty>
+	<contact-phone-empty>Введите контактный телефон для ИФНС</contact-phone-empty>
+	<contact-person-empty>Введите контактное лицо, телефон</contact-person-empty>
+	<email-incorrect>Введите email в формате info@yoursite.ru</email-incorrect>
+	<type-empty>Введите вид деятельности</type-empty>
+	<how-empty>Выберите, как вы узнали о нашей компании</how-empty>
+	<familiarize-empty>Пожалуйста, подтвердите, что вы ознакомлены с требованиями Федерального закона «О персональных данных» </familiarize-empty>
+	<method-empty>Пожалуйста, выберите хотя бы один способ получения декларации</method-empty>
+	<company-success>Ваша заявка отправлена</company-success>
+	<company-error>Извините, по техническим причинам Вы временно не можете оcтавить заявку на регистрацию ООО</company-error>
+</Root>

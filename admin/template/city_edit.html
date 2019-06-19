@@ -1,0 +1,158 @@
+<div class="col-md-6">
+	<section class="box">
+		<header class="panel_header">
+			<TMPL_IF NAME='CityID'>
+				<h2 class="title pull-left"><TMPL_VAR NAME='LNG_EditCity'></h2>
+			<TMPL_ELSE>
+				<h2 class="title pull-left"><TMPL_VAR NAME='LNG_AddCity'></h2>
+			</TMPL_IF>
+		</header>
+		<div class="content-body">
+			<form action="<TMPL_VAR NAME='ADMIN_PATH'>city.php" method="post" enctype="multipart/form-data">
+				<TMPL_IF NAME='ErrorList'>
+					<div class="col-md-12">
+						<div class="alert alert-error"><TMPL_LOOP NAME='ErrorList'><TMPL_VAR NAME='Message'><TMPL_UNLESS NAME='__LAST__'><br /></TMPL_UNLESS></TMPL_LOOP></div>
+					</div>
+				</TMPL_IF>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="CityName" class="required"><TMPL_VAR NAME='LNG_CityName'></label><br />
+							<input class="form-control" type="text" name="CityName" id="CityName" value="<TMPL_VAR NAME='CityName'>" />
+						</div>
+						<div class="form-group">
+							<label for="Domain"><TMPL_VAR NAME='LNG_Domain'></label><br />
+							<input class="form-control" type="text" name="Domain" id="Domain" value="<TMPL_VAR NAME='Domain'>" />
+						</div>
+						<div class="form-group">
+							<label for="Director"><TMPL_VAR NAME='LNG_Director'></label><br />
+							<input class="form-control" type="text" name="Director" id="Director" value="<TMPL_VAR NAME='Director'>" />
+						</div>
+						<div class="form-group">
+							<label for="Phone"><TMPL_VAR NAME='LNG_Phone'></label><br />
+							<input class="form-control" type="text" name="Phone" id="Phone" value="<TMPL_VAR NAME='Phone'>" />
+						</div>
+						<div class="form-group">
+							<label for="Email"><TMPL_VAR NAME='LNG_Email'></label><br />
+							<input class="form-control" type="text" name="Email" id="Email" value="<TMPL_VAR NAME='Email'>" />
+						</div>
+						<div class="form-group">
+							<label for="FormEmail"><TMPL_VAR NAME='LNG_FormEmail'></label><br />
+							<input class="form-control" type="text" name="FormEmail" id="FormEmail" value="<TMPL_VAR NAME='FormEmail'>" />
+						</div>
+						<div class="form-group">
+							<label for="CostEntrepreneur"><TMPL_VAR NAME='LNG_CostEntrepreneur'></label><br />
+							<input class="form-control" type="text" name="CostEntrepreneur" id="CostEntrepreneur" value="<TMPL_VAR NAME='CostEntrepreneur'>" />
+						</div>
+						<div class="form-group">
+							<label for="CostCompanyToFive"><TMPL_VAR NAME='LNG_CostCompanyToFive'></label><br />
+							<input class="form-control" type="text" name="CostCompanyToFive" id="CostCompanyToFive" value="<TMPL_VAR NAME='CostCompanyToFive'>" />
+						</div>
+						<div class="form-group">
+							<label for="CostCompanyFive"><TMPL_VAR NAME='LNG_CostCompanyFive'></label><br />
+							<input class="form-control" type="text" name="CostCompanyFive" id="CostCompanyFive" value="<TMPL_VAR NAME='CostCompanyFive'>" />
+						</div>
+					</div>
+				</div>
+				<div class="top15">
+					<button type="submit" class="btn btn-success btn-icon right15"><i class="fa fa-save"></i><TMPL_VAR NAME='LNG_Save'></button>
+					<a class="btn btn-icon right15" href="<TMPL_VAR NAME='ADMIN_PATH'>city.php"><i class="fa fa-ban"></i><TMPL_VAR NAME='LNG_Cancel'></a>
+				</div>
+				<input type="hidden" name="Save" value="1" />
+				<input type="hidden" name="CityID" id="CityID" value="<TMPL_VAR NAME='CityID'>" />
+				<TMPL_VAR NAME='ParamsForForm' ESCAPE='none'>
+			</form>
+		</div>
+	</section>
+</div>
+<div class="col-md-6">
+	<section class="box">
+		<header class="panel_header">
+			<h2 class="title pull-left"><TMPL_VAR NAME='LNG_BranchList'></h2>
+		</header>
+		<div class="content-body">
+			<div class="col-md-6 no-padding form-group form-inline">
+				<a href="<TMPL_VAR NAME='ADMIN_PATH'>city.php?CityID=<TMPL_VAR NAME='CityID'>&BranchID=" class="btn btn-success btn-icon right15"><i class="fa fa-plus"></i><TMPL_VAR NAME='LNG_AddBranch'></a>
+			</div>
+			<div class="clearfix"></div>
+			<form action="<TMPL_VAR NAME='ADMIN_PATH'>city.php?&CityID=<TMPL_VAR NAME='CityID'>" method="post" id="branch-list">
+				<TMPL_IF NAME='MessageList'>
+					<div class="alert alert-success"><TMPL_LOOP NAME='MessageList'><TMPL_VAR NAME='Message'><TMPL_UNLESS NAME='__LAST__'><br /></TMPL_UNLESS></TMPL_LOOP></div>
+				</TMPL_IF>
+				<TMPL_IF NAME='BranchList'>
+					<p><TMPL_VAR NAME='ListInfo'></p>
+					<table class="table" id="listing">
+						<thead>
+							<tr>
+								<th width="25"><input type="checkbox" class="icheck-minimal-green check-all" InputName="ListIDs[]" /></th>
+								<th><TMPL_VAR NAME='LNG_BranchName'></th>
+								<th ><TMPL_VAR NAME='LNG_FullAddress'></th>
+								<th ><TMPL_VAR NAME='LNG_Address'></th>
+								<th width="40">&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+							<TMPL_LOOP NAME='BranchList'>
+								<tr>
+									<td><input type="checkbox" class="icheck-minimal-green" name="ListIDs[]" value="<TMPL_VAR NAME='BranchID'>" /></td>
+									<td><a href="<TMPL_VAR NAME='ADMIN_PATH'>city.php?&CityID=<TMPL_VAR NAME='CityID'>&BranchID=<TMPL_VAR NAME='BranchID'>"><TMPL_VAR NAME='BranchName'></a></td>
+									<td><TMPL_VAR NAME='FullAddress'></td>
+									<td><TMPL_VAR NAME='Address'></td>
+									<td>
+										<a href="<TMPL_VAR NAME='ADMIN_PATH'>city.php?&CityID=<TMPL_VAR NAME='CityID'>&Do=Remove&ListIDs[]=<TMPL_VAR NAME='BranchID'>" title="<TMPL_VAR NAME='LNG_Remove'>" onclick="ConfirmRemove('<TMPL_VAR NAME='BranchName' ESCAPE='js'>', this); return false;"><i class="fa fa-close delete"></i></a>
+									</td>
+								</tr>
+							</TMPL_LOOP>
+						</tbody>
+					</table>
+				<TMPL_ELSE>
+					<div class="alert alert-success"><TMPL_VAR NAME='LNG_Empty'></div>
+				</TMPL_IF>
+			
+				<TMPL_IF NAME='BranchList'>
+					<div class="col-md-6 no-padding form-inline">
+						<a href="#" onclick="return MultipleRemove($('#branch-list')[0], 'ListIDs[]');" class="btn btn-danger btn-icon right15"><i class="fa fa-remove"></i><TMPL_VAR NAME='LNG_RemoveMultiple'></a>
+					</div>
+				</TMPL_IF>
+				<div class="clearfix"></div>
+				<input type="hidden" name="Do" value="" />
+				<TMPL_VAR NAME='ParamsForForm' ESCAPE='none'>	
+			</form>
+		</div>
+	</section>
+</div>
+
+<script type="text/javascript">
+function MultipleRemove(form, elmName)
+{
+	var checked = 0;
+	for (var i = 0; i < form.elements.length; i++)
+	{
+		if (form.elements[i].name == elmName && form.elements[i].type == "checkbox" && form.elements[i].checked)
+		{
+			checked++;
+		}
+	}
+
+	if (checked == 0)
+	{
+		alert('<TMPL_VAR NAME='LNG_NoSelection' ESCAPE='js'>');
+	}
+	else
+	{
+		ModalConfirm('<TMPL_VAR NAME='LNG_ConfirmRemoveMultiple' ESCAPE='js'>', function(){
+			form.elements['Do'].value = 'Remove';
+			form.submit();
+		});
+	}
+	return false;
+}
+function ConfirmRemove(title, a)
+{
+	var msg = '<TMPL_VAR NAME='LNG_ConfirmRemove' ESCAPE='js'>';
+	msg = msg.replace(/%BranchName%/g, title);
+	ModalConfirm(msg, function(){
+		window.location.href = $(a).attr('href');
+	})
+}
+</script>

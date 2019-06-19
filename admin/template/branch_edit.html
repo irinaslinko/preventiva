@@ -1,0 +1,146 @@
+<div class="col-md-12">
+	<section class="box">
+		<header class="panel_header">
+			<TMPL_IF NAME='BranchID'>
+				<h2 class="title pull-left"><TMPL_VAR NAME='LNG_EditBranch'></h2>
+			<TMPL_ELSE>
+				<h2 class="title pull-left"><TMPL_VAR NAME='LNG_AddBranch'></h2>
+			</TMPL_IF>
+		</header>
+		<div class="content-body">
+			<form action="<TMPL_VAR NAME='ADMIN_PATH'>city.php?CityID=<TMPL_VAR NAME='CityID'>" method="post" enctype="multipart/form-data">
+				<TMPL_IF NAME='ErrorList'>
+					<div class="col-md-12">
+						<div class="alert alert-error"><TMPL_LOOP NAME='ErrorList'><TMPL_VAR NAME='Message'><TMPL_UNLESS NAME='__LAST__'><br /></TMPL_UNLESS></TMPL_LOOP></div>
+					</div>
+				</TMPL_IF>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="BranchName" class="required"><TMPL_VAR NAME='LNG_BranchName'></label><br />
+							<input class="form-control" type="text" name="BranchName" id="BranchName" value="<TMPL_VAR NAME='BranchName'>" />
+						</div>
+						<div class="form-group">
+							<label for="FullAddress" class="required"><TMPL_VAR NAME='LNG_FullAddress'></label><br />
+							<input class="form-control" type="text" name="FullAddress" id="FullAddress" value="<TMPL_VAR NAME='FullAddress'>" />
+						</div>
+						<div class="form-group">
+							<label for="Address" class="required"><TMPL_VAR NAME='LNG_Address'></label><br />
+							<input class="form-control" type="text" name="Address" id="Address" value="<TMPL_VAR NAME='Address'>" />
+						</div>
+						<div class="form-group">
+							<label for="Map"><TMPL_VAR NAME='LNG_Map'></label><br />
+							<textarea class="form-control" name="Map" id="Map" rows="5" cols="80"><TMPL_VAR NAME='Map'></textarea>
+						</div>
+					</div>
+ 				
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="PhoneList" class="required"><TMPL_VAR NAME='LNG_PhoneList'></label><br />
+							<table class="table" id="phone-list">
+								<thead>
+									<tr>
+										<th width="400"><TMPL_VAR NAME='LNG_Office'></th>
+										<th width="400"><TMPL_VAR NAME='LNG_Phone'></th>
+										<th width="25">&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							<script>
+								$(document).ready(function(){
+									<TMPL_LOOP NAME='PhoneList'>
+										var clone = $(".hidden tr#phone-new").clone();
+										clone.removeAttr("id");
+										clone.find("input.office").val($("<div>").html("<TMPL_VAR NAME='Office'>").text());
+										clone.find("input.phone").val($("<div>").html("<TMPL_VAR NAME='Phone'>").text());
+										clone.appendTo("#phone-list tbody");
+									</TMPL_LOOP>
+								});
+							</script>
+							<a id="phone-add" class="btn btn-primary btn-icon right15" href="#"><i class="fa fa-plus-square"></i><TMPL_VAR NAME='LNG_Add'></a>
+						</div>
+						<div class="form-group">
+							<label for="HourList" class="required"><TMPL_VAR NAME='LNG_HourList'></label><br />
+							<table class="table" id="hour-list">
+								<thead>
+									<tr>
+										<th width="400"><TMPL_VAR NAME='LNG_Day'></th>
+										<th width="400"><TMPL_VAR NAME='LNG_Hour'></th>
+										<th width="25">&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							<script>
+								$(document).ready(function(){
+									<TMPL_LOOP NAME='HourList'>
+										var clone = $(".hidden tr#hour-new").clone();
+										clone.removeAttr("id");
+										clone.find("input.day").val($("<div>").html("<TMPL_VAR NAME='Day'>").text());
+										clone.find("input.hour").val($("<div>").html("<TMPL_VAR NAME='Hour'>").text());
+										clone.appendTo("#hour-list tbody");
+									</TMPL_LOOP>
+								});
+							</script>
+							<a id="hour-add" class="btn btn-primary btn-icon right15" href="#"><i class="fa fa-plus-square"></i><TMPL_VAR NAME='LNG_Add'></a>
+						</div>		
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="top15">
+					<button type="submit" class="btn btn-success btn-icon right15"><i class="fa fa-save"></i><TMPL_VAR NAME='LNG_Save'></button>
+					<a class="btn btn-icon right15" href="<TMPL_VAR NAME='ADMIN_PATH'>city.php?CityID=<TMPL_VAR NAME='CityID'>"><i class="fa fa-ban"></i><TMPL_VAR NAME='LNG_Cancel'></a>
+				</div>
+				<input type="hidden" name="Save" value="1" />
+				<input type="hidden" name="BranchID" id="BranchID" value="<TMPL_VAR NAME='BranchID'>" />
+				<input type="hidden" name="CityID" id="CityID" value="<TMPL_VAR NAME='CityID'>" />
+				<TMPL_VAR NAME='ParamsForForm' ESCAPE='none'>
+			</form>
+		</div>
+	</section>
+</div>
+
+<div class="hidden">
+	<table>
+		<tr id="phone-new">
+			<td><input class="form-control office" type="text" name="Office[]" value="" /></td>
+			<td><input class="form-control phone" type="text" name="Phone[]" value="" /></td>
+			<td><a href="#" class="phone-delete"><i class="fa fa-close delete"></i></a></td>
+		</tr>
+	</table>
+</div>
+
+<div class="hidden">
+	<table>
+		<tr id="hour-new">
+			<td><input class="form-control day" type="text" name="Day[]" value="" /></td>
+			<td><input class="form-control hour" type="text" name="Hour[]" value="" /></td>
+			<td><a href="#" class="hour-delete"><i class="fa fa-close delete"></i></a></td>
+		</tr>
+	</table>
+</div>
+
+<script>
+$(document).ready(function(){
+	$("#phone-add").click(function(event){
+		$("#phone-new").clone().removeAttr("id").appendTo("#phone-list tbody");
+		event.preventDefault();
+	});
+	$(document).on("click", ".phone-delete", function(event){
+		$(this).parent().parent().remove();
+		event.preventDefault();
+	});
+	
+	$("#hour-add").click(function(event){
+		$("#hour-new").clone().removeAttr("id").appendTo("#hour-list tbody");
+		event.preventDefault();
+	});
+	$(document).on("click", ".hour-delete", function(event){
+		$(this).parent().parent().remove();
+		event.preventDefault();
+	});
+});
+</script>

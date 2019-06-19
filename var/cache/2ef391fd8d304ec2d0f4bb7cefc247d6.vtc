@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class=" ">
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=<?php if ($this->_vars['CHARSET'] !== null) { print(htmlspecialchars($this->_vars['CHARSET'], ENT_QUOTES)); } ?>">
+		<title><?php if ($this->_vars['LNG_AdministrationPanel'] !== null) { print(htmlspecialchars($this->_vars['LNG_AdministrationPanel'], ENT_QUOTES)); } ?></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="shortcut icon" href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>images/favicon.png" type="image/x-icon" /> 
+		<link rel="apple-touch-icon-precomposed" href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>images/apple-touch-icon-57-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>images/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>images/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>images/apple-touch-icon-144-precomposed.png">
+
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>css/animate.min.css" rel="stylesheet" type="text/css"/>
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css"/>
+
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>plugins/icheck/skins/square/orange.css" rel="stylesheet" type="text/css" media="screen"/>  
+
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>css/responsive.css" rel="stylesheet" type="text/css"/>
+
+	</head>
+
+	<body class=" login_page">
+
+		<div class="login-wrapper">
+			<div id="login" class="login loginpage col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8">
+				<h1><a href="<?php if ($this->_vars['ADMIN_PATH'] !== null) { print(htmlspecialchars($this->_vars['ADMIN_PATH'], ENT_QUOTES)); } ?>index.php" tabindex="-1"><?php if ($this->_vars['LNG_CMSName'] !== null) { print(htmlspecialchars($this->_vars['LNG_CMSName'], ENT_QUOTES)); } ?></a></h1>
+
+				<form action="<?php if ($this->_vars['ADMIN_PATH'] !== null) { print(htmlspecialchars($this->_vars['ADMIN_PATH'], ENT_QUOTES)); } ?>index.php" method="post" autocomplete="off">
+					<?php if ($this->_vars['ErrorList']) { ?>
+						<div class="alert alert-error">                                        
+							<?php $row_count_0=count($this->_arrVars['ErrorList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+								<?php if ($this->_arrVars['ErrorList'][$_0]['Message'] !== null) { print(htmlspecialchars($this->_arrVars['ErrorList'][$_0]['Message'], ENT_QUOTES)); } elseif ($this->_vars['Message'] !== null) { print(htmlspecialchars($this->_vars['Message'], ENT_QUOTES)); } ?><?php if (!(($this->_arrVars['ErrorList'][$_0]['__LAST__'] !== null) ? $this->_arrVars['ErrorList'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?><br /><?php } ?>
+							<?php } ?>
+						</div>
+					<?php } ?>
+					<?php if ($this->_vars['MessageList']) { ?>
+						<div class="alert alert-success">                                        
+							<?php $row_count_0=count($this->_arrVars['MessageList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+								<?php if ($this->_arrVars['MessageList'][$_0]['Message'] !== null) { print(htmlspecialchars($this->_arrVars['MessageList'][$_0]['Message'], ENT_QUOTES)); } elseif ($this->_vars['Message'] !== null) { print(htmlspecialchars($this->_vars['Message'], ENT_QUOTES)); } ?><?php if (!(($this->_arrVars['MessageList'][$_0]['__LAST__'] !== null) ? $this->_arrVars['MessageList'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?><br /><?php } ?>
+							<?php } ?>
+						</div>
+					<?php } ?>
+					<p>
+						<label for="Login"><?php if ($this->_vars['LNG_Login'] !== null) { print(htmlspecialchars($this->_vars['LNG_Login'], ENT_QUOTES)); } ?><br />
+						<input type="text" name="Login" id="Login" class="input" value="<?php if ($this->_vars['Login'] !== null) { print(htmlspecialchars($this->_vars['Login'], ENT_QUOTES)); } ?>" size="20" /></label>
+					</p>
+					<p>
+						<label for="Password"><?php if ($this->_vars['LNG_Password'] !== null) { print(htmlspecialchars($this->_vars['LNG_Password'], ENT_QUOTES)); } ?><br />
+						<input type="password" name="Password" id="Password" class="input" value="" size="20" /></label>
+					</p>					
+					<p class="forgetmenot">
+						<label class="icheck-label form-label" for="RememberMe"><input name="RememberMe" type="checkbox" id="RememberMe" value="1" class="skin-square-orange"> <?php if ($this->_vars['LNG_RememberMe'] !== null) { print(htmlspecialchars($this->_vars['LNG_RememberMe'], ENT_QUOTES)); } ?></label>
+					</p>
+					<p class="submit">
+						<input type="submit" name="wp-submit" id="wp-submit" class="btn btn-orange btn-block" value="<?php if ($this->_vars['LNG_ButtonLogin'] !== null) { print(htmlspecialchars($this->_vars['LNG_ButtonLogin'], ENT_QUOTES)); } ?>" />
+					</p>
+					<?php if ($this->_vars['ReturnPath']) { ?>
+						<input type="hidden" name="ReturnPath" value="<?php if ($this->_vars['ReturnPath'] !== null) { print(htmlspecialchars($this->_vars['ReturnPath'], ENT_QUOTES)); } ?>" />
+					<?php } ?>
+				</form>
+
+				<p id="nav">
+					<a class="pull-left" href="forgot_password.php"><?php if ($this->_vars['LNG_ForgotPassword'] !== null) { print(htmlspecialchars($this->_vars['LNG_ForgotPassword'], ENT_QUOTES)); } ?></a>
+				</p>
+				
+			</div>
+		</div>		
+		 
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>js/jquery-1.11.2.min.js" type="text/javascript"></script> 
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>js/jquery.easing.min.js" type="text/javascript"></script> 
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>plugins/pace/pace.min.js" type="text/javascript"></script>  
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>plugins/perfect-scrollbar/perfect-scrollbar.min.js" type="text/javascript"></script> 
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>plugins/viewport/viewportchecker.js" type="text/javascript"></script>  
+		 
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>plugins/icheck/icheck.min.js" type="text/javascript"></script><!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
+ 
+		<script src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>js/scripts.js" type="text/javascript"></script> 
+ 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#Login').focus();
+			});
+		</script>
+	</body>
+</html>

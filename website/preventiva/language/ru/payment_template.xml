@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<public>
+		<payment_main.html>
+			<Necessary>Поля формы, обязательные для заполнения</Necessary>
+			<Payment>Оплатить как</Payment>
+			<ServiceType>Вид услуги</ServiceType>
+			<Branch>Укажите филиал</Branch>
+			<Payer>Данные плательщика</Payer>
+			<NameLegalEntity>Наименование юридического лица</NameLegalEntity>
+			<Name>ФИО плательщика, с которым заключен договор</Name>
+			<Phone>Контактный телефон</Phone>
+			<Email>Электронная почта</Email>
+			<EmailHelp>Укажите свой email, чтобы отслеживать состояние платежа</EmailHelp>
+			<Rub>Сумма к оплате (рубли)</Rub>
+			<Pay>Оплатить</Pay>
+			<Service>Услуги</Service>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<Please>Заполните, пожалуйста, это поле</Please>
+			<Entrepreneur>Индивидуальный предприниматель</Entrepreneur>
+			<LegalEntity>Юридическое лицо</LegalEntity>
+			<NaturalPerson>Физическое лицо</NaturalPerson>
+			<SubscriptionService>Абонентское обслуживание</SubscriptionService>
+			<DeclarationFilling>Заполнение декларации</DeclarationFilling>
+			<Registration>Регистрация ООО / ИП</Registration>
+		</payment_main.html>
+	</public>
+</Root>

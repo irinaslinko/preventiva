@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=<?php if ($this->_vars['CHARSET'] !== null) { print(htmlspecialchars($this->_vars['CHARSET'], ENT_QUOTES)); } ?>">
+	</head>
+	<body>
+		<table border="1" width="100%" cellpadding="5">
+			<tr>
+				<td><?php if ($this->_vars['LNG_Name'] !== null) { print(htmlspecialchars($this->_vars['LNG_Name'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_Email'] !== null) { print(htmlspecialchars($this->_vars['LNG_Email'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['Email'] !== null) { print(htmlspecialchars($this->_vars['Email'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_City'] !== null) { print(htmlspecialchars($this->_vars['LNG_City'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['City'] !== null) { print(htmlspecialchars($this->_vars['City'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+				<td><?php if ($this->_vars['LNG_Description'] !== null) { print(htmlspecialchars($this->_vars['LNG_Description'], ENT_QUOTES)); } ?></td>
+				<td><?php if ($this->_vars['Description'] !== null) { print(htmlspecialchars($this->_vars['Description'], ENT_QUOTES)); } ?></td>
+			</tr>
+			<tr>
+		</table>
+	</body>
+</html>

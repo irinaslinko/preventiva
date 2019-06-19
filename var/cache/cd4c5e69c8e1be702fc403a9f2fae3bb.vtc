@@ -1,0 +1,168 @@
+<div id="carousel-big" class="carousel slide carousel-big" data-ride="carousel">
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<?php $row_count_0=count($this->_arrVars['MENU_slider']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+			<li data-target="#carousel-big" data-slide-to="<?php if ($this->_arrVars['MENU_slider'][$_0]['__INDEX__'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_slider'][$_0]['__INDEX__'], ENT_QUOTES)); } elseif ($this->_vars['__INDEX__'] !== null) { print(htmlspecialchars($this->_vars['__INDEX__'], ENT_QUOTES)); } ?>" <?php if ((($this->_arrVars['MENU_slider'][$_0]['__FIRST__'] !== null) ? $this->_arrVars['MENU_slider'][$_0]['__FIRST__'] : $this->_vars['__FIRST__'])) { ?>class="active"<?php } ?>></li>
+		<?php } ?>
+	</ol>
+
+	<div class="carousel-inner" role="listbox">
+		<?php $row_count_0=count($this->_arrVars['MENU_slider']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+			<div class="item <?php if ((($this->_arrVars['MENU_slider'][$_0]['__FIRST__'] !== null) ? $this->_arrVars['MENU_slider'][$_0]['__FIRST__'] : $this->_vars['__FIRST__'])) { ?> active<?php } ?>">
+				<div class="container">
+					<div class="carousel-caption">
+						<div class="carousel-caption__text">
+							<div class="bold"><?php if ($this->_arrVars['MENU_slider'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_slider'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></div>
+							<p><?php if ($this->_arrVars['MENU_slider'][$_0]['Content'] !== null) { print($this->_arrVars['MENU_slider'][$_0]['Content']); } elseif ($this->_vars['Content'] !== null) { print($this->_vars['Content']); } ?></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php } ?>
+	</div>
+</div>
+
+<div class="wrap__service-bottom">
+	<div class="service-bottom">
+		<div class="container">
+			<div class="row">
+				<?php $row_count_0=count($this->_arrVars['MENU_menu_service']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+					<div class="col-xs-6">
+						<a	class="service-bottom__text" href="<?php if ($this->_arrVars['MENU_menu_service'][$_0]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_menu_service'][$_0]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>"><span><?php if ($this->_arrVars['MENU_menu_service'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_menu_service'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></span></a>
+					</div>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section_service">
+	<div class="container">
+		<div class="row">
+			<?php $row_count_0=count($this->_arrVars['MENU_opportunity']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+				<div class="col-xs-6 col-md-3">
+					<a class="block_service" href="<?php if ($this->_arrVars['MENU_opportunity'][$_0]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_opportunity'][$_0]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>">
+						<div class="block_service__image"><img src="<?php if ($this->_arrVars['MENU_opportunity'][$_0]['MenuImage1Path'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_opportunity'][$_0]['MenuImage1Path'], ENT_QUOTES)); } elseif ($this->_vars['MenuImage1Path'] !== null) { print(htmlspecialchars($this->_vars['MenuImage1Path'], ENT_QUOTES)); } ?>" alt=""></div>
+						<div class="block_service__text"><?php if ($this->_arrVars['MENU_opportunity'][$_0]['Title'] !== null) { print($this->_arrVars['MENU_opportunity'][$_0]['Title']); } elseif ($this->_vars['Title'] !== null) { print($this->_vars['Title']); } ?></div>
+					</a>
+				</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>
+
+<div class="section_clients">
+	<div class="container">
+		<header><h3 class="header_section"><?php if ($this->_vars['LNG_Trust'] !== null) { print(htmlspecialchars($this->_vars['LNG_Trust'], ENT_QUOTES)); } ?></h3></header>
+		<div id="carousel-clients" class="carousel slide carousel-clients" data-ride="carousel">
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+					<?php $row_count_0=count($this->_arrVars['MENU_partner']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+							<?php if ((($this->_arrVars['MENU_partner'][$_0]['__INDEX__'] !== null) ? $this->_arrVars['MENU_partner'][$_0]['__INDEX__'] : $this->_vars['__INDEX__'])%5==0) { ?>
+								<div class="item<?php if ((($this->_arrVars['MENU_partner'][$_0]['__FIRST__'] !== null) ? $this->_arrVars['MENU_partner'][$_0]['__FIRST__'] : $this->_vars['__FIRST__'])) { ?> active<?php } ?>">
+									<div class="row">
+							<?php } ?>
+								<div class="col-xs-2"><img src="<?php if ($this->_arrVars['MENU_partner'][$_0]['MenuImage2Path'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_partner'][$_0]['MenuImage2Path'], ENT_QUOTES)); } elseif ($this->_vars['MenuImage2Path'] !== null) { print(htmlspecialchars($this->_vars['MenuImage2Path'], ENT_QUOTES)); } ?>" alt=""></div>
+							<?php if ((($this->_arrVars['MENU_partner'][$_0]['__INDEX__'] !== null) ? $this->_arrVars['MENU_partner'][$_0]['__INDEX__'] : $this->_vars['__INDEX__'])%5==4) { ?>
+									</div>
+								</div>
+							<?php } elseif ((($this->_arrVars['MENU_partner'][$_0]['__LAST__'] !== null) ? $this->_arrVars['MENU_partner'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>
+									</div>
+								</div>
+							<?php } ?>
+					<?php } ?>
+			</div>
+	
+			<!-- Controls -->
+			<div class="container">
+			<a class="left carousel-control" href="#carousel-clients" role="button" data-slide="prev">
+				<span class="carousel-control__left"></span>
+				<span class="sr-only"><?php if ($this->_vars['LNG_Prev'] !== null) { print(htmlspecialchars($this->_vars['LNG_Prev'], ENT_QUOTES)); } ?></span>
+			</a>
+			<a class="right carousel-control" href="#carousel-clients" role="button" data-slide="next">
+				<span class="carousel-control__right"></span>
+				<span class="sr-only"><?php if ($this->_vars['LNG_Next'] !== null) { print(htmlspecialchars($this->_vars['LNG_Next'], ENT_QUOTES)); } ?></span>
+			</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="section_action">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					<section class="section_action__left">
+						<header><h3 class="header_section"><?php if ($this->_vars['LNG_News'] !== null) { print(htmlspecialchars($this->_vars['LNG_News'], ENT_QUOTES)); } ?></h3></header>
+						<ul class="section_action__list">
+							<?php $row_count_0=count($this->_arrVars['INFOBLOCK_news_ItemList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+								<li>
+									<div class="section_action__date">
+										<span class="date"><?php if ($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['Day'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['Day'], ENT_QUOTES)); } elseif ($this->_vars['Day'] !== null) { print(htmlspecialchars($this->_vars['Day'], ENT_QUOTES)); } ?></span>
+										<span><?php if ($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['Month'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['Month'], ENT_QUOTES)); } elseif ($this->_vars['Month'] !== null) { print(htmlspecialchars($this->_vars['Month'], ENT_QUOTES)); } ?></span>
+										<span class="year"><?php if ($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['Year'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['Year'], ENT_QUOTES)); } elseif ($this->_vars['Year'] !== null) { print(htmlspecialchars($this->_vars['Year'], ENT_QUOTES)); } ?></span>
+									</div>	
+									<div class="section_action__text">
+										<div>
+											<a href="<?php if ($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['ItemURL'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['ItemURL'], ENT_QUOTES)); } elseif ($this->_vars['ItemURL'] !== null) { print(htmlspecialchars($this->_vars['ItemURL'], ENT_QUOTES)); } ?>" class="section_action__link"><?php if ($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a>
+											<?php if ($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['Description'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_news_ItemList'][$_0]['Description'], ENT_QUOTES)); } elseif ($this->_vars['Description'] !== null) { print(htmlspecialchars($this->_vars['Description'], ENT_QUOTES)); } ?>
+										</div>
+									</div>
+								</li>
+							<?php } ?>
+						</ul>
+					</section>
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<section class="section_action__right">
+						<header><h3 class="header_section"><?php if ($this->_vars['LNG_Event'] !== null) { print(htmlspecialchars($this->_vars['LNG_Event'], ENT_QUOTES)); } ?></h3></header>
+						<ul class="section_action__list">
+							<?php $row_count_0=count($this->_arrVars['INFOBLOCK_event_ItemList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+								<li>
+									<div class="section_action__date">
+										<span class="date"><?php if ($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['Day'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['Day'], ENT_QUOTES)); } elseif ($this->_vars['Day'] !== null) { print(htmlspecialchars($this->_vars['Day'], ENT_QUOTES)); } ?></span>
+										<span><?php if ($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['Month'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['Month'], ENT_QUOTES)); } elseif ($this->_vars['Month'] !== null) { print(htmlspecialchars($this->_vars['Month'], ENT_QUOTES)); } ?></span>
+										<span class="year"><?php if ($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['Year'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['Year'], ENT_QUOTES)); } elseif ($this->_vars['Year'] !== null) { print(htmlspecialchars($this->_vars['Year'], ENT_QUOTES)); } ?></span>
+									</div>	
+									<div class="section_action__text">
+										<div>
+											<a class="section_action__link" href="<?php if ($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['ItemURL'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['ItemURL'], ENT_QUOTES)); } elseif ($this->_vars['ItemURL'] !== null) { print(htmlspecialchars($this->_vars['ItemURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['Title'] !== null) { print($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['Title']); } elseif ($this->_vars['Title'] !== null) { print($this->_vars['Title']); } ?></a>
+											<?php if ($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['Description'] !== null) { print(htmlspecialchars($this->_arrVars['INFOBLOCK_event_ItemList'][$_0]['Description'], ENT_QUOTES)); } elseif ($this->_vars['Description'] !== null) { print(htmlspecialchars($this->_vars['Description'], ENT_QUOTES)); } ?>
+										</div>	
+									</div>
+								</li>	
+							<?php } ?>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="section_popular">
+	<div class="container">
+		<header><h3 class="header_section"><?php if ($this->_vars['LNG_Service'] !== null) { print(htmlspecialchars($this->_vars['LNG_Service'], ENT_QUOTES)); } ?></h3></header>
+		<div class="row">
+			<?php $row_count_0=count($this->_arrVars['MENU_popular']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+			<div class="col-xs-6 col-md-3">
+				<div class="block_popular">
+					<div class="block_popular__header"><?php if ($this->_arrVars['MENU_popular'][$_0]['Title'] !== null) { print($this->_arrVars['MENU_popular'][$_0]['Title']); } elseif ($this->_vars['Title'] !== null) { print($this->_vars['Title']); } ?></div>
+					<div class="block_popular__price"><?php if ($this->_arrVars['MENU_popular'][$_0]['Description3'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_popular'][$_0]['Description3'], ENT_QUOTES)); } elseif ($this->_vars['Description3'] !== null) { print(htmlspecialchars($this->_vars['Description3'], ENT_QUOTES)); } ?> <span><?php if ($this->_arrVars['MENU_popular'][$_0]['Description2'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_popular'][$_0]['Description2'], ENT_QUOTES)); } elseif ($this->_vars['Description2'] !== null) { print(htmlspecialchars($this->_vars['Description2'], ENT_QUOTES)); } ?></span> <?php if ($this->_arrVars['MENU_popular'][$_0]['LNG_Rub'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_popular'][$_0]['LNG_Rub'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Rub'] !== null) { print(htmlspecialchars($this->_vars['LNG_Rub'], ENT_QUOTES)); } ?></div>
+					<div class="block_popular__text"><?php if ($this->_arrVars['MENU_popular'][$_0]['Description'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_popular'][$_0]['Description'], ENT_QUOTES)); } elseif ($this->_vars['Description'] !== null) { print(htmlspecialchars($this->_vars['Description'], ENT_QUOTES)); } ?></div>
+					<a class="block_popular__link" data-toggle="modal" data-target="#modal-bid" href=""><?php if ($this->_arrVars['MENU_popular'][$_0]['LNG_Order'] !== null) { print(htmlspecialchars($this->_arrVars['MENU_popular'][$_0]['LNG_Order'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Order'] !== null) { print(htmlspecialchars($this->_vars['LNG_Order'], ENT_QUOTES)); } ?></a>
+				</div>
+			</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>
+<section>
+	<div class="section_about">
+		<div class="container">
+			<header><h3 class="header_section"><?php if ($this->_vars['LNG_AboutUs'] !== null) { print(htmlspecialchars($this->_vars['LNG_AboutUs'], ENT_QUOTES)); } ?></h3></header>
+			<div class="section_about__text">
+				<?php if ($this->_vars['Content'] !== null) { print($this->_vars['Content']); } ?>
+				<a href="<?php if ($this->_vars['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_vars['PROJECT_PATH'], ENT_QUOTES)); } ?>payment.html" class="main_btn main_btn--big"><img src="<?php if ($this->_vars['PATH2MAIN'] !== null) { print(htmlspecialchars($this->_vars['PATH2MAIN'], ENT_QUOTES)); } ?>img/rouble.png" alt=""> <?php if ($this->_vars['LNG_ServicePayment'] !== null) { print(htmlspecialchars($this->_vars['LNG_ServicePayment'], ENT_QUOTES)); } ?></a>
+			</div>
+		</div>
+	</div>
+</section>

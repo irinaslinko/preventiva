@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<form-error>Не все поля заполнены корректно:</form-error>
+	<form-message>Спасибо! Ваше сообщение отправлено!</form-message>
+	<form-required-Name>Укажите Ваше имя</form-required-Name>
+	<form-required-Phone>Укажите Ваш телефон</form-required-Phone>
+	<form-required-Email>Укажите Ваш email</form-required-Email>
+	<form-incorrect-Email>Укажите Ваш email в правильном формате</form-incorrect-Email>
+	<form-required-Comment>Введите текст комментария</form-required-Comment>
+	
+	<form-email-Name>Имя</form-email-Name>
+	<form-email-Phone>Телефон</form-email-Phone>
+	<form-email-Email>Email</form-email-Email>
+	<form-email-Comment>Комментарий</form-email-Comment>
+</Root>

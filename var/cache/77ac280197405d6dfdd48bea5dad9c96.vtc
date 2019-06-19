@@ -1,0 +1,337 @@
+<div class="col-md-12">
+	<section class="box">
+		<div class="content-body">
+			<form action="<?php if ($this->_vars['ADMIN_PATH'] !== null) { print(htmlspecialchars($this->_vars['ADMIN_PATH'], ENT_QUOTES)); } ?>module.php" method="get" id="goto-form">
+				<div class="col-md-6 no-padding form-group form-inline">
+					<a href="<?php if ($this->_vars['MODULE_URL'] !== null) { print(htmlspecialchars($this->_vars['MODULE_URL'], ENT_QUOTES)); } ?>&<?php if ($this->_vars['ParamsForURL'] !== null) { print(htmlspecialchars($this->_vars['ParamsForURL'], ENT_QUOTES)); } ?>&ItemID=" class="btn btn-success btn-icon right15"><i class="fa fa-plus"></i><?php if ($this->_vars['LNG_AddItem'] !== null) { print(htmlspecialchars($this->_vars['LNG_AddItem'], ENT_QUOTES)); } ?></a>
+					<?php if ($this->_vars['CategoryList']) { ?>
+						<a href="#" onclick="$('#goto-form').submit();return false;" class="btn btn-icon"><i class="fa fa-arrow-right"></i><?php if ($this->_vars['LNG_GoTo'] !== null) { print(htmlspecialchars($this->_vars['LNG_GoTo'], ENT_QUOTES)); } ?></a>
+						<select name="ViewCategoryID" id="ViewCategoryID" onchange="this.form.submit();" class="form-control">
+							<option value=""><?php if ($this->_vars['NoCategory'] !== null) { print(htmlspecialchars($this->_vars['NoCategory'], ENT_QUOTES)); } ?></option>
+							<?php $row_count_0=count($this->_arrVars['CategoryList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+								<option value="<?php if ($this->_arrVars['CategoryList'][$_0]['CategoryID'] !== null) { print(htmlspecialchars($this->_arrVars['CategoryList'][$_0]['CategoryID'], ENT_QUOTES)); } elseif ($this->_vars['CategoryID'] !== null) { print(htmlspecialchars($this->_vars['CategoryID'], ENT_QUOTES)); } ?>"<?php if ((($this->_arrVars['CategoryList'][$_0]['Selected'] !== null) ? $this->_arrVars['CategoryList'][$_0]['Selected'] : $this->_vars['Selected'])) { ?> selected="selected"<?php } ?>>&nbsp;&nbsp;&nbsp;&nbsp;<?php if ($this->_arrVars['CategoryList'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['CategoryList'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></option>
+							<?php } ?>
+						</select>
+					<?php } else { ?>
+						<a href="<?php if ($this->_vars['MODULE_URL'] !== null) { print(htmlspecialchars($this->_vars['MODULE_URL'], ENT_QUOTES)); } ?>&<?php if ($this->_vars['ParamsForURL'] !== null) { print(htmlspecialchars($this->_vars['ParamsForURL'], ENT_QUOTES)); } ?>&CategoryID=" class="btn btn-success btn-icon"><i class="fa fa-plus"></i><?php if ($this->_vars['LNG_AddCategory'] !== null) { print(htmlspecialchars($this->_vars['LNG_AddCategory'], ENT_QUOTES)); } ?></a>					
+					<?php } ?>
+				</div>
+				<div class="col-md-6 no-padding form-group">
+					<ul class="pagination pagination pull-right">
+						<?php if ($this->_vars['Paging'] !== null) { print($this->_vars['Paging']); } ?>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+				<?php if ($this->_vars['ParamsForForm2'] !== null) { print($this->_vars['ParamsForForm2']); } ?>
+				<input type="hidden" name="load" value="<?php if ($this->_vars['MODULE_NAME'] !== null) { print(htmlspecialchars($this->_vars['MODULE_NAME'], ENT_QUOTES)); } ?>" />
+			</form>
+			<form action="<?php if ($this->_vars['MODULE_URL'] !== null) { print(htmlspecialchars($this->_vars['MODULE_URL'], ENT_QUOTES)); } ?>" method="post" id="item-list">
+				<?php if ($this->_vars['ErrorList']) { ?>
+					<div class="alert alert-error"><?php $row_count_0=count($this->_arrVars['ErrorList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?><?php if ($this->_arrVars['ErrorList'][$_0]['Message'] !== null) { print(htmlspecialchars($this->_arrVars['ErrorList'][$_0]['Message'], ENT_QUOTES)); } elseif ($this->_vars['Message'] !== null) { print(htmlspecialchars($this->_vars['Message'], ENT_QUOTES)); } ?><?php if (!(($this->_arrVars['ErrorList'][$_0]['__LAST__'] !== null) ? $this->_arrVars['ErrorList'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?><br /><?php } ?><?php } ?></div>
+				<?php } ?>
+				<?php if ($this->_vars['MessageList']) { ?>
+					<div class="alert alert-success"><?php $row_count_0=count($this->_arrVars['MessageList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?><?php if ($this->_arrVars['MessageList'][$_0]['Message'] !== null) { print(htmlspecialchars($this->_arrVars['MessageList'][$_0]['Message'], ENT_QUOTES)); } elseif ($this->_vars['Message'] !== null) { print(htmlspecialchars($this->_vars['Message'], ENT_QUOTES)); } ?><?php if (!(($this->_arrVars['MessageList'][$_0]['__LAST__'] !== null) ? $this->_arrVars['MessageList'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?><br /><?php } ?><?php } ?></div>
+				<?php } ?>
+				<?php if ($this->_vars['ItemList']) { ?>
+					<p><?php if ($this->_vars['ListInfo'] !== null) { print(htmlspecialchars($this->_vars['ListInfo'], ENT_QUOTES)); } ?></p>
+					<table class="table" id="listing">
+						<thead>
+							<tr>
+								<th width="25"><input type="checkbox" class="icheck-minimal-green check-all" InputName="ListIDs[]" /></th>
+								<th width="25">&nbsp;</th>
+								<th><?php if ($this->_vars['LNG_Title'] !== null) { print(htmlspecialchars($this->_vars['LNG_Title'], ENT_QUOTES)); } ?></th>
+								<?php if ($this->_vars['CategoryList']) { ?>
+									<th><?php if ($this->_vars['LNG_CategoryTitle'] !== null) { print(htmlspecialchars($this->_vars['LNG_CategoryTitle'], ENT_QUOTES)); } ?></th>
+								<?php } ?>
+								<th width="200"><?php if ($this->_vars['LNG_Date'] !== null) { print(htmlspecialchars($this->_vars['LNG_Date'], ENT_QUOTES)); } ?></th>
+								<th width="40">&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php $row_count_0=count($this->_arrVars['ItemList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+								<tr <?php if ((($this->_arrVars['ItemList'][$_0]['Active'] !== null) ? $this->_arrVars['ItemList'][$_0]['Active'] : $this->_vars['Active'])=='N') { ?>class="inactive"<?php } ?> ItemID="<?php if ($this->_arrVars['ItemList'][$_0]['ItemID'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['ItemID'], ENT_QUOTES)); } elseif ($this->_vars['ItemID'] !== null) { print(htmlspecialchars($this->_vars['ItemID'], ENT_QUOTES)); } ?>">
+									<td><input type="checkbox" class="icheck-minimal-green" name="ListIDs[]" value="<?php if ($this->_arrVars['ItemList'][$_0]['ItemID'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['ItemID'], ENT_QUOTES)); } elseif ($this->_vars['ItemID'] !== null) { print(htmlspecialchars($this->_vars['ItemID'], ENT_QUOTES)); } ?>" /></td>
+									<td><i class="fa fa-power-off switch <?php if ((($this->_arrVars['ItemList'][$_0]['Active'] !== null) ? $this->_arrVars['ItemList'][$_0]['Active'] : $this->_vars['Active'])=='Y') { ?>active<?php } else { ?>inactive<?php } ?>" ItemID="<?php if ($this->_arrVars['ItemList'][$_0]['ItemID'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['ItemID'], ENT_QUOTES)); } elseif ($this->_vars['ItemID'] !== null) { print(htmlspecialchars($this->_vars['ItemID'], ENT_QUOTES)); } ?>"></i></td>
+									<td><a href="<?php if ($this->_arrVars['ItemList'][$_0]['MODULE_URL'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['MODULE_URL'], ENT_QUOTES)); } elseif ($this->_vars['MODULE_URL'] !== null) { print(htmlspecialchars($this->_vars['MODULE_URL'], ENT_QUOTES)); } ?>&<?php if ($this->_arrVars['ItemList'][$_0]['ParamsForURL'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['ParamsForURL'], ENT_QUOTES)); } elseif ($this->_vars['ParamsForURL'] !== null) { print(htmlspecialchars($this->_vars['ParamsForURL'], ENT_QUOTES)); } ?>&ItemID=<?php if ($this->_arrVars['ItemList'][$_0]['ItemID'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['ItemID'], ENT_QUOTES)); } elseif ($this->_vars['ItemID'] !== null) { print(htmlspecialchars($this->_vars['ItemID'], ENT_QUOTES)); } ?>" title="<?php if ($this->_arrVars['ItemList'][$_0]['LNG_Edit'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['LNG_Edit'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Edit'] !== null) { print(htmlspecialchars($this->_vars['LNG_Edit'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['ItemList'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a></td>
+									<?php if ((($this->_arrVars['ItemList'][$_0]['CategoryList'] !== null) ? $this->_arrVars['ItemList'][$_0]['CategoryList'] : $this->_vars['CategoryList'])) { ?>
+										<td><a href="<?php if ($this->_arrVars['ItemList'][$_0]['MODULE_URL'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['MODULE_URL'], ENT_QUOTES)); } elseif ($this->_vars['MODULE_URL'] !== null) { print(htmlspecialchars($this->_vars['MODULE_URL'], ENT_QUOTES)); } ?>&PageID=<?php if ($this->_arrVars['ItemList'][$_0]['PageID'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['PageID'], ENT_QUOTES)); } elseif ($this->_vars['PageID'] !== null) { print(htmlspecialchars($this->_vars['PageID'], ENT_QUOTES)); } ?>&ViewCategoryID=<?php if ($this->_arrVars['ItemList'][$_0]['CategoryID'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['CategoryID'], ENT_QUOTES)); } elseif ($this->_vars['CategoryID'] !== null) { print(htmlspecialchars($this->_vars['CategoryID'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['ItemList'][$_0]['CategoryTitle'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['CategoryTitle'], ENT_QUOTES)); } elseif ($this->_vars['CategoryTitle'] !== null) { print(htmlspecialchars($this->_vars['CategoryTitle'], ENT_QUOTES)); } ?></a></td>
+									<?php } ?>
+									<td><?php if ($this->_arrVars['ItemList'][$_0]['ItemDate'] !== null) { print(htmlspecialchars($this->_FormatDate($this->_arrVars['ItemList'][$_0]['ItemDate'],true), ENT_QUOTES)); } elseif ($this->_vars['ItemDate'] !== null) { print(htmlspecialchars($this->_FormatDate($this->_vars['ItemDate'],true), ENT_QUOTES)); } ?></td>
+									<td>
+										<a href="<?php if ($this->_arrVars['ItemList'][$_0]['MODULE_URL'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['MODULE_URL'], ENT_QUOTES)); } elseif ($this->_vars['MODULE_URL'] !== null) { print(htmlspecialchars($this->_vars['MODULE_URL'], ENT_QUOTES)); } ?>&<?php if ($this->_arrVars['ItemList'][$_0]['ParamsForURL'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['ParamsForURL'], ENT_QUOTES)); } elseif ($this->_vars['ParamsForURL'] !== null) { print(htmlspecialchars($this->_vars['ParamsForURL'], ENT_QUOTES)); } ?>&Do=Remove&ListIDs[]=<?php if ($this->_arrVars['ItemList'][$_0]['ItemID'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['ItemID'], ENT_QUOTES)); } elseif ($this->_vars['ItemID'] !== null) { print(htmlspecialchars($this->_vars['ItemID'], ENT_QUOTES)); } ?>" title="<?php if ($this->_arrVars['ItemList'][$_0]['LNG_Remove'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['LNG_Remove'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Remove'] !== null) { print(htmlspecialchars($this->_vars['LNG_Remove'], ENT_QUOTES)); } ?>" onclick="ConfirmRemove('<?php if ($this->_arrVars['ItemList'][$_0]['Title'] !== null) { print($this->_EscapeJS($this->_arrVars['ItemList'][$_0]['Title'])); } elseif ($this->_vars['Title'] !== null) { print($this->_EscapeJS($this->_vars['Title'])); } ?>', this); return false;"><i class="fa fa-close delete"></i></a>
+									</td>
+								</tr>
+							<?php } ?>
+						</tbody>
+					</table>
+				<?php } else { ?>
+					<div class="alert alert-success"><?php if ($this->_vars['LNG_Empty'] !== null) { print(htmlspecialchars($this->_vars['LNG_Empty'], ENT_QUOTES)); } ?></div>
+				<?php } ?>
+			
+				<?php if ($this->_vars['ItemList']) { ?>
+					<div class="col-md-6 no-padding form-inline">
+						<a href="#" onclick="return MultipleRemove($('#item-list')[0], 'ListIDs[]');" class="btn btn-danger btn-icon right15"><i class="fa fa-remove"></i><?php if ($this->_vars['LNG_RemoveMultiple'] !== null) { print(htmlspecialchars($this->_vars['LNG_RemoveMultiple'], ENT_QUOTES)); } ?></a>
+						<?php if ($this->_vars['CategoryList']) { ?>
+							<a href="#" onclick="return MoveTo($('#item-list')[0], 'ListIDs[]');" class="btn btn-icon"><i class="fa fa-share"></i><?php if ($this->_vars['LNG_MoveTo'] !== null) { print(htmlspecialchars($this->_vars['LNG_MoveTo'], ENT_QUOTES)); } ?></a>
+							<select name="ToCategoryID" id="ToCategoryID" class="form-control">
+								<option value=""><?php if ($this->_vars['NoCategory'] !== null) { print(htmlspecialchars($this->_vars['NoCategory'], ENT_QUOTES)); } ?></option>
+								<?php $row_count_0=count($this->_arrVars['CategoryList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+									<option value="<?php if ($this->_arrVars['CategoryList'][$_0]['CategoryID'] !== null) { print(htmlspecialchars($this->_arrVars['CategoryList'][$_0]['CategoryID'], ENT_QUOTES)); } elseif ($this->_vars['CategoryID'] !== null) { print(htmlspecialchars($this->_vars['CategoryID'], ENT_QUOTES)); } ?>">&nbsp;&nbsp;&nbsp;&nbsp;<?php if ($this->_arrVars['CategoryList'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['CategoryList'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></option>
+								<?php } ?>
+							</select>
+						<?php } ?>
+					</div>
+				<?php } ?>
+				<div class="clearfix"></div>
+				<input type="hidden" name="Do" value="" />
+				<?php if ($this->_vars['ParamsForForm'] !== null) { print($this->_vars['ParamsForForm']); } ?>
+			</form>			
+		</div>
+	</section>
+</div>
+
+<script type="text/javascript">
+function MultipleRemove(form, elmName)
+{
+	var checked = 0;
+	for (var i = 0; i < form.elements.length; i++)
+	{
+		if (form.elements[i].name == elmName && form.elements[i].type == "checkbox" && form.elements[i].checked)
+		{
+			checked++;
+		}
+	}
+
+	if (checked == 0)
+	{
+		alert('<?php if ($this->_vars['LNG_NoSelection'] !== null) { print($this->_EscapeJS($this->_vars['LNG_NoSelection'])); } ?>');
+	}
+	else
+	{
+		ModalConfirm('<?php if ($this->_vars['LNG_ConfirmRemoveMultiple'] !== null) { print($this->_EscapeJS($this->_vars['LNG_ConfirmRemoveMultiple'])); } ?>', function(){
+			form.elements['Do'].value = 'Remove';
+			form.submit();
+		});
+	}
+	return false;
+}
+function ConfirmRemove(title, a)
+{
+	var msg = '<?php if ($this->_vars['LNG_ConfirmRemove'] !== null) { print($this->_EscapeJS($this->_vars['LNG_ConfirmRemove'])); } ?>';
+	msg = msg.replace(/%Title%/g, title);
+	ModalConfirm(msg, function(){
+		window.location.href = $(a).attr('href');
+	})
+}
+function MoveTo(form, elmName)
+{
+	var checked = 0;
+	for (var i = 0; i < form.elements.length; i++)
+	{
+		if (form.elements[i].name == elmName && form.elements[i].type == "checkbox" && form.elements[i].checked)
+		{
+			checked++;
+		}
+	}
+
+	var msg = '<?php if ($this->_vars['LNG_ConfirmMoveTo'] !== null) { print($this->_EscapeJS($this->_vars['LNG_ConfirmMoveTo'])); } ?>';
+	msg = msg.replace(/%Title%/g, $.trim($('#ToCategoryID option:selected').text()));
+
+	if (checked == 0)
+	{
+		alert('<?php if ($this->_vars['LNG_NoSelection'] !== null) { print($this->_EscapeJS($this->_vars['LNG_NoSelection'])); } ?>');
+	}
+	else
+	{
+		ModalConfirm(msg, function(){
+			form.elements['Do'].value = 'MoveTo';
+			form.submit();
+		});
+	}
+	return false;
+}
+
+$(document).ready(function(){
+
+	// Set titles for page/category switch buttons
+	$('.switch').each(function(){
+		if($(this).attr('ItemID')){
+			if ($(this).hasClass('active'))
+				$(this).attr('title', GetTranslation('item-deactivate'));
+			else
+				$(this).attr('title', GetTranslation('item-activate'));
+		}
+	});
+	$('.switch').click(function(e){
+		itemID = $(this).attr('ItemID');
+		if ($(this).hasClass('active')){
+			newTitle = GetTranslation('item-activate');
+			newClass = 'inactive';
+			active = 'N';
+			message = CreateMessage(GetTranslation('deactivating-item'), 'info');
+		}else{
+			newTitle = GetTranslation('item-deactivate');
+			newClass = 'active';
+			active = 'Y';
+			message = CreateMessage(GetTranslation('activating-item'), 'info');
+		}
+		$.ajax({
+			url: '<?php if ($this->_vars['MODULE_PATH'] !== null) { print(htmlspecialchars($this->_vars['MODULE_PATH'], ENT_QUOTES)); } ?>ajax.php',
+			method: 'POST',
+			dataType: 'JSON',
+			data:{
+				Action: 'SwitchItem',
+				Module: '<?php if ($this->_vars['MODULE_NAME'] !== null) { print($this->_EscapeJS($this->_vars['MODULE_NAME'])); } ?>',
+				ItemID: itemID,
+				Active: active
+			},
+			success:function(data){
+				if(typeof data.SessionExpired != 'undefined')
+	      		{
+	      			window.location.href = ADMIN_PATH+"index.php";
+	      			return;
+	      		}
+				$('.switch[ItemID='+itemID+']').removeClass('active').removeClass('inactive').addClass(newClass).attr('title', newTitle);
+				if(active == "Y")
+				{
+					$('.switch[ItemID='+itemID+']').closest('tr').removeClass('inactive');
+					UpdateMessage(message, GetTranslation('item-activated'), 'success');
+				}
+				else
+				{
+					$('.switch[ItemID='+itemID+']').closest('tr').addClass('inactive');
+					UpdateMessage(message, GetTranslation('item-deactivated'), 'success');
+				}
+			},
+			error:function(){
+				if(active == "Y")
+				{
+					UpdateMessage(message, GetTranslation('error-activating-item'), 'error');
+				}
+				else
+				{
+					UpdateMessage(message, GetTranslation('error-deactivating-item'), 'error');
+				}
+			}
+		});
+	});
+	<?php if ($this->_vars['ShowSortOrder']) { ?>
+		var fixHelper = function(e, ui) {
+			ui.children().each(function() {
+				$(this).width($(this).width());
+			});
+			return ui;
+		};	
+		$('#listing tbody').sortable({
+			helper: fixHelper,
+			start: function(e, ui) {
+		        $(this).attr('data-previndex', ui.item.index());
+		    },
+		    stop:function(event, ui){
+		    	if($(ui.item).attr('prevent-sortable')){
+		    		$(this).sortable('cancel');
+		    		$(ui.item).removeAttr('prevent-sortable')
+		    	}
+		    },
+			update: function(event, ui) {
+				if($(ui.item).attr('prevent-sortable')){
+					//
+				}else{
+					var newIndex = ui.item.index();
+			        var oldIndex = $(this).attr('data-previndex');
+			        var diff = newIndex - oldIndex; 
+			        $(this).removeAttr('data-previndex');
+			        message = CreateMessage(GetTranslation('saving-sort-item', 'info'));
+			        $.ajax({
+						url:"<?php if ($this->_vars['MODULE_PATH'] !== null) { print(htmlspecialchars($this->_vars['MODULE_PATH'], ENT_QUOTES)); } ?>ajax.php",
+						dataType:"JSON",
+						data:{
+							'Module': '<?php if ($this->_vars['MODULE_NAME'] !== null) { print($this->_EscapeJS($this->_vars['MODULE_NAME'])); } ?>',
+			    			'Action': 'SetItemSortOrder',
+			    			'CategoryID': '<?php if ($this->_vars['CategoryID'] !== null) { print(htmlspecialchars($this->_vars['CategoryID'], ENT_QUOTES)); } ?>',
+			    			'ItemID': ui.item.attr('ItemID'),
+			    			'Diff': diff
+						},
+						success: function(data){
+							if(typeof data.SessionExpired != 'undefined')
+				      		{
+				      			window.location.href = ADMIN_PATH+"index.php";
+				      			return;
+				      		}
+							if(data)
+							{
+								UpdateMessage(message, GetTranslation('sort-item-saved'), 'success');
+							}
+							else
+							{
+								UpdateMessage(message, GetTranslation('error-saving-sort-item'), 'error');
+							}
+						},
+						error:function(){
+							UpdateMessage(message, GetTranslation('error-saving-sort-item'), 'error');
+						}
+					});
+				}
+			}
+		});	
+		$( ".pagination li a" ).droppable({
+			tolerance: 'pointer',
+			drop: function( event, ui ) {
+				pagingLink = $(this);
+				$(ui.draggable).attr('prevent-sortable', '1');
+				
+				currentPage = <?php if ($this->_vars['CurrentPage'] !== null) { print(htmlspecialchars($this->_vars['CurrentPage'], ENT_QUOTES)); } ?>;
+				targetPage = parseInt($(this).attr('href').match(/Page=([0-9]+)/)[1]);
+				currentIndex = 0;
+				
+				size = $('#listing tbody tr:not(.ui-sortable-placeholder)').size();
+				$('#listing tbody tr:not(.ui-sortable-placeholder)').each(function(index, element){
+					if($(this).attr('ItemID') == $(ui.draggable).attr('ItemID')){
+						currentIndex = index;
+					}
+				});
+				
+				if(currentPage == targetPage)
+				{
+					return;
+				}
+				else if(targetPage > currentPage)
+				{
+					diff = size - currentIndex + (<?php if ($this->_vars['ItemsOnPage'] !== null) { print(htmlspecialchars($this->_vars['ItemsOnPage'], ENT_QUOTES)); } ?> * (targetPage - currentPage - 1));	
+				}
+				else
+				{
+					diff = currentIndex + 1 + (<?php if ($this->_vars['ItemsOnPage'] !== null) { print(htmlspecialchars($this->_vars['ItemsOnPage'], ENT_QUOTES)); } ?> * (currentPage - targetPage - 1));
+					diff = diff * (-1);
+				}
+			
+				message = CreateMessage(GetTranslation('saving-sort-item', 'info'));
+				$.ajax({
+					url:"<?php if ($this->_vars['MODULE_PATH'] !== null) { print(htmlspecialchars($this->_vars['MODULE_PATH'], ENT_QUOTES)); } ?>ajax.php",
+					dataType:"JSON",
+					method: 'POST',
+					data:{
+						'Module': '<?php if ($this->_vars['MODULE_NAME'] !== null) { print($this->_EscapeJS($this->_vars['MODULE_NAME'])); } ?>',
+		    			'Action': 'SetItemSortOrder',
+		    			'CategoryID': '<?php if ($this->_vars['CategoryID'] !== null) { print(htmlspecialchars($this->_vars['CategoryID'], ENT_QUOTES)); } ?>',
+		    			'ItemID': parseInt($(ui.draggable).attr('ItemID')),
+		    			'Diff': diff
+					},
+					success: function(data){
+						if(typeof data.SessionExpired != 'undefined')
+			      		{
+			      			window.location.href = ADMIN_PATH+"index.php";
+			      			return;
+			      		}
+						window.location.href = pagingLink.attr('href');
+					},
+					error:function(){
+						UpdateMessage(message, GetTranslation('error-saving-sort-item'), 'error');
+					}
+				});	
+			}
+	    });
+	<?php } ?>
+});
+</script>

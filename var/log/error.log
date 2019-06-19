@@ -1,0 +1,76 @@
+﻿----------------------------------------------------------------------
+STARTED AT: 2018-05-11 10:00:47 (+0000)
+EXECUTION TIME: 0.1710569858551
+PHP_SELF: /preventiva/index.php
+
+E_NOTICE[8]: Undefined index: Position at C:\Users\Public\Apache\htdocs\preventiva\module\company\public.php line 76
+
+Back trace:
+File: C:\Users\Public\Apache\htdocs\preventiva\include\modulehandler.php Line: 38
+File: C:\Users\Public\Apache\htdocs\preventiva\include\module.php Line: 81
+File: C:\Users\Public\Apache\htdocs\preventiva\index.php Line: 209
+
+E_NOTICE[8]: Undefined index: OfficeTerm at C:\Users\Public\Apache\htdocs\preventiva\module\company\public.php line 77
+
+Back trace:
+File: C:\Users\Public\Apache\htdocs\preventiva\include\modulehandler.php Line: 38
+File: C:\Users\Public\Apache\htdocs\preventiva\include\module.php Line: 81
+File: C:\Users\Public\Apache\htdocs\preventiva\index.php Line: 209
+
+E_NOTICE[8]: Undefined index: Position at C:\Users\Public\Apache\htdocs\preventiva\module\company\public.php line 76
+
+Back trace:
+File: C:\Users\Public\Apache\htdocs\preventiva\include\modulehandler.php Line: 38
+File: C:\Users\Public\Apache\htdocs\preventiva\include\module.php Line: 81
+File: C:\Users\Public\Apache\htdocs\preventiva\index.php Line: 209
+
+E_NOTICE[8]: Undefined index: OfficeTerm at C:\Users\Public\Apache\htdocs\preventiva\module\company\public.php line 77
+
+Back trace:
+File: C:\Users\Public\Apache\htdocs\preventiva\include\modulehandler.php Line: 38
+File: C:\Users\Public\Apache\htdocs\preventiva\include\module.php Line: 81
+File: C:\Users\Public\Apache\htdocs\preventiva\index.php Line: 209
+
+----------------------------------------------------------------------
+
+
+
+
+----------------------------------------------------------------------
+STARTED AT: 2018-05-11 10:00:50 (+0000)
+EXECUTION TIME: 0.19010710716248
+PHP_SELF: /preventiva/index.php
+
+E_NOTICE[8]: Undefined index: Position at C:\Users\Public\Apache\htdocs\preventiva\module\company\public.php line 76
+
+Back trace:
+File: C:\Users\Public\Apache\htdocs\preventiva\include\modulehandler.php Line: 38
+File: C:\Users\Public\Apache\htdocs\preventiva\include\module.php Line: 81
+File: C:\Users\Public\Apache\htdocs\preventiva\index.php Line: 209
+
+E_NOTICE[8]: Undefined index: OfficeTerm at C:\Users\Public\Apache\htdocs\preventiva\module\company\public.php line 77
+
+Back trace:
+File: C:\Users\Public\Apache\htdocs\preventiva\include\modulehandler.php Line: 38
+File: C:\Users\Public\Apache\htdocs\preventiva\include\module.php Line: 81
+File: C:\Users\Public\Apache\htdocs\preventiva\index.php Line: 209
+
+E_NOTICE[8]: Undefined index: Position at C:\Users\Public\Apache\htdocs\preventiva\module\company\public.php line 76
+
+Back trace:
+File: C:\Users\Public\Apache\htdocs\preventiva\include\modulehandler.php Line: 38
+File: C:\Users\Public\Apache\htdocs\preventiva\include\module.php Line: 81
+File: C:\Users\Public\Apache\htdocs\preventiva\index.php Line: 209
+
+E_NOTICE[8]: Undefined index: OfficeTerm at C:\Users\Public\Apache\htdocs\preventiva\module\company\public.php line 77
+
+Back trace:
+File: C:\Users\Public\Apache\htdocs\preventiva\include\modulehandler.php Line: 38
+File: C:\Users\Public\Apache\htdocs\preventiva\include\module.php Line: 81
+File: C:\Users\Public\Apache\htdocs\preventiva\index.php Line: 209
+
+----------------------------------------------------------------------
+
+
+
+

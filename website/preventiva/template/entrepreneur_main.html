@@ -1,0 +1,222 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<TMPL_LOOP NAME='Navigation'>
+					<li <TMPL_IF NAME='__LAST__'>class="active"</TMPL_IF>>
+						<TMPL_IF NAME='__FIRST__'>
+							<a href="<TMPL_VAR NAME='URL_PREFIX'>"><TMPL_VAR NAME='Title'></a>
+						<TMPL_ELSE>
+							<TMPL_VAR NAME='Title'>
+						</TMPL_IF>
+					</li>
+				</TMPL_LOOP>
+			</ol>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="content__aside">
+			<header><h1 class="header_page"><TMPL_VAR NAME='TitleH1'></h1></header>
+			<div class="block_textcontent block_textcontent-top">
+				<TMPL_VAR NAME='Content' ESCAPE='none'>
+			</div>
+
+			<div class="form_type3">
+				<div class="form-inline">
+				<label for="formTown"><TMPL_VAR NAME='LNG_YourCity'></label>
+					<div class="form-group custom-select">
+						<select id="formTown" class="form-control">
+							<TMPL_LOOP NAME='CityList'>
+								<option value="<TMPL_VAR NAME='CostEntrepreneur'>" <TMPL_IF NAME='Selected'>selected</TMPL_IF>><TMPL_VAR NAME='CityName'></option>
+							</TMPL_LOOP>
+						</select>
+					</div>
+					<div class="form_type2__textleft">
+						<TMPL_VAR NAME='LNG_Cost'>
+						<TMPL_LOOP NAME='CityList'>
+							<TMPL_IF NAME='Selected'>
+								<span id="costEntrepreneur"><TMPL_VAR NAME='CostEntrepreneur'></span>
+							</TMPL_IF>
+						</TMPL_LOOP>
+						<TMPL_VAR NAME='LNG_Rub'>
+					</div>
+				</div>
+			</div>
+
+			<div class="form_bottom__beforetext">
+				<h3 class="form_bottom__header form_bottom__header--big"><TMPL_VAR NAME='LNG_Data'></h3>
+				<p><TMPL_VAR NAME='LNG_DataMethods'><br>
+				1. &nbsp;&nbsp; <TMPL_VAR NAME='LNG_Passport'><br>
+				2. &nbsp;&nbsp; <TMPL_VAR NAME='LNG_Form'></p>
+			</div>
+			<form method="post" class="ajax-form" action="<TMPL_VAR NAME='PROJECT_PATH'>module/entrepreneur/ajax_public.php">
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation"><a href="#tab-1" aria-controls="tab-1" role="tab" data-toggle="tab"><TMPL_VAR NAME='LNG_DownloadFile'></a></li>
+					<li role="presentation" class="active"><a href="#tab-2" aria-controls="tab-2" role="tab" data-toggle="tab"><TMPL_VAR NAME='LNG_FillForm'></a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade" id="tab-1">
+						<div class="form_bottom">
+							<div class="form_bottom__upload">
+								<div class="form-upload">
+									<input id="uploadFile" data-url="<TMPL_VAR NAME='PROJECT_PATH'>module/entrepreneur/ajax_public.php" type="file">
+								</div>
+								<div class="form_bottom__upload-text">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<div role="tabpanel" class="tab-pane fade in active" id="tab-2">
+						<div class="form_bottom">
+							<div class="form_bottom__italic"><TMPL_VAR NAME='LNG_DataScan'> <b><TMPL_VAR NAME='LNG_All'></b> <TMPL_VAR NAME='LNG_NecessaryDoc'></div>
+							<div class="form_bottom__need"><TMPL_VAR NAME='LNG_Necessary'></div>	
+							<div class="form_bottom__wrap">
+								<label for="form01"><TMPL_VAR NAME='LNG_Name'></label>
+								<div class="form-group">
+									<input id="form01" name="Name" class="form-control form-control_need" type="text">
+								</div>
+								
+								<label for="form02"><TMPL_VAR NAME='LNG_TIN'></label>
+								<div class="form-group">
+									<input id="form02" name="TIN" class="form-control form-control_need" type="text">
+								</div>
+		
+								<label for="form03"><TMPL_VAR NAME='LNG_BirthDate'></label>
+								<div class="form-group">
+									<input id="form03" name="BirthDate" class="form-control form-control_need" type="text">
+								</div>
+		
+								<label for="form04"><TMPL_VAR NAME='LNG_BirthPlace'></label>
+								<div class="form-group">
+									<input id="form04" name="BirthPlace" class="form-control form-control_need" type="text">
+								</div>
+		
+								<label for="form05"><TMPL_VAR NAME='LNG_PassportNumber'></label>
+								<div class="form-group">
+									<input id="form05" name="PassportNumber" class="form-control form-control_need" type="text">
+								</div>
+		
+								<label for="form06"><TMPL_VAR NAME='LNG_PassportGive'></label>
+								<div class="form-group">
+									<input id="form06" name="PassportGive" class="form-control form-control_need" type="text">
+								</div>
+		
+								<label for="form07"><TMPL_VAR NAME='LNG_DepartmentCode'></label>
+								<div class="form-group">
+									<input id="form07" name="DepartmentCode" class="form-control form-control_need" type="text">
+								</div>
+		
+								<label for="form08"><TMPL_VAR NAME='LNG_DateGive'></label>
+								<div class="form-group">
+									<input id="form08" name="DateGive" class="form-control form-control_need" type="text">
+								</div>
+		
+								<label for="form09"><TMPL_VAR NAME='LNG_Registration'></label>
+								<div class="form-group">
+									<input id="form09" name="Registration" class="form-control form-control_need" type="text">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form_bottom form_bottom--white">
+							<div class="form_bottom__wrap">
+								<label for="form11"><TMPL_VAR NAME='LNG_ActivityType'></label>
+								<div class="form-group">
+									<textarea id="form11" name="ActivityType" rows="4" class="form-control form-control_need"></textarea>
+								</div>
+								
+								<label for="form12"><TMPL_VAR NAME='LNG_Taxation'></label>
+								<div class="form-group custom-select">
+									<select id="form12" name="Taxation" class="form-control form-control_need">
+										<option disabled selected><TMPL_VAR NAME='LNG_Choose'></option>
+										<option><TMPL_VAR NAME='LNG_TaxOne'></option>
+										<option><TMPL_VAR NAME='LNG_TaxTwo'></option>
+										<option><TMPL_VAR NAME='LNG_TaxThree'></option>
+										<option><TMPL_VAR NAME='LNG_TaxFour'></option>
+										<option><TMPL_VAR NAME='LNG_TaxFive'></option>
+										<option><TMPL_VAR NAME='LNG_TaxAdvice'></option>
+									</select>
+								</div>
+		
+								<label for="form13"><TMPL_VAR NAME='LNG_ContactPhoneFor'></label>
+								<div class="form-group">
+									<input id="form13" name="ContactPhoneFor" class="form-control form-control_need" type="text">
+								</div>
+		
+								<label for="form14"><TMPL_VAR NAME='LNG_ContactPerson'></label>
+								<div class="form-group">
+									<input id="form14" name="ContactPerson" class="form-control form-control_need" type="text">
+								</div>
+		
+								<label for="form15"><TMPL_VAR NAME='LNG_Email'></label>
+								<div class="form-group">
+									<input id="form15" name="Email" class="form-control form-control_need" type="text">
+								</div>
+		
+							</div>
+						</div>
+	
+						<div class="form_bottom form_bottom--lasttext">
+							<div class="form_bottom__wrap">
+								<h4 class="form_bottom__header"><TMPL_VAR NAME='LNG_Info'></h4>
+								
+								<label for="formAbout"><TMPL_VAR NAME='LNG_How'></label>
+								<div class="form-group custom-select">
+									<select id="formAbout" name="How" class="form-control form-control_need">
+										<option disabled selected><TMPL_VAR NAME='LNG_Choose'></option>
+										<option><TMPL_VAR NAME='LNG_Internet'></option>
+										<option><TMPL_VAR NAME='LNG_Recommendation'></option>
+										<option><TMPL_VAR NAME='LNG_Other'></option>
+									</select>
+								</div>
+		
+								<p><TMPL_VAR NAME='LNG_PersonalData'></p>
+		
+								<div class="checkbox">
+									<input id="checkbox-01" name="Familiarize" type="checkbox" checked>
+									<label for="checkbox-01"><TMPL_VAR NAME='LNG_Familiarize'><span></span></label>
+								</div>
+								
+								<span><TMPL_VAR NAME='LNG_Method'></span>
+		
+								<div class="checkbox">
+									<input id="checkbox-02" name="PostMethod" type="checkbox" checked>
+									<label for="checkbox-02"><TMPL_VAR NAME='LNG_PostMethod'><span></span></label>
+								</div>
+								<div class="checkbox">
+									<input id="checkbox-03" name="OfficeMethod" type="checkbox">
+									<label for="checkbox-03"><TMPL_VAR NAME='LNG_OfficeMethod'><span></span></label>
+								</div>
+		
+							</div>
+						</div> <br>
+					<div class="form-error"></div>
+					<div class="form-message"></div>
+					<button class="main_btn main_btn--big"><img src="<TMPL_VAR NAME='PATH2MAIN'>img/send.png" alt=""> <TMPL_VAR NAME='LNG_Application'></button>
+					<input type="hidden" name="Action" value="Save" />
+					<input type="hidden" name="PageID" value="<TMPL_VAR NAME='PageID'>" />
+					<TMPL_LOOP NAME='CityList'>
+						<TMPL_IF NAME='Selected'>
+							<input type="hidden" name="City" value="<TMPL_VAR NAME='CityName'>"/>
+						</TMPL_IF>
+					</TMPL_LOOP>
+				</div>
+			</form>
+		</div>
+		<TMPL_INCLUDE FILE='_navigation.html'>
+	</div>
+</div>
+
+<div class="hidden">
+	<span id="new-file">
+		<span class="file-name"></span>
+		<span data-url="<TMPL_VAR NAME='PROJECT_PATH'>module/entrepreneur/ajax_public.php" class="fa fa-close" title="<TMPL_VAR NAME='LNG_Delete'>"></span>
+		<input type="hidden" name="FileList[]" />&nbsp;
+	</span>
+</div>

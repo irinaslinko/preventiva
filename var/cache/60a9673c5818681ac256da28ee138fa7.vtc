@@ -1,0 +1,50 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<?php $row_count_0=count($this->_arrVars['Navigation']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+					<li <?php if ((($this->_arrVars['Navigation'][$_0]['__LAST__'] !== null) ? $this->_arrVars['Navigation'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>class="active"<?php } ?>>
+						<?php if ((($this->_arrVars['Navigation'][$_0]['__LAST__'] !== null) ? $this->_arrVars['Navigation'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>
+							<?php if ($this->_arrVars['Navigation'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?>
+						<?php } else { ?>
+							<a href="<?php if ($this->_arrVars['Navigation'][$_0]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['Navigation'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a>
+						<?php } ?>
+					</li>
+				<?php } ?>
+			</ol>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="content__aside">
+			<header><h1 class="header_page"><?php if ($this->_vars['PageTitleH1'] !== null) { print(htmlspecialchars($this->_vars['PageTitleH1'], ENT_QUOTES)); } ?></h1></header>
+			<?php $row_count_0=count($this->_arrVars['ItemList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+				<div class="block_news">
+					<div class="block_news__image"><a href="<?php if ($this->_arrVars['ItemList'][$_0]['ItemURL'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['ItemURL'], ENT_QUOTES)); } elseif ($this->_vars['ItemURL'] !== null) { print(htmlspecialchars($this->_vars['ItemURL'], ENT_QUOTES)); } ?>"><img src="<?php if ($this->_arrVars['ItemList'][$_0]['ItemImageThumbPath'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['ItemImageThumbPath'], ENT_QUOTES)); } elseif ($this->_vars['ItemImageThumbPath'] !== null) { print(htmlspecialchars($this->_vars['ItemImageThumbPath'], ENT_QUOTES)); } ?>" alt=""></a></div>
+					<div class="block_news__text">
+						<article>
+						<header>
+							<h3 class="block_news__header"><a href="<?php if ($this->_arrVars['ItemList'][$_0]['ItemURL'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['ItemURL'], ENT_QUOTES)); } elseif ($this->_vars['ItemURL'] !== null) { print(htmlspecialchars($this->_vars['ItemURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['ItemList'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a></h3>
+						</header>
+						<div class="block_news__time"><?php if ($this->_arrVars['ItemList'][$_0]['ItemDate'] !== null) { print(htmlspecialchars($this->_FormatDate($this->_arrVars['ItemList'][$_0]['ItemDate']), ENT_QUOTES)); } elseif ($this->_vars['ItemDate'] !== null) { print(htmlspecialchars($this->_FormatDate($this->_vars['ItemDate']), ENT_QUOTES)); } ?></div>
+						<p><?php if ($this->_arrVars['ItemList'][$_0]['Description'] !== null) { print(htmlspecialchars($this->_arrVars['ItemList'][$_0]['Description'], ENT_QUOTES)); } elseif ($this->_vars['Description'] !== null) { print(htmlspecialchars($this->_vars['Description'], ENT_QUOTES)); } ?></p>
+						</article>
+					</div>
+				</div>
+			<?php } ?>
+				
+			<nav aria-label="<?php if ($this->_vars['LNG_Paging'] !== null) { print(htmlspecialchars($this->_vars['LNG_Paging'], ENT_QUOTES)); } ?>">
+				<ul class="pagination">
+					<?php $row_count_0=count($this->_arrVars['Paging']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+						<?php if (!(($this->_arrVars['Paging'][$_0]['__FIRST__'] !== null) ? $this->_arrVars['Paging'][$_0]['__FIRST__'] : $this->_vars['__FIRST__'])) { ?>
+							<?php if (!(($this->_arrVars['Paging'][$_0]['__LAST__'] !== null) ? $this->_arrVars['Paging'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>
+								<li <?php if ((($this->_arrVars['Paging'][$_0]['Selected'] !== null) ? $this->_arrVars['Paging'][$_0]['Selected'] : $this->_vars['Selected'])) { ?>class="active"<?php } ?>><a href="<?php if ($this->_arrVars['Paging'][$_0]['URL'] !== null) { print(htmlspecialchars($this->_arrVars['Paging'][$_0]['URL'], ENT_QUOTES)); } elseif ($this->_vars['URL'] !== null) { print(htmlspecialchars($this->_vars['URL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['Paging'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Paging'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a></li>
+							<?php } ?>
+						<?php } ?>
+					<?php } ?>
+				</ul>
+			</nav>
+		</div>
+		<?php $this->_GetData($this->_FileSearch('_navigation.html'), 1); ?>
+	</div>
+</div>

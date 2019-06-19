@@ -1,0 +1,359 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<?php $row_count_0=count($this->_arrVars['Navigation']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+					<li <?php if ((($this->_arrVars['Navigation'][$_0]['__LAST__'] !== null) ? $this->_arrVars['Navigation'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>class="active"<?php } ?>>
+						<?php if ((($this->_arrVars['Navigation'][$_0]['__FIRST__'] !== null) ? $this->_arrVars['Navigation'][$_0]['__FIRST__'] : $this->_vars['__FIRST__'])) { ?>
+							<a href="<?php if ($this->_arrVars['Navigation'][$_0]['URL_PREFIX'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['URL_PREFIX'], ENT_QUOTES)); } elseif ($this->_vars['URL_PREFIX'] !== null) { print(htmlspecialchars($this->_vars['URL_PREFIX'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['Navigation'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a>
+						<?php } else { ?>
+							<?php if ($this->_arrVars['Navigation'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?>
+						<?php } ?>
+					</li>
+				<?php } ?>
+			</ol>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="content__aside">
+			<header><h1 class="header_page"><?php if ($this->_vars['TitleH1'] !== null) { print(htmlspecialchars($this->_vars['TitleH1'], ENT_QUOTES)); } ?></h1></header>
+			<div class="form_progress">
+				<ul>
+					<li class="active"><span><?php if ($this->_vars['LNG_Title'] !== null) { print(htmlspecialchars($this->_vars['LNG_Title'], ENT_QUOTES)); } ?></span></li>
+					<li class="active"><span><?php if ($this->_vars['LNG_Data'] !== null) { print(htmlspecialchars($this->_vars['LNG_Data'], ENT_QUOTES)); } ?></span></li>
+					<li><span><?php if ($this->_vars['LNG_Type'] !== null) { print(htmlspecialchars($this->_vars['LNG_Type'], ENT_QUOTES)); } ?></span></li>
+				</ul>
+			</div>
+			
+			<form method="post" class="ajax-form" action="<?php if ($this->_vars['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_vars['PROJECT_PATH'], ENT_QUOTES)); } ?>module/company/ajax_public.php?Part=Second">
+				<div class="page_ooo2">
+					<div class="form_bottom form_bottom--white">
+						<header><h3 class="form_bottom__header form_bottom__header--big"><?php if ($this->_vars['LNG_AboutHead'] !== null) { print(htmlspecialchars($this->_vars['LNG_AboutHead'], ENT_QUOTES)); } ?></h3></header>
+						<div class="form_bottom__need"><?php if ($this->_vars['LNG_Necessary'] !== null) { print(htmlspecialchars($this->_vars['LNG_Necessary'], ENT_QUOTES)); } ?></div>
+						<div class="form_bottom__wrap">
+							<label class="label_comment" for="formCapital">
+								<b><?php if ($this->_vars['LNG_Money'] !== null) { print(htmlspecialchars($this->_vars['LNG_Money'], ENT_QUOTES)); } ?></b>
+								<span class="comment_tooltip"	data-toggle="tooltip" data-placement="top" title="<?php if ($this->_vars['LNG_QuestionMoney'] !== null) { print(htmlspecialchars($this->_vars['LNG_QuestionMoney'], ENT_QUOTES)); } ?>"></span>
+							</label>
+							<div class="form-group">
+								<input id="formCapital" name="Money" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['Money'] !== null) { print(htmlspecialchars($this->_vars['Money'], ENT_QUOTES)); } ?>">
+							</div>
+						</div>
+						<div class="section_radio">
+							<p class="italic">
+								<?php if ($this->_vars['LNG_MinMoney'] !== null) { print(htmlspecialchars($this->_vars['LNG_MinMoney'], ENT_QUOTES)); } ?> <br>
+								<?php if ($this->_vars['LNG_AnotherMoney'] !== null) { print(htmlspecialchars($this->_vars['LNG_AnotherMoney'], ENT_QUOTES)); } ?>
+							</p>
+		
+							<h3 class="form_bottom__header"><?php if ($this->_vars['LNG_Payment'] !== null) { print(htmlspecialchars($this->_vars['LNG_Payment'], ENT_QUOTES)); } ?></h3>
+							<div class="form_bottom__need form_bottom__need-notbord"><?php if ($this->_vars['LNG_Must'] !== null) { print(htmlspecialchars($this->_vars['LNG_Must'], ENT_QUOTES)); } ?></div>
+							<div class="radio">
+								<input type="radio" name="paymentCapital" id="Cash" value="Cash" <?php if ($this->_vars['paymentCapital']!='Property') { ?>checked<?php } ?>>
+								<label for="Cash"><?php if ($this->_vars['LNG_Cash'] !== null) { print(htmlspecialchars($this->_vars['LNG_Cash'], ENT_QUOTES)); } ?><span></span></label>
+							</div>
+							<div class="radio">
+								<input type="radio" name="paymentCapital" id="Property" value="Property" <?php if ($this->_vars['paymentCapital']=='Property') { ?>checked<?php } ?>>
+								<label for="Property"><?php if ($this->_vars['LNG_Property'] !== null) { print(htmlspecialchars($this->_vars['LNG_Property'], ENT_QUOTES)); } ?><span></span></label>
+							</div>
+						</div>
+					</div>
+					
+					<div id="form_bottom-hide" class="form_bottom form_bottom--white" <?php if ($this->_vars['paymentCapital']=='Property') { ?>style="display: block;"<?php } ?>>
+						<div class="form_bottom__wrap">
+							<label for="NameProperty"><?php if ($this->_vars['LNG_NameProperty'] !== null) { print(htmlspecialchars($this->_vars['LNG_NameProperty'], ENT_QUOTES)); } ?></label>
+							<div class="form-group">
+								<input id="NameProperty" name="NameProperty" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['NameProperty'] !== null) { print(htmlspecialchars($this->_vars['NameProperty'], ENT_QUOTES)); } ?>">
+							</div>
+						</div>
+					</div>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							<?php $row_count_0=count($this->_arrVars['FounderList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+								AddFounder();
+								$('#BirthDateFounder-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FounderNumber'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FounderNumber'], ENT_QUOTES)); } elseif ($this->_vars['FounderNumber'] !== null) { print(htmlspecialchars($this->_vars['FounderNumber'], ENT_QUOTES)); } ?>').val($('<div>').html("<?php if ($this->_arrVars['FounderList'][$_0]['BirthDateFounder'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['BirthDateFounder'], ENT_QUOTES)); } elseif ($this->_vars['BirthDateFounder'] !== null) { print(htmlspecialchars($this->_vars['BirthDateFounder'], ENT_QUOTES)); } ?>").text());
+								$('#BirthPlaceFounder-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FounderNumber'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FounderNumber'], ENT_QUOTES)); } elseif ($this->_vars['FounderNumber'] !== null) { print(htmlspecialchars($this->_vars['FounderNumber'], ENT_QUOTES)); } ?>').val($('<div>').html("<?php if ($this->_arrVars['FounderList'][$_0]['BirthPlaceFounder'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['BirthPlaceFounder'], ENT_QUOTES)); } elseif ($this->_vars['BirthPlaceFounder'] !== null) { print(htmlspecialchars($this->_vars['BirthPlaceFounder'], ENT_QUOTES)); } ?>").text()); 
+								$('#PassportNumberFounder-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FounderNumber'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FounderNumber'], ENT_QUOTES)); } elseif ($this->_vars['FounderNumber'] !== null) { print(htmlspecialchars($this->_vars['FounderNumber'], ENT_QUOTES)); } ?>').val($('<div>').html("<?php if ($this->_arrVars['FounderList'][$_0]['PassportNumberFounder'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['PassportNumberFounder'], ENT_QUOTES)); } elseif ($this->_vars['PassportNumberFounder'] !== null) { print(htmlspecialchars($this->_vars['PassportNumberFounder'], ENT_QUOTES)); } ?>").text());
+								$('#PassportGiveFounder-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FounderNumber'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FounderNumber'], ENT_QUOTES)); } elseif ($this->_vars['FounderNumber'] !== null) { print(htmlspecialchars($this->_vars['FounderNumber'], ENT_QUOTES)); } ?>').val($('<div>').html("<?php if ($this->_arrVars['FounderList'][$_0]['PassportGiveFounder'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['PassportGiveFounder'], ENT_QUOTES)); } elseif ($this->_vars['PassportGiveFounder'] !== null) { print(htmlspecialchars($this->_vars['PassportGiveFounder'], ENT_QUOTES)); } ?>").text());
+								$('#DepartmentCodeFounder-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FounderNumber'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FounderNumber'], ENT_QUOTES)); } elseif ($this->_vars['FounderNumber'] !== null) { print(htmlspecialchars($this->_vars['FounderNumber'], ENT_QUOTES)); } ?>').val($('<div>').html("<?php if ($this->_arrVars['FounderList'][$_0]['DepartmentCodeFounder'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['DepartmentCodeFounder'], ENT_QUOTES)); } elseif ($this->_vars['DepartmentCodeFounder'] !== null) { print(htmlspecialchars($this->_vars['DepartmentCodeFounder'], ENT_QUOTES)); } ?>").text()); 
+								$('#DateGiveFounder-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FounderNumber'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FounderNumber'], ENT_QUOTES)); } elseif ($this->_vars['FounderNumber'] !== null) { print(htmlspecialchars($this->_vars['FounderNumber'], ENT_QUOTES)); } ?>').val($('<div>').html("<?php if ($this->_arrVars['FounderList'][$_0]['DateGiveFounder'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['DateGiveFounder'], ENT_QUOTES)); } elseif ($this->_vars['DateGiveFounder'] !== null) { print(htmlspecialchars($this->_vars['DateGiveFounder'], ENT_QUOTES)); } ?>").text()); 
+								$('#RegistrationFounder-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FounderNumber'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FounderNumber'], ENT_QUOTES)); } elseif ($this->_vars['FounderNumber'] !== null) { print(htmlspecialchars($this->_vars['FounderNumber'], ENT_QUOTES)); } ?>').val($('<div>').html("<?php if ($this->_arrVars['FounderList'][$_0]['RegistrationFounder'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['RegistrationFounder'], ENT_QUOTES)); } elseif ($this->_vars['RegistrationFounder'] !== null) { print(htmlspecialchars($this->_vars['RegistrationFounder'], ENT_QUOTES)); } ?>").text());
+								<?php if ((($this->_arrVars['FounderList'][$_0]['paymentFace'] !== null) ? $this->_arrVars['FounderList'][$_0]['paymentFace'] : $this->_vars['paymentFace'])=='LegalEntity') { ?>
+									$('#LegalEntity-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FounderNumber'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FounderNumber'], ENT_QUOTES)); } elseif ($this->_vars['FounderNumber'] !== null) { print(htmlspecialchars($this->_vars['FounderNumber'], ENT_QUOTES)); } ?>').attr('checked', true).parent().siblings().find('.paymentFaceChange').text("<?php if ($this->_arrVars['FounderList'][$_0]['LNG_Share'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['LNG_Share'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Share'] !== null) { print(htmlspecialchars($this->_vars['LNG_Share'], ENT_QUOTES)); } ?>");
+									
+								<?php } ?>
+								<?php if ((($this->_arrVars['FounderList'][$_0]['paymentFace'] !== null) ? $this->_arrVars['FounderList'][$_0]['paymentFace'] : $this->_vars['paymentFace'])=='NaturalPerson') { ?>
+									$('#NaturalPerson-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FounderNumber'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FounderNumber'], ENT_QUOTES)); } elseif ($this->_vars['FounderNumber'] !== null) { print(htmlspecialchars($this->_vars['FounderNumber'], ENT_QUOTES)); } ?>').attr('checked', true).parent().siblings().find('.paymentFaceChange').text("<?php if ($this->_arrVars['FounderList'][$_0]['LNG_CountMoney'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['LNG_CountMoney'], ENT_QUOTES)); } elseif ($this->_vars['LNG_CountMoney'] !== null) { print(htmlspecialchars($this->_vars['LNG_CountMoney'], ENT_QUOTES)); } ?>");
+								<?php } ?>
+								$('#CountMoney-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FounderNumber'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FounderNumber'], ENT_QUOTES)); } elseif ($this->_vars['FounderNumber'] !== null) { print(htmlspecialchars($this->_vars['FounderNumber'], ENT_QUOTES)); } ?>').val($('<div>').html("<?php if ($this->_arrVars['FounderList'][$_0]['CountMoney'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['CountMoney'], ENT_QUOTES)); } elseif ($this->_vars['CountMoney'] !== null) { print(htmlspecialchars($this->_vars['CountMoney'], ENT_QUOTES)); } ?>").text());
+								<?php $row_count_1=count($this->_arrVars['FounderList'][$_0]['FileList']); for ($_1=0 ; $_1<$row_count_1; $_1++) {?>
+									$('.upload-file-founder-' + '<?php if ($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['Founder'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['Founder'], ENT_QUOTES)); } elseif ($this->_vars['Founder'] !== null) { print(htmlspecialchars($this->_vars['Founder'], ENT_QUOTES)); } ?>').html("<span><span class='file-name'>" + 
+										"<?php if ($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['FileName'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['FileName'], ENT_QUOTES)); } elseif ($this->_vars['FileName'] !== null) { print(htmlspecialchars($this->_vars['FileName'], ENT_QUOTES)); } ?>" + 
+										"<span data-url=\"<?php if ($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['PROJECT_PATH'], ENT_QUOTES)); } elseif ($this->_vars['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_vars['PROJECT_PATH'], ENT_QUOTES)); } ?>module/company/ajax_public.php\" class=\"fa fa-close\" title=\"<?php if ($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['LNG_Delete'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['LNG_Delete'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Delete'] !== null) { print(htmlspecialchars($this->_vars['LNG_Delete'], ENT_QUOTES)); } ?>\" id=\"<?php if ($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['File'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['File'], ENT_QUOTES)); } elseif ($this->_vars['File'] !== null) { print(htmlspecialchars($this->_vars['File'], ENT_QUOTES)); } ?>\"></span>" + 
+										"<input type=\"hidden\" class=\"FounderId\" name=\"FounderList[<?php if ($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['Founder'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['Founder'], ENT_QUOTES)); } elseif ($this->_vars['Founder'] !== null) { print(htmlspecialchars($this->_vars['Founder'], ENT_QUOTES)); } ?>][FileListFounderID][]\" value=\"<?php if ($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['File'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['File'], ENT_QUOTES)); } elseif ($this->_vars['File'] !== null) { print(htmlspecialchars($this->_vars['File'], ENT_QUOTES)); } ?>\"/>" +
+										"<input type=\"hidden\" class=\"FounderName\" name=\"FounderList[<?php if ($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['Founder'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['Founder'], ENT_QUOTES)); } elseif ($this->_vars['Founder'] !== null) { print(htmlspecialchars($this->_vars['Founder'], ENT_QUOTES)); } ?>][FileListFounderName][]\" value=\"<?php if ($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['FileName'] !== null) { print(htmlspecialchars($this->_arrVars['FounderList'][$_0]['FileList'][$_1]['FileName'], ENT_QUOTES)); } elseif ($this->_vars['FileName'] !== null) { print(htmlspecialchars($this->_vars['FileName'], ENT_QUOTES)); } ?>\"/>&nbsp;" +
+										"</span></span").text();
+								<?php } ?>	
+							<?php } ?>
+						});
+					</script>
+					
+					<div class="add">
+						
+					</div>
+					<div class="form_bottom form_bottom--border">
+						<h4 class="form_bottom__header"><?php if ($this->_vars['LNG_Head'] !== null) { print(htmlspecialchars($this->_vars['LNG_Head'], ENT_QUOTES)); } ?></h4>
+		
+						<p>
+							<?php if ($this->_vars['LNG_DataWay'] !== null) { print(htmlspecialchars($this->_vars['LNG_DataWay'], ENT_QUOTES)); } ?> <br>
+							<?php if ($this->_vars['LNG_FirstWay'] !== null) { print(htmlspecialchars($this->_vars['LNG_FirstWay'], ENT_QUOTES)); } ?> <br>
+							<?php if ($this->_vars['LNG_SecondWay'] !== null) { print(htmlspecialchars($this->_vars['LNG_SecondWay'], ENT_QUOTES)); } ?>
+						</p>
+	
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#tab-1" aria-controls="tab-1" role="tab" data-toggle="tab"><?php if ($this->_vars['LNG_DownloadFile'] !== null) { print(htmlspecialchars($this->_vars['LNG_DownloadFile'], ENT_QUOTES)); } ?></a></li>
+							<li role="presentation"><a href="#tab-2" aria-controls="tab-2" role="tab" data-toggle="tab"><?php if ($this->_vars['LNG_FillForm'] !== null) { print(htmlspecialchars($this->_vars['LNG_FillForm'], ENT_QUOTES)); } ?></a></li>
+						</ul>
+	
+						<!-- Tab panes -->
+						<div class="tab-content">
+						
+							<div role="tabpanel" class="tab-pane fade in active" id="tab-1">
+								<div class="form_bottom__upload">
+									<div class="form-upload">
+										<input id="uploadFileHead" data-url="<?php if ($this->_vars['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_vars['PROJECT_PATH'], ENT_QUOTES)); } ?>module/company/ajax_public.php" type="file">
+									</div>
+									<div class="form_bottom__upload-text upload-file-head">
+										<?php $row_count_0=count($this->_arrVars['FileListHead']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+											<span>
+												<span class="file-name"><?php if ($this->_arrVars['FileListHead'][$_0]['FileName'] !== null) { print(htmlspecialchars($this->_arrVars['FileListHead'][$_0]['FileName'], ENT_QUOTES)); } elseif ($this->_vars['FileName'] !== null) { print(htmlspecialchars($this->_vars['FileName'], ENT_QUOTES)); } ?></span>
+												<span data-url="<?php if ($this->_arrVars['FileListHead'][$_0]['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_arrVars['FileListHead'][$_0]['PROJECT_PATH'], ENT_QUOTES)); } elseif ($this->_vars['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_vars['PROJECT_PATH'], ENT_QUOTES)); } ?>module/company/ajax_public.php" class="fa fa-close" title="<?php if ($this->_arrVars['FileListHead'][$_0]['LNG_Delete'] !== null) { print(htmlspecialchars($this->_arrVars['FileListHead'][$_0]['LNG_Delete'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Delete'] !== null) { print(htmlspecialchars($this->_vars['LNG_Delete'], ENT_QUOTES)); } ?>" id="<?php if ($this->_arrVars['FileListHead'][$_0]['File'] !== null) { print(htmlspecialchars($this->_arrVars['FileListHead'][$_0]['File'], ENT_QUOTES)); } elseif ($this->_vars['File'] !== null) { print(htmlspecialchars($this->_vars['File'], ENT_QUOTES)); } ?>"></span>
+												<input type="hidden" class="HeadId" name="FileListHeadID[]" value="<?php if ($this->_arrVars['FileListHead'][$_0]['File'] !== null) { print(htmlspecialchars($this->_arrVars['FileListHead'][$_0]['File'], ENT_QUOTES)); } elseif ($this->_vars['File'] !== null) { print(htmlspecialchars($this->_vars['File'], ENT_QUOTES)); } ?>"/>
+												<input type="hidden" class="HeadName" name="FileListHeadName[]" value="<?php if ($this->_arrVars['FileListHead'][$_0]['FileName'] !== null) { print(htmlspecialchars($this->_arrVars['FileListHead'][$_0]['FileName'], ENT_QUOTES)); } elseif ($this->_vars['FileName'] !== null) { print(htmlspecialchars($this->_vars['FileName'], ENT_QUOTES)); } ?>"/>&nbsp;
+											</span>
+										<?php } ?>
+									</div>
+								</div>
+							</div>
+							
+							<div role="tabpanel" class="tab-pane fade" id="tab-2">
+								<div class="form_bottom__italic"><?php if ($this->_vars['LNG_NotFill'] !== null) { print(htmlspecialchars($this->_vars['LNG_NotFill'], ENT_QUOTES)); } ?> <b><?php if ($this->_vars['LNG_All'] !== null) { print(htmlspecialchars($this->_vars['LNG_All'], ENT_QUOTES)); } ?></b> <?php if ($this->_vars['LNG_Doc'] !== null) { print(htmlspecialchars($this->_vars['LNG_Doc'], ENT_QUOTES)); } ?></div>
+								<div class="form_bottom__need"><?php if ($this->_vars['LNG_Necessary'] !== null) { print(htmlspecialchars($this->_vars['LNG_Necessary'], ENT_QUOTES)); } ?></div>
+								
+								<div class="form_bottom__wrap">
+									<label for="BirthDateHead"><?php if ($this->_vars['LNG_BirthDate'] !== null) { print(htmlspecialchars($this->_vars['LNG_BirthDate'], ENT_QUOTES)); } ?></label>
+									<div class="form-group">
+										<input id="BirthDateHead" name="BirthDateHead" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['BirthDateHead'] !== null) { print(htmlspecialchars($this->_vars['BirthDateHead'], ENT_QUOTES)); } ?>">
+									</div>
+			
+									<label for="BirthPlaceHead"><?php if ($this->_vars['LNG_BirthPlace'] !== null) { print(htmlspecialchars($this->_vars['LNG_BirthPlace'], ENT_QUOTES)); } ?></label>
+									<div class="form-group">
+										<input id="BirthPlaceHead" name="BirthPlaceHead" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['BirthPlaceHead'] !== null) { print(htmlspecialchars($this->_vars['BirthPlaceHead'], ENT_QUOTES)); } ?>">
+									</div>
+			
+									<label for="PassportNumberHead"><?php if ($this->_vars['LNG_PassportNumber'] !== null) { print(htmlspecialchars($this->_vars['LNG_PassportNumber'], ENT_QUOTES)); } ?></label>
+									<div class="form-group">
+										<input id="PassportNumberHead" name="PassportNumberHead" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['PassportNumberHead'] !== null) { print(htmlspecialchars($this->_vars['PassportNumberHead'], ENT_QUOTES)); } ?>">
+									</div>
+			
+									<label for="PassportGiveHead"><?php if ($this->_vars['LNG_PassportGive'] !== null) { print(htmlspecialchars($this->_vars['LNG_PassportGive'], ENT_QUOTES)); } ?></label>
+									<div class="form-group">
+										<input id="PassportGiveHead" name="PassportGiveHead" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['PassportGiveHead'] !== null) { print(htmlspecialchars($this->_vars['PassportGiveHead'], ENT_QUOTES)); } ?>">
+									</div>
+			
+									<label for="DepartmentCodeHead"><?php if ($this->_vars['LNG_DepartmentCode'] !== null) { print(htmlspecialchars($this->_vars['LNG_DepartmentCode'], ENT_QUOTES)); } ?></label>
+									<div class="form-group">
+										<input id="DepartmentCodeHead" name="DepartmentCodeHead" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['DepartmentCodeHead'] !== null) { print(htmlspecialchars($this->_vars['DepartmentCodeHead'], ENT_QUOTES)); } ?>">
+									</div>
+			
+									<label for="DateGiveHead"><?php if ($this->_vars['LNG_DateGive'] !== null) { print(htmlspecialchars($this->_vars['LNG_DateGive'], ENT_QUOTES)); } ?></label>
+									<div class="form-group">
+										<input id="DateGiveHead" name="DateGiveHead" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['DateGiveHead'] !== null) { print(htmlspecialchars($this->_vars['DateGiveHead'], ENT_QUOTES)); } ?>">
+									</div>
+			
+									<label for="RegistrationHead"><?php if ($this->_vars['LNG_Registration'] !== null) { print(htmlspecialchars($this->_vars['LNG_Registration'], ENT_QUOTES)); } ?></label>
+									<div class="form-group">
+										<input id="RegistrationHead" name="RegistrationHead" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['RegistrationHead'] !== null) { print(htmlspecialchars($this->_vars['RegistrationHead'], ENT_QUOTES)); } ?>">
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form_bottom--border__last">
+							<div class="form_bottom__wrap">
+								<label for="Position"><?php if ($this->_vars['LNG_Position'] !== null) { print(htmlspecialchars($this->_vars['LNG_Position'], ENT_QUOTES)); } ?></label>
+								<div class="form-group custom-select form-control_need">
+									<select id="Position" name="Position" class="form-control">
+										<option disabled selected><?php if ($this->_vars['LNG_Choose'] !== null) { print(htmlspecialchars($this->_vars['LNG_Choose'], ENT_QUOTES)); } ?></option>
+										<option <?php if ($this->_vars['Position']==1) { ?>selected<?php } ?>>1</option>
+										<option <?php if ($this->_vars['Position']==2) { ?>selected<?php } ?>>2</option>
+										<option <?php if ($this->_vars['Position']==3) { ?>selected<?php } ?>>3</option>
+									</select>
+								</div>
+								
+								<label class="label_comment" for="OfficeTerm"><?php if ($this->_vars['LNG_OfficeTerm'] !== null) { print(htmlspecialchars($this->_vars['LNG_OfficeTerm'], ENT_QUOTES)); } ?>
+									<span class="comment_tooltip"	data-toggle="tooltip" data-placement="top" title="<?php if ($this->_vars['LNG_QuestionHead'] !== null) { print(htmlspecialchars($this->_vars['LNG_QuestionHead'], ENT_QUOTES)); } ?>"></span>
+								</label>
+								<div class="form-group">
+									<input id="OfficeTerm" name="OfficeTerm" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['OfficeTerm'] !== null) { print(htmlspecialchars($this->_vars['OfficeTerm'], ENT_QUOTES)); } ?>">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="page_ooo2__bottom">
+						<div class="form_bottom form_bottom--white">
+							<div class="form_bottom__wrap">
+								<label for="form10"><?php if ($this->_vars['LNG_ContactPhoneFor'] !== null) { print(htmlspecialchars($this->_vars['LNG_ContactPhoneFor'], ENT_QUOTES)); } ?></label>
+								<div class="form-group">
+									<input id="form10" name="ContactPhoneFor" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['ContactPhoneFor'] !== null) { print(htmlspecialchars($this->_vars['ContactPhoneFor'], ENT_QUOTES)); } ?>">
+								</div>
+			
+								<label for="form11"><?php if ($this->_vars['LNG_ContactPerson'] !== null) { print(htmlspecialchars($this->_vars['LNG_ContactPerson'], ENT_QUOTES)); } ?></label>
+								<div class="form-group">
+									<input id="form11" name="ContactPerson" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['ContactPerson'] !== null) { print(htmlspecialchars($this->_vars['ContactPerson'], ENT_QUOTES)); } ?>">
+								</div>
+			
+								<label for="form12"><?php if ($this->_vars['LNG_Email'] !== null) { print(htmlspecialchars($this->_vars['LNG_Email'], ENT_QUOTES)); } ?></label>
+								<div class="form-group">
+									<input id="form12" name="Email" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['Email'] !== null) { print(htmlspecialchars($this->_vars['Email'], ENT_QUOTES)); } ?>">
+								</div>
+							</div>
+						</div>
+					</div>
+	
+				</div>
+				
+				<div class="bottom_2btn">
+					<div class="form-error"></div>
+					<div class="row">
+						<div class="col-xs-7">
+							<button type="submit" name="Note" class="main_btn main_btn--right" id="Next" data-url="<?php if ($this->_vars['CompanyThirdURL'] !== null) { print(htmlspecialchars($this->_vars['CompanyThirdURL'], ENT_QUOTES)); } ?>"><?php if ($this->_vars['LNG_Next'] !== null) { print(htmlspecialchars($this->_vars['LNG_Next'], ENT_QUOTES)); } ?></button>
+						</div>
+						<div class="col-xs-5">
+							<a class="main_btn" href="<?php if ($this->_vars['CompanyFirstURL'] !== null) { print(htmlspecialchars($this->_vars['CompanyFirstURL'], ENT_QUOTES)); } ?>"><?php if ($this->_vars['LNG_Prev'] !== null) { print(htmlspecialchars($this->_vars['LNG_Prev'], ENT_QUOTES)); } ?></a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<?php $this->_GetData($this->_FileSearch('_navigation.html'), 1); ?>
+	</div>
+</div>
+
+<div class="hidden">
+	<span id="new-file-head">
+		<span class="file-name"></span>
+		<span data-url="<?php if ($this->_vars['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_vars['PROJECT_PATH'], ENT_QUOTES)); } ?>module/company/ajax_public.php" class="fa fa-close" title="<?php if ($this->_vars['LNG_Delete'] !== null) { print(htmlspecialchars($this->_vars['LNG_Delete'], ENT_QUOTES)); } ?>"></span>
+		<input type="hidden" class="HeadId" name="FileListHeadID[]" />
+		<input type="hidden" class="HeadName" name="FileListHeadName[]" />&nbsp;
+	</span>
+</div>
+<div class="hidden">
+	<span id="new-file-founder">
+		<span class="file-name"></span>
+		<span data-url="<?php if ($this->_vars['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_vars['PROJECT_PATH'], ENT_QUOTES)); } ?>module/company/ajax_public.php" class="fa fa-close" title="<?php if ($this->_vars['LNG_Delete'] !== null) { print(htmlspecialchars($this->_vars['LNG_Delete'], ENT_QUOTES)); } ?>"></span>
+		<input type="hidden" class="FounderID" />
+		<input type="hidden" class="FounderName" />&nbsp;
+	</span>
+</div>
+<div class="hidden">
+	<div class="form_bottom form_bottom--border" id="new-founder">
+		<div class="form_bottom__wrap">
+			<h4 class="form_bottom__header"><?php if ($this->_vars['LNG_Founder'] !== null) { print(htmlspecialchars($this->_vars['LNG_Founder'], ENT_QUOTES)); } ?> <span class="count">1</span></h4>
+
+			<p>
+				<?php if ($this->_vars['LNG_DataWay'] !== null) { print(htmlspecialchars($this->_vars['LNG_DataWay'], ENT_QUOTES)); } ?><br>
+				<?php if ($this->_vars['LNG_FirstWay'] !== null) { print(htmlspecialchars($this->_vars['LNG_FirstWay'], ENT_QUOTES)); } ?> <br>
+				<?php if ($this->_vars['LNG_SecondWay'] !== null) { print(htmlspecialchars($this->_vars['LNG_SecondWay'], ENT_QUOTES)); } ?>
+			</p>
+
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active" id="upload"><a href="#tab-1" aria-controls="tab-1" role="tab" data-toggle="tab"><?php if ($this->_vars['LNG_DownloadFile'] !== null) { print(htmlspecialchars($this->_vars['LNG_DownloadFile'], ENT_QUOTES)); } ?></a></li>
+				<li role="presentation" id='fill-form'><a href="#tab-2" aria-controls="tab-2" role="tab" data-toggle="tab"><?php if ($this->_vars['LNG_FillForm'] !== null) { print(htmlspecialchars($this->_vars['LNG_FillForm'], ENT_QUOTES)); } ?></a></li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+			
+				<div role="tabpanel" class="tab-pane fade in active" id="tab-01">
+					<div class="form_bottom__upload">
+						<div class="form-upload">
+							<input class="uploadFileFounder" data-url="<?php if ($this->_vars['PROJECT_PATH'] !== null) { print(htmlspecialchars($this->_vars['PROJECT_PATH'], ENT_QUOTES)); } ?>module/company/ajax_public.php" type="file">
+						</div>
+						<div class="form_bottom__upload-text upload-file-founder">
+						</div>
+					</div>
+				</div>
+				
+				<div role="tabpanel" class="tab-pane fade" id="tab-02">
+					<div class="form_bottom__italic"><?php if ($this->_vars['LNG_NotFill'] !== null) { print(htmlspecialchars($this->_vars['LNG_NotFill'], ENT_QUOTES)); } ?> <b><?php if ($this->_vars['LNG_All'] !== null) { print(htmlspecialchars($this->_vars['LNG_All'], ENT_QUOTES)); } ?></b> <?php if ($this->_vars['LNG_Doc'] !== null) { print(htmlspecialchars($this->_vars['LNG_Doc'], ENT_QUOTES)); } ?></div>
+					<div class="form_bottom__need"><?php if ($this->_vars['LNG_Necessary'] !== null) { print(htmlspecialchars($this->_vars['LNG_Necessary'], ENT_QUOTES)); } ?></div>
+					
+					<div class="form_bottom__wrap">
+						<label for="BirthDateFounder"><?php if ($this->_vars['LNG_BirthDate'] !== null) { print(htmlspecialchars($this->_vars['LNG_BirthDate'], ENT_QUOTES)); } ?></label>
+						<div class="form-group">
+							<input id="BirthDateFounder" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['BirthDateFounder'] !== null) { print(htmlspecialchars($this->_vars['BirthDateFounder'], ENT_QUOTES)); } ?>">
+						</div>
+
+						<label for="BirthPlaceFounder"><?php if ($this->_vars['LNG_BirthPlace'] !== null) { print(htmlspecialchars($this->_vars['LNG_BirthPlace'], ENT_QUOTES)); } ?></label>
+						<div class="form-group">
+							<input id="BirthPlaceFounder" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['BirthPlaceFounder'] !== null) { print(htmlspecialchars($this->_vars['BirthPlaceFounder'], ENT_QUOTES)); } ?>">
+						</div>
+
+						<label for="PassportNumberFounder"><?php if ($this->_vars['LNG_PassportNumber'] !== null) { print(htmlspecialchars($this->_vars['LNG_PassportNumber'], ENT_QUOTES)); } ?></label>
+						<div class="form-group">
+							<input id="PassportNumberFounder" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['PassportNumberFounder'] !== null) { print(htmlspecialchars($this->_vars['PassportNumberFounder'], ENT_QUOTES)); } ?>">
+						</div>
+
+						<label for="PassportGiveFounder"><?php if ($this->_vars['LNG_PassportGive'] !== null) { print(htmlspecialchars($this->_vars['LNG_PassportGive'], ENT_QUOTES)); } ?></label>
+						<div class="form-group">
+							<input id="PassportGiveFounder"class="form-control form-control_need" type="text" value="<?php if ($this->_vars['PassportGiveFounder'] !== null) { print(htmlspecialchars($this->_vars['PassportGiveFounder'], ENT_QUOTES)); } ?>">
+						</div>
+
+						<label for="DepartmentCodeFounder"><?php if ($this->_vars['LNG_DepartmentCode'] !== null) { print(htmlspecialchars($this->_vars['LNG_DepartmentCode'], ENT_QUOTES)); } ?></label>
+						<div class="form-group">
+							<input id="DepartmentCodeFounder" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['DepartmentCodeFounder'] !== null) { print(htmlspecialchars($this->_vars['DepartmentCodeFounder'], ENT_QUOTES)); } ?>">
+						</div>
+
+						<label for="DateGiveFounder"><?php if ($this->_vars['LNG_DateGive'] !== null) { print(htmlspecialchars($this->_vars['LNG_DateGive'], ENT_QUOTES)); } ?></label>
+						<div class="form-group">
+							<input id="DateGiveFounder" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['DateGiveFounder'] !== null) { print(htmlspecialchars($this->_vars['DateGiveFounder'], ENT_QUOTES)); } ?>">
+						</div>
+
+						<label for="RegistrationFounder"><?php if ($this->_vars['LNG_Registration'] !== null) { print(htmlspecialchars($this->_vars['LNG_Registration'], ENT_QUOTES)); } ?></label>
+						<div class="form-group">
+							<input id="RegistrationFounder" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['RegistrationFounder'] !== null) { print(htmlspecialchars($this->_vars['RegistrationFounder'], ENT_QUOTES)); } ?>">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form_bottom--border__radio">
+				<div class="radio">
+					<input class="Person" type="radio" name="paymentFace" id="NaturalPerson" value="NaturalPerson" <?php if ($this->_vars['paymentFace']!='LegalEntity') { ?>checked<?php } ?>>
+					<label for="radio3"><?php if ($this->_vars['LNG_NaturalPerson'] !== null) { print(htmlspecialchars($this->_vars['LNG_NaturalPerson'], ENT_QUOTES)); } ?><span></span></label>
+				</div>
+				<div class="radio">
+					<input class="Person" type="radio" name="paymentFace" id="LegalEntity" value="LegalEntity" <?php if ($this->_vars['paymentFace']=='LegalEntity') { ?>checked<?php } ?>>
+					<label for="radio4"><?php if ($this->_vars['LNG_LegalEntity'] !== null) { print(htmlspecialchars($this->_vars['LNG_LegalEntity'], ENT_QUOTES)); } ?><span></span></label>
+				</div>
+
+				<div class="form_bottom__wrap">
+					<label class="paymentFaceChange" for="form100">
+
+					</label>
+					<div class="form-group">
+						<input id="CountMoney" class="form-control form-control_need" type="text" value="<?php if ($this->_vars['CountMoney'] !== null) { print(htmlspecialchars($this->_vars['CountMoney'], ENT_QUOTES)); } ?>">
+					</div>
+				</div>
+			</div>
+			
+			<div class="form_bottom--border__btn">
+				<a class="main_btn add-founder" href=""><i class="fa fa-plus"></i> <?php if ($this->_vars['LNG_AddFounder'] !== null) { print(htmlspecialchars($this->_vars['LNG_AddFounder'], ENT_QUOTES)); } ?></a>
+			</div>
+		</div>
+	</div>
+</div>

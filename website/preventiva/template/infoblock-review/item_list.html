@@ -1,0 +1,123 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<TMPL_LOOP NAME='Navigation'>
+					<li <TMPL_IF NAME='__LAST__'>class="active"</TMPL_IF>>
+						<TMPL_IF NAME='__LAST__'>
+							<TMPL_VAR NAME='Title'>
+						<TMPL_ELSE>
+							<a href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a>
+						</TMPL_IF>
+					</li>
+				</TMPL_LOOP>
+			</ol>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="content__aside">
+			<header>
+				<header><h1 class="header_page"><TMPL_VAR NAME='PageTitleH1'></h1></header>
+			</header>
+			<div class="review_text-top">
+				<article>
+					<TMPL_VAR NAME='PageContent' ESCAPE='none'>
+				</article>
+			</div>
+			
+			<div class="section_reviews">
+				<TMPL_LOOP NAME='ItemList'>
+					<div class="block_review">
+						<article>
+							<div class="block_review__time"><TMPL_VAR NAME='ItemDate' FORMAT='date'></div>
+							<header>
+								<h3 class="block_review__header"><TMPL_VAR NAME='Title'></h3>
+							</header>
+							<div class="block_review__wrap">
+								<div class="block_review__text">
+									<p><TMPL_VAR NAME='Description'></p>
+								</div>
+								<TMPL_IF NAME='ItemImageThumbPath'>
+									<div class="block_review__image">
+										<a class="fancybox" href="<TMPL_VAR NAME='ItemImageMainPath'>">
+											<img src="<TMPL_VAR NAME='ItemImageThumbPath'>" alt="">
+										</a>
+									</div>
+								</TMPL_IF>
+							</div>
+							<div class="block_review__feedback">
+								<TMPL_IF NAME='Content'>
+									<b><TMPL_VAR NAME='LNG_Preventiva'>&nbsp;</b><TMPL_VAR NAME='Content' ESCAPE='none'>
+								</TMPL_IF>
+							</div>
+						</article>
+					</div>
+				</TMPL_LOOP>
+			</div>				
+			<nav aria-label="<TMPL_VAR NAME='LNG_Paging'>">
+				<ul class="pagination">
+					<TMPL_LOOP NAME='Paging'>
+						<TMPL_UNLESS NAME='__FIRST__'>
+							<TMPL_UNLESS NAME='__LAST__'>
+								<li <TMPL_IF NAME='Selected'>class="active"</TMPL_IF>><a href="<TMPL_VAR NAME='URL'>"><TMPL_VAR NAME='Title'></a></li>
+							</TMPL_UNLESS>
+						</TMPL_UNLESS>
+					</TMPL_LOOP>
+				</ul>
+			</nav>
+			
+			<section>
+				<div class="form_bottom form_bottom--review">
+					<div class="row">
+						<div class="col-xs-12 col-lg-6">
+							<header><h3 class="form_bottom__header"><TMPL_VAR NAME='LNG_Review'></h3></header>
+						</div>
+						<div class="col-xs-12 col-lg-6">
+							<div class="form_bottom__need"><TMPL_VAR NAME='LNG_Necessary'></div>
+						</div>
+					</div>
+					<form method="post" class="ajax-form" action="<TMPL_VAR NAME='PROJECT_PATH'>module/infoblock/ajax_public.php">
+						<div class="form_bottom__wrap">
+							<label for="bottomName"><TMPL_VAR NAME='LNG_Name'></label>
+							<div class="form-group">
+								<input id="bottomName" name="Title" class="form-control form-control_need" type="text">
+							</div>
+							
+							<label for="bottomEmail"><TMPL_VAR NAME='LNG_Email'></label>
+							<div class="form-group">
+								<input id="bottomEmail" name="Email" class="form-control form-control_need" type="text">
+							</div>
+							
+							<label for="bottomTown"><TMPL_VAR NAME='LNG_City'></label>
+							<div class="form-group custom-select">
+								<select id="bottomTown" name="City" class="form-control">
+									<TMPL_LOOP NAME='CityList'>
+										<option <TMPL_IF NAME='Selected'>selected</TMPL_IF>><TMPL_VAR NAME='CityName'></option>
+									</TMPL_LOOP>	
+								</select>
+							</div>
+						</div>
+						<label for="bottomText"><TMPL_VAR NAME='LNG_Text'></label>
+						<div class="form-group">
+							<textarea id="bottomText" name="Description" class="form-control form-control_need" rows="6"></textarea>
+						</div>
+						<div class="form-group form-review">
+							<div class="checkbox">
+								<input id="checkbox" name="PrivacyPolicyAgreement" type="checkbox" value="Y" checked>
+								<label for="checkbox"><TMPL_VAR NAME='LNG_PrivacyPolicy1'> <a href="<TMPL_VAR NAME='URL_PREFIX'>privacy-policy.html"><TMPL_VAR NAME='LNG_PrivacyPolicy2'></a> <TMPL_VAR NAME='LNG_PrivacyPolicy3'> <br>
+								<small><TMPL_VAR NAME='LNG_PrivacyPolicy4'></small><span></span></label>
+							</div>
+						</div>
+						<div class="form-error"></div>
+						<div class="form-message"></div>
+						<button type="submit" class="main_btn"><img src="<TMPL_VAR NAME='PATH2MAIN'>img/airplan.png" alt=""><TMPL_VAR NAME='LNG_Send'></button>
+						<input type="hidden" name="PageID" value="<TMPL_VAR NAME='PageID'>" />
+						<input type="hidden" name="Action" value="Review" />
+					</form>
+				</div>
+			</section>
+		</div>
+		<TMPL_INCLUDE FILE='_navigation.html'>
+	</div>
+</div>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title><TMPL_VAR NAME='MetaTitle'></title>
+		<TMPL_IF NAME='MetaDescription'><meta name="description" content="<TMPL_VAR NAME='MetaDescription'>" ></TMPL_IF>
+		<TMPL_IF NAME='MetaKeywords'><meta name="keywords" content="<TMPL_VAR NAME='MetaKeywords'>" ></TMPL_IF>
+		<link rel="shortcut icon" href="<TMPL_VAR NAME='PATH2MAIN'>img/favicon.png" type="image/x-icon" />
+		<link href="<TMPL_VAR NAME='PATH2MAIN'>css/bootstrap.min.css" rel="stylesheet">
+		<link href="<TMPL_VAR NAME='PATH2MAIN'>css/font-awesome.min.css" rel="stylesheet">
+		<link href="<TMPL_VAR NAME='PATH2MAIN'>js/fancybox/jquery.fancybox.css?v=2.1.5.css" rel="stylesheet">
+		<link href="<TMPL_VAR NAME='PATH2MAIN'>css/main.css" rel="stylesheet">
+		<script src="<TMPL_VAR NAME='PATH2MAIN'>js/jquery-1.8.3.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+		<script src="<TMPL_VAR NAME='PATH2MAIN'>js/company.js"></script>
+	</head>
+	<body>
+	<div class="block_header">
+		<div class="container">
+			<a class="block_header__logo" href="<TMPL_VAR NAME='URL_PREFIX'>"><img src="<TMPL_VAR NAME='PATH2MAIN'>img/logo.svg" alt=""></a>
+			<div class="block_header__contacts">
+				<ul class="block_header__contacts-town">
+					<li><label for="yourTown"><TMPL_VAR NAME='LNG_City'></label></li>
+					<li class="custom-select">
+						<select id="yourTown" class="form-control" onchange="top.location=this.value">
+							<TMPL_LOOP NAME='CityList'>
+								<option value="<TMPL_VAR NAME='URL'>" <TMPL_IF NAME='Selected'>selected</TMPL_IF> id="<TMPL_VAR NAME='CityID'>"><TMPL_VAR NAME='CityName'></option>
+							</TMPL_LOOP>
+						</select>
+					</li>
+				</ul>
+				<script>
+
+				</script>
+				<TMPL_LOOP NAME='CityList'>
+					<TMPL_IF NAME='Selected'>
+						<ul class="block_header__contacts-phone">
+							<li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:<TMPL_VAR NAME='Phone'>"><TMPL_VAR NAME='Phone'></a></li>
+							<li><a class="main_btn" data-toggle="modal" data-target="#modal-call" href=""><TMPL_VAR NAME='LNG_Call'></a></li>
+						</ul>
+						<ul>
+							<li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:<TMPL_VAR NAME='Email'>"><TMPL_VAR NAME='Email'></a></li>
+							<li><a data-toggle="modal" data-target="#modal-bid" class="main_btn" href=""><TMPL_VAR NAME='LNG_Application'></a></li>
+						</ul>
+					</TMPL_IF>
+				</TMPL_LOOP>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar">
+		<div class="container-fluid">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+						<span class="navbar-toggle__wrap">
+						<span class="sr-only"><TMPL_VAR NAME='LNG_Menu'></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						</span>
+					</button>
+				</div>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<div class="container">
+					<ul class="nav navbar-nav">
+						<TMPL_LOOP NAME='MENU_main'>
+							<li <TMPL_IF NAME='Opened'>class="active"</TMPL_IF>><a href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a></li>
+						</TMPL_LOOP>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>

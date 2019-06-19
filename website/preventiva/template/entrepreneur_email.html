@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=<TMPL_VAR NAME='CHARSET'>">
+	</head>
+	<body>
+		<table border="1" width="100%" cellpadding="5">
+			<TMPL_LOOP NAME='FilePathList'>
+				<tr>
+					<td><TMPL_VAR NAME='LNG_Doc'></td>
+					<td><TMPL_VAR NAME='FilePath'></td>
+				</tr>
+			</TMPL_LOOP>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Name'></td>
+				<td><TMPL_VAR NAME='Name'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_TIN'></td>
+				<td><TMPL_VAR NAME='TIN'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_BirthDate'></td>
+				<td><TMPL_VAR NAME='BirthDate'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_BirthPlace'></td>
+				<td><TMPL_VAR NAME='BirthPlace'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_PassportNumber'></td>
+				<td><TMPL_VAR NAME='PassportNumber'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_PassportGive'></td>
+				<td><TMPL_VAR NAME='PassportGive'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_DepartmentCode'></td>
+				<td><TMPL_VAR NAME='DepartmentCode'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_DateGive'></td>
+				<td><TMPL_VAR NAME='DateGive'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Registration'></td>
+				<td><TMPL_VAR NAME='Registration'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_ActivityType'></td>
+				<td><TMPL_VAR NAME='ActivityType'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Taxation'></td>
+				<td><TMPL_VAR NAME='Taxation'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_ContactPhoneFor'></td>
+				<td><TMPL_VAR NAME='ContactPhoneFor'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_ContactPerson'></td>
+				<td><TMPL_VAR NAME='ContactPerson'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Email'></td>
+				<td><TMPL_VAR NAME='Email'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_How'></td>
+				<td><TMPL_VAR NAME='How'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Method'></td>
+				<td>
+					<TMPL_IF NAME='PostMethod'>
+						<TMPL_VAR NAME='LNG_PostMethod'>
+					<TMPL_ELSEIF NAME='OfficeMethod'>
+						<TMPL_VAR NAME='LNG_OfficeMethod'>
+					</TMPL_IF>
+				</td>
+			</tr>
+			<tr>
+		</table>
+	</body>
+</html>

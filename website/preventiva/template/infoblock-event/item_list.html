@@ -1,0 +1,50 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<TMPL_LOOP NAME='Navigation'>
+					<li <TMPL_IF NAME='__LAST__'>class="active"</TMPL_IF>>
+						<TMPL_IF NAME='__LAST__'>
+							<TMPL_VAR NAME='Title'>
+						<TMPL_ELSE>
+							<a href="<TMPL_VAR NAME='PageURL'>"><TMPL_VAR NAME='Title'></a>
+						</TMPL_IF>
+					</li>
+				</TMPL_LOOP>
+			</ol>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="content__aside">
+			<header><h1 class="header_page"><TMPL_VAR NAME='PageTitleH1'></h1></header>
+			<TMPL_LOOP NAME='ItemList'>
+				<div class="block_news">
+					<div class="block_news__image"><a href="<TMPL_VAR NAME='ItemURL'>"><img src="<TMPL_VAR NAME='ItemImageThumbPath'>" alt=""></a></div>
+					<div class="block_news__text">
+						<article>
+						<header>
+							<h3 class="block_news__header"><a href="<TMPL_VAR NAME='ItemURL'>"><TMPL_VAR NAME='Title'></a></h3>
+						</header>
+						<div class="block_news__time"><TMPL_VAR NAME='ItemDate' FORMAT='date'></div>
+						<p><TMPL_VAR NAME='Description'></p>
+						</article>
+					</div>
+				</div>
+			</TMPL_LOOP>
+				
+			<nav aria-label="<TMPL_VAR NAME='LNG_Paging'>">
+				<ul class="pagination">
+					<TMPL_LOOP NAME='Paging'>
+						<TMPL_UNLESS NAME='__FIRST__'>
+							<TMPL_UNLESS NAME='__LAST__'>
+								<li <TMPL_IF NAME='Selected'>class="active"</TMPL_IF>><a href="<TMPL_VAR NAME='URL'>"><TMPL_VAR NAME='Title'></a></li>
+							</TMPL_UNLESS>
+						</TMPL_UNLESS>
+					</TMPL_LOOP>
+				</ul>
+			</nav>
+		</div>
+		<TMPL_INCLUDE FILE='_navigation.html'>
+	</div>
+</div>

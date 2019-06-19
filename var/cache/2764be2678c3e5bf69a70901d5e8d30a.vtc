@@ -1,0 +1,74 @@
+<div class="content">
+	<div class="section-breadcrumb">
+		<div class="container">
+			<ol class="breadcrumb">
+				<?php $row_count_0=count($this->_arrVars['Navigation']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+					<li <?php if ((($this->_arrVars['Navigation'][$_0]['__LAST__'] !== null) ? $this->_arrVars['Navigation'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>class="active"<?php } ?>>
+						<?php if ((($this->_arrVars['Navigation'][$_0]['__LAST__'] !== null) ? $this->_arrVars['Navigation'][$_0]['__LAST__'] : $this->_vars['__LAST__'])) { ?>
+							<?php if ($this->_arrVars['Navigation'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?>
+						<?php } else { ?>
+							<a href="<?php if ($this->_arrVars['Navigation'][$_0]['PageURL'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['PageURL'], ENT_QUOTES)); } elseif ($this->_vars['PageURL'] !== null) { print(htmlspecialchars($this->_vars['PageURL'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['Navigation'][$_0]['Title'] !== null) { print(htmlspecialchars($this->_arrVars['Navigation'][$_0]['Title'], ENT_QUOTES)); } elseif ($this->_vars['Title'] !== null) { print(htmlspecialchars($this->_vars['Title'], ENT_QUOTES)); } ?></a>
+						<?php } ?>
+					</li>
+				<?php } ?>
+			</ol>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="content__aside">
+		<header><h1 class="header_page"><?php if ($this->_vars['TitleH1'] !== null) { print(htmlspecialchars($this->_vars['TitleH1'], ENT_QUOTES)); } ?></h1></header>
+			<div class="section_contacts">
+				<div class="block_textcontent">
+					<?php $row_count_0=count($this->_arrVars['CityList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+						<?php if ((($this->_arrVars['CityList'][$_0]['Selected'] !== null) ? $this->_arrVars['CityList'][$_0]['Selected'] : $this->_vars['Selected'])) { ?>
+							<b><?php if ($this->_arrVars['CityList'][$_0]['LNG_Director'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['LNG_Director'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Director'] !== null) { print(htmlspecialchars($this->_vars['LNG_Director'], ENT_QUOTES)); } ?></b> <?php if ($this->_arrVars['CityList'][$_0]['Director'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['Director'], ENT_QUOTES)); } elseif ($this->_vars['Director'] !== null) { print(htmlspecialchars($this->_vars['Director'], ENT_QUOTES)); } ?>
+							<p><a href="mailto:<?php if ($this->_arrVars['CityList'][$_0]['Email'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['Email'], ENT_QUOTES)); } elseif ($this->_vars['Email'] !== null) { print(htmlspecialchars($this->_vars['Email'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['CityList'][$_0]['Email'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['Email'], ENT_QUOTES)); } elseif ($this->_vars['Email'] !== null) { print(htmlspecialchars($this->_vars['Email'], ENT_QUOTES)); } ?></a> &nbsp;&nbsp; <a href="mailto:<?php if ($this->_arrVars['CityList'][$_0]['FormEmail'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['FormEmail'], ENT_QUOTES)); } elseif ($this->_vars['FormEmail'] !== null) { print(htmlspecialchars($this->_vars['FormEmail'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['CityList'][$_0]['FormEmail'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['FormEmail'], ENT_QUOTES)); } elseif ($this->_vars['FormEmail'] !== null) { print(htmlspecialchars($this->_vars['FormEmail'], ENT_QUOTES)); } ?></a></p>
+						<?php } ?>
+					<?php } ?>
+				</div>
+				<?php $row_count_0=count($this->_arrVars['CityList']); for ($_0=0 ; $_0<$row_count_0; $_0++) {?>
+					<?php if ((($this->_arrVars['CityList'][$_0]['Selected'] !== null) ? $this->_arrVars['CityList'][$_0]['Selected'] : $this->_vars['Selected'])) { ?>
+						<?php $row_count_1=count($this->_arrVars['CityList'][$_0]['BranchList']); for ($_1=0 ; $_1<$row_count_1; $_1++) {?>
+							<div class="block_contacts">
+								<div class="block_contacts__text">
+									<div class="block_contacts__header"><?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['BranchName'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['BranchName'], ENT_QUOTES)); } elseif ($this->_vars['BranchName'] !== null) { print(htmlspecialchars($this->_vars['BranchName'], ENT_QUOTES)); } ?></div>
+									<ul>
+										<li>
+											<span><b><?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['Address'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['Address'], ENT_QUOTES)); } elseif ($this->_vars['Address'] !== null) { print(htmlspecialchars($this->_vars['Address'], ENT_QUOTES)); } ?></b></span>
+											<span><a class="main_link" href=""><?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['LNG_Location'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['LNG_Location'], ENT_QUOTES)); } elseif ($this->_vars['LNG_Location'] !== null) { print(htmlspecialchars($this->_vars['LNG_Location'], ENT_QUOTES)); } ?></a></span>
+										</li>
+										<li class="block_contacts__tel">
+											<?php $row_count_2=count($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList']); for ($_2=0 ; $_2<$row_count_2; $_2++) {?>
+												<?php if ((($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['ShowOffice'] !== null) ? $this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['ShowOffice'] : $this->_vars['ShowOffice'])) { ?>
+													<?php if (!(($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['__FIRST__'] !== null) ? $this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['__FIRST__'] : $this->_vars['__FIRST__'])) { ?>
+														</div>
+													<?php } ?>
+													<div class="block_contacts__text-col">
+														<span><b><?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['Office'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['Office'], ENT_QUOTES)); } elseif ($this->_vars['Office'] !== null) { print(htmlspecialchars($this->_vars['Office'], ENT_QUOTES)); } ?></b></span>
+												<?php } ?>
+												<span><a href="tel:<?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['Phone'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['Phone'], ENT_QUOTES)); } elseif ($this->_vars['Phone'] !== null) { print(htmlspecialchars($this->_vars['Phone'], ENT_QUOTES)); } ?>"><?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['Phone'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['Phone'], ENT_QUOTES)); } elseif ($this->_vars['Phone'] !== null) { print(htmlspecialchars($this->_vars['Phone'], ENT_QUOTES)); } ?></a></span>
+												<?php if ((($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['__LAST__'] !== null) ? $this->_arrVars['CityList'][$_0]['BranchList'][$_1]['PhoneList'][$_2]['__LAST__'] : $this->_vars['__LAST__'])) { ?>
+													</div>
+												<?php } ?>
+											<?php } ?>
+										</li>
+										<li class="block_contacts__time">
+											<?php $row_count_2=count($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['HourList']); for ($_2=0 ; $_2<$row_count_2; $_2++) {?>
+												<span><span><?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['HourList'][$_2]['Day'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['HourList'][$_2]['Day'], ENT_QUOTES)); } elseif ($this->_vars['Day'] !== null) { print(htmlspecialchars($this->_vars['Day'], ENT_QUOTES)); } ?></span><?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['HourList'][$_2]['Hour'] !== null) { print(htmlspecialchars($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['HourList'][$_2]['Hour'], ENT_QUOTES)); } elseif ($this->_vars['Hour'] !== null) { print(htmlspecialchars($this->_vars['Hour'], ENT_QUOTES)); } ?></span>
+											<?php } ?>
+										</li>
+									</ul>
+								</div>
+								<div class="block_contacts__map">
+									<?php if ($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['Map'] !== null) { print($this->_arrVars['CityList'][$_0]['BranchList'][$_1]['Map']); } elseif ($this->_vars['Map'] !== null) { print($this->_vars['Map']); } ?>
+								</div>
+							</div>
+						<?php } ?>
+					<?php } ?>
+				<?php } ?>
+			</div>
+		</div>
+		<?php $this->_GetData($this->_FileSearch('_navigation.html'), 1); ?>
+	</div>
+</div>

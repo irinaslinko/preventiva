@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<public>
+		<_header.html>
+			<City>Ваш город:</City>
+			<Call>Заказать звонок</Call>
+			<Application>Оставить заявку</Application>
+			<Menu>Меню</Menu>
+		</_header.html>
+		<_footer.html>
+			<Up>наверх</Up>
+			<Phone>Тел.:</Phone>
+			<Close>Закрыть</Close>
+			<CallRequest>Заказать звонок</CallRequest>
+			<CallRequestDescription>Пожалуйста, оставьте Ваши данные и мы свяжемся с Вами в ближайшее время.</CallRequestDescription>
+			<CallName>Ваше имя</CallName>
+			<CallPhone>Ваш телефон</CallPhone>
+			<CallComment>Комментарий</CallComment>
+			<CallRequestSend>Отправить</CallRequestSend>
+			<OrderRequest>Оставить заявку</OrderRequest>
+			<OrderRequestDescription>Пожалуйста, оставьте Ваши данные и мы свяжемся с Вами в ближайшее время.</OrderRequestDescription>
+			<OrderName>Ваше имя</OrderName>
+			<OrderEmail>Ваш email</OrderEmail>
+			<OrderPhone>Ваш телефон</OrderPhone>
+			<OrderComment>Комментарий</OrderComment>
+			<OrderRequestSend>Отправить</OrderRequestSend>
+			<ServiceName>Ваше имя</ServiceName>
+			<ServiceEmail>Ваш email</ServiceEmail>
+			<ServicePhone>Ваш телефон</ServicePhone>
+			<ServiceComment>Комментарий</ServiceComment>
+			<PrivacyPolicy1>Я</PrivacyPolicy1>
+			<PrivacyPolicy2>согласен</PrivacyPolicy2>
+			<PrivacyPolicy3>на обработку персональных данных</PrivacyPolicy3>
+			<PrivacyPolicy4>В соответствии с Федеральным законом РФ от 27 июля 2006 г. №152-ФЗ «О персональных данных».</PrivacyPolicy4>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<ChooseService>Укажите вид услуги</ChooseService>
+		</_footer.html>
+		<page.html>
+			<Call>Заказать обратный звонок</Call>
+			<Service>Услуги</Service>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+		</page.html>
+		<page-index.html>
+			<Trust>Нам доверяют</Trust>
+			<Prev>Предыдущий</Prev>
+			<Next>Следующий</Next>
+			<News>Новости и статьи</News>
+			<Event>Акции</Event>
+			<Service>Популярные услуги</Service>
+			<Rub>руб.</Rub>
+			<Order>Заказать</Order>
+			<AboutUs>Коротко о нас</AboutUs>
+			<ServicePayment>Оплата услуг онлайн</ServicePayment>
+		</page-index.html>
+		<page-contact.html>
+			<ServiceOrder>Заказать услугу</ServiceOrder>
+			<Director>Директор:</Director>
+			<Location>Схема проезда</Location>
+			<Service>Услуги</Service>
+		</page-contact.html>
+		<_404.html>
+
+		</_404.html>
+	</public>
+</Root>

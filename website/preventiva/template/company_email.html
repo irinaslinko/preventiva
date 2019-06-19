@@ -1,0 +1,192 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=<TMPL_VAR NAME='CHARSET'>">
+	</head>
+	<body>
+		<p><TMPL_VAR NAME='LNG_Name'></p>
+		<table border="1" width="100%" cellpadding="5">
+			<tr>
+				<td><TMPL_VAR NAME='LNG_FullTitle'></td>
+				<td><TMPL_VAR NAME='FullTitle'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_ShortTitle'></td>
+				<td><TMPL_VAR NAME='ShortTitle'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_City'></td>
+				<td><TMPL_VAR NAME='City'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Street'></td>
+				<td><TMPL_VAR NAME='Street'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_House'></td>
+				<td><TMPL_VAR NAME='House'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Building'></td>
+				<td><TMPL_VAR NAME='Building'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Flat'></td>
+				<td><TMPL_VAR NAME='Flat'></td>
+			</tr>
+		</table>
+		
+		<p><TMPL_VAR NAME='LNG_Founder'></p>
+		<table border="1" width="100%" cellpadding="5">
+			<TMPL_LOOP NAME='FilePathListFounder'>
+				<tr>
+					<td><TMPL_VAR NAME='LNG_Doc'></td>
+					<td><TMPL_VAR NAME='FilePath'></td>
+				</tr>
+			</TMPL_LOOP>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_BirthDateFounder'></td>
+				<td><TMPL_VAR NAME='BirthDateFounder'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_BirthPlaceFounder'></td>
+				<td><TMPL_VAR NAME='BirthPlaceFounder'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_PassportNumberFounder'></td>
+				<td><TMPL_VAR NAME='PassportNumberFounder'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_PassportGiveFounder'></td>
+				<td><TMPL_VAR NAME='PassportGiveFounder'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_DepartmentCodeFounder'></td>
+				<td><TMPL_VAR NAME='DepartmentCodeFounder'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_DateGiveFounder'></td>
+				<td><TMPL_VAR NAME='DateGiveFounder'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_RegistrationFounder'></td>
+				<td><TMPL_VAR NAME='RegistrationFounder'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Person'></td>
+				<td>
+					<TMPL_IF NAME='paymentFace' VALUE='NaturalPerson'>
+						<TMPL_VAR NAME='LNG_NaturalPerson'>
+					<TMPL_ELSE>
+						<TMPL_VAR NAME='LNG_LegalEntity'>
+					</TMPL_IF>
+				</td>
+			</tr>
+			<tr>
+				<TMPL_IF NAME='paymentFace' VALUE='NaturalPerson'>
+					<td><TMPL_VAR NAME='LNG_CountMoney'></td>
+				<TMPL_ELSE>
+					<td><TMPL_VAR NAME='LNG_Share'></td>
+				</TMPL_IF>
+				<td><TMPL_VAR NAME='CountMoney'></td>
+			</tr>
+		</table>
+		
+		<p><TMPL_VAR NAME='LNG_Head'></p>
+		<table border="1" width="100%" cellpadding="5">
+			<TMPL_LOOP NAME='FilePathListHead'>
+				<tr>
+					<td><TMPL_VAR NAME='LNG_Doc'></td>
+					<td><TMPL_VAR NAME='FilePath'></td>
+				</tr>
+			</TMPL_LOOP>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_BirthDateHead'></td>
+				<td><TMPL_VAR NAME='BirthDateHead'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_BirthPlaceHead'></td>
+				<td><TMPL_VAR NAME='BirthPlaceHead'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_PassportNumberHead'></td>
+				<td><TMPL_VAR NAME='PassportNumberHead'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_PassportGiveHead'></td>
+				<td><TMPL_VAR NAME='PassportGiveHead'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_DepartmentCodeHead'></td>
+				<td><TMPL_VAR NAME='DepartmentCodeHead'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_DateGiveHead'></td>
+				<td><TMPL_VAR NAME='DateGiveHead'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_RegistrationHead'></td>
+				<td><TMPL_VAR NAME='RegistrationHead'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Position'></td>
+				<td><TMPL_VAR NAME='Position'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_OfficeTerm'></td>
+				<td><TMPL_VAR NAME='OfficeTerm'></td>
+			</tr>
+		</table>
+		
+		<p>&nbsp;</p>
+		<table border="1" width="100%" cellpadding="5">
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Money'></td>
+				<td><TMPL_VAR NAME='Money'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Payment'></td>
+				<td>
+					<TMPL_IF NAME='paymentCapital' VALUE='Cash'>
+						<TMPL_VAR NAME='LNG_Cash'>
+					<TMPL_ELSE>
+						<TMPL_VAR NAME='LNG_Property'>
+					</TMPL_IF>
+				</td>
+			</tr>
+			<TMPL_IF NAME='paymentCapital' VALUE='Property'>
+				<tr>
+					<td><TMPL_VAR NAME='LNG_NameProperty'></td>
+					<td><TMPL_VAR NAME='NameProperty'></td>
+				</tr>
+			</TMPL_IF>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_ContactPhoneFor'></td>
+				<td><TMPL_VAR NAME='ContactPhoneFor'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_ContactPerson'></td>
+				<td><TMPL_VAR NAME='ContactPerson'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Email'></td>
+				<td><TMPL_VAR NAME='Email'></td>
+			</tr>
+				<td><TMPL_VAR NAME='LNG_Type'></td>
+				<td><TMPL_VAR NAME='Type'></td>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_How'></td>
+				<td><TMPL_VAR NAME='How'></td>
+			</tr>
+			<tr>
+				<td><TMPL_VAR NAME='LNG_Method'></td>
+				<td>
+					<TMPL_IF NAME='PostMethod'>
+						<TMPL_VAR NAME='LNG_PostMethod'>
+					<TMPL_ELSEIF NAME='OfficeMethod'>
+						<TMPL_VAR NAME='LNG_OfficeMethod'>
+					</TMPL_IF>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
